@@ -1,0 +1,138 @@
+@use 'vars' as *;
+notebook {
+  padding: 0; }
+  notebook.frame {
+    border: 1px solid #{$bg-darker}; }
+    notebook.frame > header {
+      margin: -1px; }
+      notebook.frame > header.top {
+        margin-bottom: 0; }
+      notebook.frame > header.bottom {
+        margin-top: 0; }
+      notebook.frame > header.left {
+        margin-right: 0; }
+      notebook.frame > header.right {
+        margin-left: 0; }
+      notebook.frame > header.top, notebook.frame > header.bottom {
+        padding-left: 0;
+        padding-right: 0; }
+      notebook.frame > header.left, notebook.frame > header.right {
+        padding-top: 0;
+        padding-bottom: 0; }
+  notebook > stack:not(:only-child) {
+    background-color: #{$bg}; }
+  notebook > header {
+    padding: 2px;
+    background-color: #{$bg};
+    /* button in headers */ }
+    notebook > header.top {
+      box-shadow: inset 0 -1px #{$bg-darker}; }
+    notebook > header.bottom {
+      box-shadow: inset 0 1px #{$bg-darker}; }
+    notebook > header.right {
+      box-shadow: inset 1px 0 #{$bg-darker}; }
+    notebook > header.left {
+      box-shadow: inset -1px 0 #{$bg-darker}; }
+    notebook > header.top {
+      padding-bottom: 0; }
+      notebook > header.top > tabs > tab {
+        padding: 2px 10px;
+        min-width: 20px;
+        min-height: 20px;
+        outline-offset: -4px;
+        border: 1px solid transparent;
+        border-bottom: none;
+        border-radius: 1px 1px 0 0; }
+        notebook > header.top > tabs > tab + tab {
+          margin-left: -1px; }
+    notebook > header.bottom {
+      padding-top: 0; }
+      notebook > header.bottom > tabs > tab {
+        padding: 2px 10px;
+        min-width: 20px;
+        min-height: 20px;
+        outline-offset: -4px;
+        border: 1px solid transparent;
+        border-top: none;
+        border-radius: 0 0 1px 1px; }
+        notebook > header.bottom > tabs > tab + tab {
+          margin-left: -1px; }
+    notebook > header.right {
+      padding-left: 0; }
+      notebook > header.right > tabs > tab {
+        padding: 2px 10px;
+        min-width: 20px;
+        min-height: 20px;
+        outline-offset: -4px;
+        border: 1px solid transparent;
+        border-left: none;
+        border-radius: 0 1px 1px 0; }
+        notebook > header.right > tabs > tab + tab {
+          margin-top: -1px; }
+    notebook > header.left {
+      padding-right: 0; }
+      notebook > header.left > tabs > tab {
+        padding: 2px 10px;
+        min-width: 20px;
+        min-height: 20px;
+        outline-offset: -4px;
+        border: 1px solid transparent;
+        border-right: none;
+        border-radius: 1px 0 0 1px; }
+        notebook > header.left > tabs > tab + tab {
+          margin-top: -1px; }
+    notebook > header.top > tabs > arrow.up, notebook > header.bottom > tabs > arrow.up {
+      -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
+      notebook > header.top > tabs > arrow.up:last-child, notebook > header.bottom > tabs > arrow.up:last-child {
+        margin-left: 2px; }
+    notebook > header.top > tabs > arrow.down, notebook > header.bottom > tabs > arrow.down {
+      -gtk-icon-source: -gtk-icontheme("pan-start-symbolic"); }
+      notebook > header.top > tabs > arrow.down:first-child, notebook > header.bottom > tabs > arrow.down:first-child {
+        margin-right: 2px; }
+    notebook > header.left > tabs > arrow.up, notebook > header.right > tabs > arrow.up {
+      -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
+      notebook > header.left > tabs > arrow.up:last-child, notebook > header.right > tabs > arrow.up:last-child {
+        margin-top: 2px; }
+    notebook > header.left > tabs > arrow.down, notebook > header.right > tabs > arrow.down {
+      -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
+      notebook > header.left > tabs > arrow.down:first-child, notebook > header.right > tabs > arrow.down:first-child {
+        margin-bottom: 2px; }
+    notebook > header > tabs > arrow {
+      color: #{$fg-low}; }
+      notebook > header > tabs > arrow:hover {
+        color: rgba(255, 255, 255, 0.645); }
+      notebook > header > tabs > arrow:active {
+        color: #{$fg-high}; }
+      notebook > header > tabs > arrow:disabled {
+        color: rgba(255, 255, 255, 0.12); }
+    notebook > header.top > tabs > tab:hover:not(:checked) {
+      box-shadow: inset 0 -1px #{$bg-darker}; }
+    notebook > header.bottom > tabs > tab:hover:not(:checked) {
+      box-shadow: inset 0 1px #{$bg-darker}; }
+    notebook > header.left > tabs > tab:hover:not(:checked) {
+      box-shadow: inset -1px 0 #{$bg-darker}; }
+    notebook > header.right > tabs > tab:hover:not(:checked) {
+      box-shadow: inset 1px 0 #{$bg-darker}; }
+    notebook > header > tabs > tab {
+      color: #{$fg-low};
+      background-color: #{$bg-transparent}; }
+      notebook > header > tabs > tab:hover:not(:checked) {
+        color: rgba(255, 255, 255, 0.645);
+        background-color: rgba(46, 46, 51, 0.5);
+        border-color: #{$bg-darker}; }
+      notebook > header > tabs > tab:checked {
+        color: #{$fg-high};
+        background-color: #{$bg};
+        border-color: #{$bg-darker}; }
+      notebook > header > tabs > tab button.flat {
+        min-height: 22px;
+        min-width: 16px;
+        padding: 0;
+        color: rgba(169, 169, 171, 0.9155); }
+        notebook > header > tabs > tab button.flat:hover {
+          color: #ff4d4d; }
+        notebook > header > tabs > tab button.flat:active, notebook > header > tabs > tab button.flat:active:hover {
+          color: #{$accent}; }
+    notebook > header button.flat {
+      padding: 2px; }
+

@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" width="1920" height="1080">
+<!-- AMBER LINUX · jurassic-dusk — the moment amber begins: a low sun over an
+     araucaria forest, resin oozing from a foreground trunk, one drop already
+     holding an insect. Palette: amberlinux.org tokens.css only. -->
+<defs>
+  <!-- dusk sky -->
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"  stop-color="#080600"/>
+    <stop offset="34%" stop-color="#2d1800"/>
+    <stop offset="54%" stop-color="#5c3a10"/>
+    <stop offset="64%" stop-color="#a05800"/>
+    <stop offset="70%" stop-color="#c07800"/>
+    <stop offset="100%" stop-color="#7d4400"/>
+  </linearGradient>
+
+  <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"  stop-color="#f0c840"/>
+    <stop offset="55%" stop-color="#f5a623"/>
+    <stop offset="85%" stop-color="#f5a623" stop-opacity="0.4"/>
+    <stop offset="100%" stop-color="#f5a623" stop-opacity="0"/>
+  </radialGradient>
+
+  <!-- resin drop body -->
+  <radialGradient id="resin" cx="38%" cy="32%" r="75%">
+    <stop offset="0%"  stop-color="#f0c840"/>
+    <stop offset="45%" stop-color="#f5a623"/>
+    <stop offset="85%" stop-color="#c07800"/>
+    <stop offset="100%" stop-color="#7d4400"/>
+  </radialGradient>
+
+  <radialGradient id="vig" cx="50%" cy="45%" r="78%">
+    <stop offset="58%" stop-color="#080600" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#080600" stop-opacity="0.8"/>
+  </radialGradient>
+
+  <filter id="haze"><feGaussianBlur stdDeviation="60"/></filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="14"/></filter>
+  <filter id="fine"><feGaussianBlur stdDeviation="3"/></filter>
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+
+  <!-- an araucaria: tall trunk, umbrella of down-swept whorled branches -->
+  <g id="araucaria" fill="none" stroke="currentColor" stroke-linecap="round">
+    <path d="M0 0 L0 -170" stroke-width="9"/>
+    <path d="M0 -170 C -18 -168, -44 -158, -66 -138" stroke-width="6"/>
+    <path d="M0 -170 C 18 -168, 44 -158, 66 -138" stroke-width="6"/>
+    <path d="M0 -152 C -26 -148, -58 -134, -84 -108" stroke-width="6"/>
+    <path d="M0 -152 C 26 -148, 58 -134, 84 -108" stroke-width="6"/>
+    <path d="M0 -130 C -30 -124, -66 -106, -94 -76" stroke-width="6"/>
+    <path d="M0 -130 C 30 -124, 66 -106, 94 -76" stroke-width="6"/>
+    <path d="M0 -108 C -28 -100, -58 -84, -80 -58" stroke-width="5"/>
+    <path d="M0 -108 C 28 -100, 58 -84, 80 -58" stroke-width="5"/>
+    <!-- foliage tufts at branch tips and along the whorls -->
+    <g fill="currentColor" stroke="none">
+      <circle cx="0" cy="-178" r="15"/>
+      <circle cx="-66" cy="-138" r="13"/><circle cx="66" cy="-138" r="13"/>
+      <circle cx="-84" cy="-108" r="14"/><circle cx="84" cy="-108" r="14"/>
+      <circle cx="-94" cy="-76" r="15"/><circle cx="94" cy="-76" r="15"/>
+      <circle cx="-80" cy="-58" r="12"/><circle cx="80" cy="-58" r="12"/>
+      <circle cx="-40" cy="-152" r="12"/><circle cx="40" cy="-152" r="12"/>
+      <circle cx="-52" cy="-124" r="13"/><circle cx="52" cy="-124" r="13"/>
+      <circle cx="-58" cy="-92" r="13"/><circle cx="58" cy="-92" r="13"/>
+      <circle cx="-24" cy="-166" r="11"/><circle cx="24" cy="-166" r="11"/>
+      <circle cx="-30" cy="-140" r="11"/><circle cx="30" cy="-140" r="11"/>
+      <circle cx="-34" cy="-116" r="11"/><circle cx="34" cy="-116" r="11"/>
+      <circle cx="0" cy="-150" r="12"/><circle cx="0" cy="-124" r="11"/>
+    </g>
+  </g>
+
+  <!-- a tree fern: rosette of arcing fronds -->
+  <g id="treefern" fill="none" stroke="currentColor" stroke-linecap="round">
+    <path d="M0 0 L0 -46" stroke-width="6"/>
+    <path d="M0 -46 C -20 -66, -48 -72, -74 -64" stroke-width="4"/>
+    <path d="M0 -46 C 20 -66, 48 -72, 74 -64" stroke-width="4"/>
+    <path d="M0 -46 C -14 -74, -34 -88, -58 -90" stroke-width="4"/>
+    <path d="M0 -46 C 14 -74, 34 -88, 58 -90" stroke-width="4"/>
+    <path d="M0 -46 C -4 -80, -12 -98, -26 -108" stroke-width="4"/>
+    <path d="M0 -46 C 4 -80, 12 -98, 26 -108" stroke-width="4"/>
+  </g>
+
+  <!-- pterosaur silhouette -->
+  <path id="ptero" d="M -52 0 C -34 -16, -18 -20, -6 -8 C -3 -4, -1 -1, 0 3
+                      C 1 -1, 3 -4, 6 -8 C 18 -20, 34 -16, 52 0
+                      C 34 -8, 16 -9, 4 -2 L 0 10 L -4 -2 C -16 -9, -34 -8, -52 0 Z"/>
+</defs>
+
+<!-- ============ sky ============ -->
+<rect width="1920" height="1080" fill="url(#sky)"/>
+
+<!-- sun, low over the ridge -->
+<circle cx="1310" cy="620" r="300" fill="url(#sun)" opacity="0.32" filter="url(#haze)"/>
+<circle cx="1310" cy="620" r="110" fill="url(#sun)"/>
+<!-- horizon haze band -->
+<ellipse cx="1100" cy="672" rx="1100" ry="60" fill="#f5a623" opacity="0.22" filter="url(#haze)"/>
+
+<!-- pterosaurs crossing the dusk -->
+<use xlink:href="#ptero" transform="translate(1210 380) scale(0.9)" fill="#2d1800" opacity="0.9"/>
+<use xlink:href="#ptero" transform="translate(1420 320) scale(0.55)" fill="#2d1800" opacity="0.8"/>
+<use xlink:href="#ptero" transform="translate(1050 300) scale(0.4)" fill="#2d1800" opacity="0.7"/>
+
+<!-- ============ ridgelines, far to near ============ -->
+<!-- far ridge: hazy, still lit -->
+<g color="#5c3a10">
+  <path d="M0 730 C 200 700, 340 712, 480 694 C 640 674, 780 700, 960 686
+           C 1140 672, 1300 696, 1480 682 C 1640 670, 1780 692, 1920 678
+           L 1920 1080 L 0 1080 Z" fill="#5c3a10" opacity="0.75"/>
+  <g opacity="0.75">
+    <use xlink:href="#araucaria" transform="translate(210 706) scale(0.34)"/>
+    <use xlink:href="#araucaria" transform="translate(430 700) scale(0.28)"/>
+    <use xlink:href="#araucaria" transform="translate(700 692) scale(0.32)"/>
+    <use xlink:href="#araucaria" transform="translate(1660 682) scale(0.30)"/>
+    <use xlink:href="#araucaria" transform="translate(1850 686) scale(0.26)"/>
+  </g>
+</g>
+<rect x="0" y="660" width="1920" height="180" fill="#c07800" opacity="0.10" filter="url(#haze)"/>
+
+<!-- middle ridge -->
+<g color="#2d1800">
+  <path d="M0 810 C 180 780, 360 796, 540 778 C 720 760, 880 788, 1060 772
+           C 1260 756, 1420 784, 1600 768 C 1740 756, 1840 774, 1920 764
+           L 1920 1080 L 0 1080 Z" fill="#2d1800"/>
+  <g>
+    <use xlink:href="#araucaria" transform="translate(120 792) scale(0.55)"/>
+    <use xlink:href="#araucaria" transform="translate(340 782) scale(0.44)"/>
+    <use xlink:href="#araucaria" transform="translate(590 776) scale(0.5)"/>
+    <use xlink:href="#araucaria" transform="translate(1500 770) scale(0.48)"/>
+    <use xlink:href="#araucaria" transform="translate(1730 764) scale(0.55)"/>
+    <use xlink:href="#araucaria" transform="translate(1880 770) scale(0.4)"/>
+    <use xlink:href="#treefern" transform="translate(460 786) scale(0.6)"/>
+    <use xlink:href="#treefern" transform="translate(1620 772) scale(0.55)"/>
+  </g>
+</g>
+<rect x="0" y="770" width="1920" height="140" fill="#907326" opacity="0.07" filter="url(#haze)"/>
+
+<!-- near ridge: full silhouette -->
+<g color="#100d00">
+  <path d="M0 920 C 220 892, 400 908, 600 892 C 800 876, 1000 902, 1220 888
+           C 1420 876, 1620 898, 1920 880 L 1920 1080 L 0 1080 Z" fill="#100d00"/>
+  <g>
+    <use xlink:href="#araucaria" transform="translate(300 904) scale(0.8)"/>
+    <use xlink:href="#araucaria" transform="translate(520 896) scale(0.65)"/>
+    <use xlink:href="#treefern" transform="translate(680 896) scale(0.9)"/>
+    <use xlink:href="#araucaria" transform="translate(1560 890) scale(0.75)"/>
+    <use xlink:href="#treefern" transform="translate(1400 892) scale(0.85)"/>
+    <use xlink:href="#araucaria" transform="translate(1780 886) scale(0.6)"/>
+  </g>
+</g>
+
+<!-- ground -->
+<path d="M0 1000 C 320 980, 640 996, 960 988 C 1280 980, 1600 994, 1920 986
+         L 1920 1080 L 0 1080 Z" fill="#080600"/>
+
+<!-- ============ foreground: the resin trunk ============ -->
+<g>
+  <!-- trunk hugging the left edge -->
+  <path d="M -20 0 L 158 0 C 172 140, 150 260, 166 400
+           C 182 540, 156 700, 176 860 C 188 960, 172 1030, 182 1080
+           L -20 1080 Z" fill="#080600"/>
+  <!-- bark ridges -->
+  <g fill="none" stroke="#2d1800" stroke-linecap="round" opacity="0.8">
+    <path d="M 40 0 C 52 180, 34 380, 52 560 C 66 720, 48 920, 58 1080" stroke-width="7"/>
+    <path d="M 96 0 C 108 160, 88 340, 106 520 C 120 700, 100 900, 112 1080" stroke-width="6"/>
+    <path d="M 140 40 C 150 200, 132 400, 148 580 C 160 740, 144 940, 154 1080" stroke-width="5"/>
+  </g>
+  <!-- lit edge of the bark facing the sun -->
+  <path d="M 160 20 C 172 160, 152 300, 168 440 C 182 580, 158 740, 178 880"
+        fill="none" stroke="#5c3a10" stroke-width="4" opacity="0.9"/>
+  <path d="M 162 60 C 172 170, 156 290, 168 410" fill="none" stroke="#a05800" stroke-width="2" opacity="0.55"/>
+
+  <!-- a branch reaching in along the top-left -->
+  <path d="M 120 120 C 300 90, 430 110, 560 96 C 640 88, 700 96, 750 88"
+        fill="none" stroke="#080600" stroke-width="26" stroke-linecap="round"/>
+  <path d="M 560 96 C 610 120, 640 150, 656 186" fill="none" stroke="#080600" stroke-width="12" stroke-linecap="round"/>
+  <path d="M 400 102 C 440 126, 462 152, 472 180" fill="none" stroke="#080600" stroke-width="10" stroke-linecap="round"/>
+  <!-- needle tufts on the branch -->
+  <g fill="#080600">
+    <circle cx="750" cy="86" r="26"/><circle cx="700" cy="94" r="20"/>
+    <circle cx="656" cy="190" r="18"/><circle cx="472" cy="184" r="15"/>
+    <circle cx="620" cy="92" r="16"/>
+  </g>
+
+  <!-- ============ the resin ============ -->
+  <!-- seep glow where the bark is wounded -->
+  <ellipse cx="176" cy="470" rx="60" ry="120" fill="#c07800" opacity="0.25" filter="url(#soft)"/>
+
+  <!-- resin trail running down the bark -->
+  <path d="M 170 380 C 182 430, 168 480, 180 530 C 190 574, 176 620, 186 664"
+        fill="none" stroke="url(#resin)" stroke-width="14" stroke-linecap="round" opacity="0.9" filter="url(#glow)"/>
+  <path d="M 170 380 C 182 430, 168 480, 180 530 C 190 574, 176 620, 186 664"
+        fill="none" stroke="#f0c840" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+
+  <!-- gathering drop at the trail's end (holds the insect) -->
+  <g filter="url(#glow)">
+    <path d="M 186 664 C 196 682, 212 700, 212 722 A 27 27 0 1 1 158 722 C 158 700, 174 682, 186 664 Z"
+          fill="url(#resin)"/>
+  </g>
+  <circle cx="176" cy="722" r="4" fill="#fff" opacity="0.6"/>
+  <!-- the insect, mid-struggle inside the drop -->
+  <g transform="translate(188 726) rotate(20)" fill="#2d1800" opacity="0.85">
+    <ellipse cx="0" cy="0" rx="7" ry="2.4"/>
+    <circle cx="-8" cy="0" r="2.2"/>
+    <g fill="none" stroke="#2d1800" stroke-width="1" stroke-linecap="round">
+      <path d="M -6 -2 C -10 -7, -14 -9, -18 -10"/>
+      <path d="M -3 -2 C -4 -8, -7 -11, -10 -13"/>
+      <path d="M -6 2 C -10 7, -14 9, -18 10"/>
+      <path d="M -3 2 C -4 8, -7 11, -10 13"/>
+      <path d="M 2 -2 C 5 -7, 8 -9, 12 -10"/>
+      <path d="M 2 2 C 5 7, 8 9, 12 10"/>
+    </g>
+  </g>
+
+  <!-- a second, smaller seep higher up -->
+  <path d="M 158 250 C 166 274, 158 298, 166 322" fill="none" stroke="url(#resin)" stroke-width="8" stroke-linecap="round" opacity="0.85" filter="url(#glow)"/>
+  <path d="M 166 322 C 172 334, 180 344, 180 356 A 15 15 0 1 1 150 356 C 150 344, 158 334, 166 322 Z"
+        fill="url(#resin)" filter="url(#glow)"/>
+  <circle cx="160" cy="354" r="2.4" fill="#fff" opacity="0.6"/>
+
+  <!-- a drop hanging from the branch, and one falling -->
+  <path d="M 656 208 C 662 220, 671 230, 671 242 A 16.5 16.5 0 1 1 638 242 C 638 230, 648 220, 656 208 Z"
+        fill="url(#resin)" filter="url(#glow)"/>
+  <circle cx="649" cy="240" r="2.6" fill="#fff" opacity="0.6"/>
+  <ellipse cx="655" cy="330" rx="9" ry="13" fill="url(#resin)" opacity="0.95" filter="url(#glow)"/>
+  <circle cx="652" cy="326" r="1.8" fill="#fff" opacity="0.6"/>
+  <path d="M 655 262 L 655 306" stroke="#f5a623" stroke-width="2" opacity="0.35" stroke-linecap="round"/>
+
+  <!-- where earlier drops landed: a small hardening pool on a root -->
+  <ellipse cx="240" cy="1006" rx="52" ry="12" fill="url(#resin)" opacity="0.8" filter="url(#glow)"/>
+  <ellipse cx="228" cy="1002" rx="10" ry="4" fill="#f0c840" opacity="0.5"/>
+</g>
+
+<!-- fireflies / drifting embers in the warm air -->
+<g fill="#f0c840" filter="url(#fine)">
+  <circle cx="560" cy="560" r="3" opacity="0.5"/>
+  <circle cx="820" cy="640" r="2.2" opacity="0.4"/>
+  <circle cx="700" cy="440" r="2.4" opacity="0.35"/>
+  <circle cx="980" cy="560" r="1.8" opacity="0.3"/>
+  <circle cx="440" cy="700" r="2.6" opacity="0.4"/>
+  <circle cx="1680" cy="520" r="2.2" opacity="0.3"/>
+</g>
+
+<!-- low mist over the ground -->
+<ellipse cx="900" cy="960" rx="900" ry="60" fill="#907326" opacity="0.08" filter="url(#haze)"/>
+
+<!-- vignette -->
+<rect width="1920" height="1080" fill="url(#vig)"/>
+
+<!-- watermark -->
+<text x="1850" y="1062" font-family="monospace" font-size="13" fill="#f5a623" opacity="0.22" text-anchor="end">AMBER LINUX · JURASSIC DUSK</text>
+</svg>

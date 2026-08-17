@@ -1,0 +1,8 @@
+name:    Amber-Mint
+accent:  "#4ec994"
+bg:      "#0c1e18"
+fg:      "#c2d8c8"
+error:   "#c75858"
+warning: "#c8a84a"
+success: "#4db870"
+strong:  "#e05020"

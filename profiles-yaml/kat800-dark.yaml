@@ -1,0 +1,8 @@
+name:    Amber-Kat800
+accent:  "#e01515"
+bg:      "#0e1014"
+fg:      "#b8cce0"
+error:   "#d42070"
+warning: "#80c000"
+success: "#20d040"
+strong:  "#e04020"

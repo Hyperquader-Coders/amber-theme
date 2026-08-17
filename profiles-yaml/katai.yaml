@@ -1,0 +1,8 @@
+name:    Amber-Katai
+accent:  "#7eb8d4"
+bg:      "#3a3a3a"
+fg:      "#e8e4de"
+error:   "#cc6666"
+warning: "#de935f"
+success: "#b5bd68"
+strong:  "#e05020"

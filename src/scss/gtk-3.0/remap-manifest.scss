@@ -1,0 +1,113 @@
+// Legacy-palette → profile-token manifest.
+//
+// The GTK3/4/Cinnamon rule files were forked from Mint-Y-Dark-Grey and still
+// carry that theme's fixed hardcoded palette (greys, whites, Mint blue, reds).
+// This file maps every one of those legacy literals onto the equivalent
+// profile-derived token. build.sh compiles it once per profile,
+// scripts/apply-remap.py reads the resolved values out of the emitted
+// `:root` block, and rewrites the compiled CSS so every legacy literal
+// becomes its on-profile colour — no per-rule edits.
+//
+// Keys are bare lowercase hex (no `#`). Add a row here when a new legacy
+// literal slips into a rule file; the build picks it up automatically.
+@use 'sass:map';
+@use 'sass:color';
+@use 'vars' as *;
+
+$legacy: (
+  // ── primary text / light highlights → amber foreground ──────────────────
+  "ffffff": $fg, "fff": $fg, "f8f8f8": $fg, "f4f4f4": $fg, "f1f1f2": $fg,
+  "eaeaeb": $fg, "e2e3e4": $fg, "d4d5d7": $fg, "c6c7ca": $fg, "c4c7cc": $fg,
+  "b8b9bd": $fg, "bfc0c3": $fg, "e1e1e1": $fg,
+  // ── dim / secondary text and icons → low-alpha foreground ───────────────
+  "a9abaf": $fg-low, "a4a7ac": $fg-low, "a7a7ab": $fg-low, "a8a8a8": $fg-low,
+  "909090": $fg-low, "5c616c": $fg-low, "a0a0a0": $fg-low, "aeaeae": $fg-low,
+  "bfc0c4": $fg-low,
+  // ── medium-emphasis text (Cinnamon entry/caption greys) ─────────────────
+  "c3c3c3": $fg-medium, "d3d3d3": $fg-medium, "d4d4d4": $fg-medium,
+  "c8c8c8": $fg-medium,
+  // ── window / recessed base surfaces ─────────────────────────────────────
+  "2e2e33": $bg, "2c2c30": $bg-dark,
+  "26262a": $bg-darker, "25252a": $bg-darker, "242429": $bg-darker,
+  "212121": $bg-darkest, "1c1c1c": $bg-darkest, "1b1b1e": $bg-darkest,
+  "141416": $bg-darkest, "111113": $bg-darkest, "0f0f10": $bg-darkest,
+  "080808": $bg-darkest, "050506": $bg-darkest,
+  "1e1000": $bg-darkest, "0c1e18": $bg-darkest,
+  // ── Cinnamon panel/menu/notification recessed surfaces ──────────────────
+  "222226": $bg-darkest, "1d1d21": $bg-darkest, "161619": $bg-darkest,
+  "29292e": $bg-darker, "2a2a2f": $bg-darker, "27272b": $bg-darker,
+  // ── lifted surfaces (subtle / mid / hover) ──────────────────────────────
+  "353535": $bg-subtle, "343439": $bg-subtle, "373737": $bg-subtle,
+  "333339": $bg-subtle, "3a3a41": $bg-mid, "3f3f46": $bg-mid, "3f4145": $bg-mid,
+  "474747": $bg-hover, "46464e": $bg-hover, "4c4c50": $bg-hover-deep,
+  "4b4d52": $bg-hover-deep,
+  // ── Cinnamon component surfaces (buttons/entries/popups) ────────────────
+  "303036": $bg-mid, "303030": $bg-mid,
+  "38383e": $bg-hover, "3c3c44": $bg-hover,
+  "44444c": $bg-hover-deep, "494951": $bg-hover-deep,
+  "5c5c5c": $bg-border, "5e5e69": $bg-hover-deep,
+  // ── borders / mid-grey button fills ─────────────────────────────────────
+  "585a5f": $bg-border, "555559": $bg-border, "94979d": $bg-border,
+  "949498": $bg-border, "616166": $bg-border-hi, "676767": $bg-muted,
+  "65686e": $bg-muted, "66696f": $bg-muted, "64666d": $bg-muted,
+  "7a7d85": $bg-muted, "7c8087": $bg-muted, "8a8d93": $bg-muted,
+  "55555f": $bg-border,
+  // ── Mint's neutral hover/focus/active grey (Cinnamon shell chrome never
+  //    used the accent blue for this — stays neutral, just recoloured) ─────
+  "70737a": $bg-border-hi, "6a6a77": $bg-border-hi, "797987": $bg-border-hi,
+  // ── Mint-Y selection blue → profile accent ──────────────────────────────
+  "5294e2": $accent, "55c1ec": $accent, "7eafe9": $accent-hover,
+  // ── reds / destructive → profile error ──────────────────────────────────
+  "ff4d4d": $error-light, "ff6666": $error-light,
+  "aa3936": $error-dark, "a53531": $error-dark,
+  // ── desaturated warning/selection browns → profile warning ──────────────
+  "a45a34": $warning-dark, "9f562f": $warning-dark,
+  // ── Cinnamon shutdown/destructive red cluster → profile error ───────────
+  "c01c28": $error-dark, "d61f2d": $error, "e12e3b": $error,
+  "ee878f": $error-light, "f04a50": $error, "fc4138": $error-light,
+  // ── Cinnamon warning-icon orange → profile warning ───────────────────────
+  "f27835": $warning,
+);
+
+// Literal rgba(r, g, b, a) source strings that appear in the Cinnamon fork
+// (references/cinnamon/cinnamon.css) instead of hex — the #hex regex below
+// can't reach these, so each gets a stable slug here and a literal
+// string→slug pairing in scripts/apply-remap.py's RGBA_SOURCES table.
+$legacy-rgba: (
+  "fg-a05":   color.change($fg, $alpha: 0.05),
+  "fg-a20":   color.change($fg, $alpha: 0.2),
+  "fg-a30":   color.change($fg, $alpha: 0.3),
+  "fg-a40":   color.change($fg, $alpha: 0.4),
+  "fg-a45":   color.change($fg, $alpha: 0.45),
+  "fg-a50":   color.change($fg, $alpha: 0.5),
+  "fg-a55":   color.change($fg, $alpha: 0.55),
+  "fg-a80":   color.change($fg, $alpha: 0.8),
+  "fg-a85":   color.change($fg, $alpha: 0.85),
+  "fg-a90":   color.change($fg, $alpha: 0.9),
+  "bbh-a30":  color.change($bg-border-hi, $alpha: 0.3),
+  "bbh-a40":  color.change($bg-border-hi, $alpha: 0.4),
+  "bbh-a50":  color.change($bg-border-hi, $alpha: 0.5),
+  "bbh-a60":  color.change($bg-border-hi, $alpha: 0.6),
+  "bbh-a80":  color.change($bg-border-hi, $alpha: 0.8),
+  "bbh-a95":  color.change($bg-border-hi, $alpha: 0.95),
+  "bmid-a25": color.change($bg-mid, $alpha: 0.25),
+  "bmid-a40": color.change($bg-mid, $alpha: 0.4),
+  "bg-a05":   color.change($bg, $alpha: 0.05),
+  "bg-a10":   color.change($bg, $alpha: 0.1),
+  "bg-a55":   color.change($bg, $alpha: 0.55),
+  "bhov-a05": color.change($bg-hover, $alpha: 0.05),
+  "bdk-a05":  color.change($bg-darkest, $alpha: 0.05),
+  "bdk-a30":  color.change($bg-darkest, $alpha: 0.3),
+  "bdk-a40":  color.change($bg-darkest, $alpha: 0.4),
+  "bdk-a90":  color.change($bg-darkest, $alpha: 0.9),
+  "bdk-a99":  color.change($bg-darkest, $alpha: 0.99),
+);
+
+:root {
+  @each $hex, $val in $legacy {
+    --m-#{$hex}: #{$val};
+  }
+  @each $slug, $val in $legacy-rgba {
+    --m-rgba-#{$slug}: #{$val};
+  }
+}

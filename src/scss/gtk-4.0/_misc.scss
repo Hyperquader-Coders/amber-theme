@@ -1,0 +1,160 @@
+@use 'vars' as *;
+
+window.dialog.print drawing {
+  color: #{$fg-high};
+  background: none;
+  border: none;
+  padding: 0; }
+  window.dialog.print drawing paper {
+    background: white;
+    color: #5c616c;
+    border: 1px solid #{$bg-darker}; }
+
+window.dialog.print .dialog-action-box {
+  margin: 12px; }
+
+frame,
+.frame {
+  border: 1px solid #{$bg-darker}; }
+
+frame {
+  border-radius: 0; }
+  frame > label {
+    margin: 4px; }
+
+actionbar > revealer > box {
+  padding: 5px;
+  border-top: 1px solid #{$bg-darker};
+  background-color: #{$bg-darker}; }
+  actionbar > revealer > box, actionbar > revealer > box > box.start, actionbar > revealer > box > box.end {
+    border-spacing: 6px; }
+
+scrolledwindow > overshoot.top {
+  background-image: radial-gradient(farthest-side at top, rgba(112, 115, 122, 0.2), #{$accent-trans});
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: top;
+  background-color: transparent;
+  border: none;
+  box-shadow: none; }
+
+scrolledwindow > overshoot.bottom {
+  background-image: radial-gradient(farthest-side at bottom, rgba(112, 115, 122, 0.2), #{$accent-trans});
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-color: transparent;
+  border: none;
+  box-shadow: none; }
+
+scrolledwindow > overshoot.left {
+  background-image: radial-gradient(farthest-side at left, rgba(112, 115, 122, 0.2), #{$accent-trans});
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-color: transparent;
+  border: none;
+  box-shadow: none; }
+
+scrolledwindow > overshoot.right {
+  background-image: radial-gradient(farthest-side at right, rgba(112, 115, 122, 0.2), #{$accent-trans});
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-color: transparent;
+  border: none;
+  box-shadow: none; }
+
+scrolledwindow > junction {
+  background: #{$bg-darker}, linear-gradient(to bottom, transparent 1px, #2c2c30 1px), linear-gradient(to right, transparent 1px, #2c2c30 1px); }
+  scrolledwindow > junction:dir(rtl) {
+    background: #{$bg-darker}, linear-gradient(to bottom, transparent 1px, #2c2c30 1px), linear-gradient(to left, transparent 1px, #2c2c30 1px); }
+
+separator {
+  background-color: rgba(0, 0, 0, 0.1);
+  min-width: 1px;
+  min-height: 1px; }
+
+listview,
+list {
+  color: #{$fg};
+  background-color: #{$bg};
+  border-color: #{$bg-darker}; }
+  listview > row,
+  list > row {
+    padding: 2px; }
+  listview > row.expander,
+  list > row.expander {
+    padding: 0px; }
+  listview > row.expander .row-header,
+  list > row.expander .row-header {
+    padding: 2px; }
+  listview.horizontal row.separator, listview.separators.horizontal > row:not(.separator),
+  list.horizontal row.separator,
+  list.separators.horizontal > row:not(.separator) {
+    border-left: 1px solid rgba(0, 0, 0, 0.1); }
+  listview:not(.horizontal) row.separator, listview.separators:not(.horizontal) > row:not(.separator),
+  list:not(.horizontal) row.separator,
+  list.separators:not(.horizontal) > row:not(.separator) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+
+row {
+  outline-color: rgba($fg, 0.3);
+  outline-style: dashed;
+  outline-offset: -3px; }
+
+row:focus:focus-visible {
+  outline-width: 1px; }
+
+row:not(:hover) {
+  transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+
+row.activatable.has-open-popup, row.activatable:hover {
+  background-color: rgba(255, 255, 255, 0.05); }
+
+row.activatable:active {
+  color: #{$fg-high}; }
+
+row.activatable:disabled {
+  color: #{$fg-low}; }
+  row.activatable:disabled image {
+    color: inherit; }
+
+row.activatable:selected:active {
+  color: #FFFFFF; }
+
+row.activatable:selected.has-open-popup, row.activatable:selected:hover {
+  background-color: #65686e; }
+
+columnview > listview > row {
+  padding: 0; }
+  columnview > listview > row > cell {
+    padding: 8px 6px; }
+    columnview > listview > row > cell:not(:first-child) {
+      border-left: 1px solid transparent; }
+
+columnview.column-separators > listview > row > cell {
+  border-left-color: rgba(0, 0, 0, 0.1); }
+
+columnview.data-table > listview > row > cell {
+  padding-top: 2px;
+  padding-bottom: 2px; }
+
+treeexpander {
+  border-spacing: 4px; }
+
+columnview row:not(:selected) cell editablelabel.editing:focus-within {
+  outline: 2px solid #{$accent}; }
+
+columnview row:not(:selected) cell editablelabel.editing text selection {
+  color: #FFFFFF;
+  background-color: #{$accent}; }
+
+.rich-list {
+  /* rich lists usually containing other widgets than just labels/text */ }
+  .rich-list > row {
+    padding: 8px 12px;
+    min-height: 32px;
+    /* should be tall even when only containing a label */ }
+    .rich-list > row > box {
+      border-spacing: 12px; }

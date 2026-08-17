@@ -1,0 +1,118 @@
+@use 'vars' as *;
+entry {
+  border: 1px solid;
+  padding: 5px 8px;
+  caret-color: currentColor;
+  border-radius: 3px;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  color: #{$fg};
+  border-color: #{$bg-darker};
+  background-color: #{$bg}; }
+  entry.search {
+    border-radius: 4px; }
+  entry image {
+    color: rgba(204, 204, 205, 0.896); }
+    entry image.left {
+      padding-left: 0;
+      padding-right: 5px; }
+    entry image.right {
+      padding-right: 0;
+      padding-left: 5px; }
+  entry.flat, entry.flat:focus {
+    padding: 2px;
+    color: #{$fg};
+    border-color: #{$bg-darker};
+    background-color: #{$bg};
+    border: none;
+    border-radius: 0; }
+  entry:focus {
+    background-clip: border-box;
+    color: #{$fg};
+    border-color: #{$bg-darker};
+    background-color: #{$bg};
+    box-shadow: inset 1px 0 #{$accent}, inset -1px 0 #{$accent}, inset 0 1px #{$accent}, inset 0 -1px #{$accent}; }
+  entry:disabled {
+    color: #{$fg-low};
+    border-color: rgba(32, 32, 35, 0.55);
+    background-color: rgba(46, 46, 51, 0.55); }
+  entry.warning {
+    color: WHITE;
+    border-color: #{$bg-darker};
+    background-color: #a45a34; }
+    entry.warning image {
+      color: WHITE; }
+    entry.warning:focus {
+      color: WHITE;
+      background-color: #{$warning};
+      box-shadow: none; }
+    entry.warning selection, entry.warning selection:focus {
+      background-color: WHITE;
+      color: #{$warning}; }
+  entry.error {
+    color: WHITE;
+    border-color: #{$bg-darker};
+    background-color: #aa3936; }
+    entry.error image {
+      color: WHITE; }
+    entry.error:focus {
+      color: WHITE;
+      background-color: #{$error};
+      box-shadow: none; }
+    entry.error selection, entry.error selection:focus {
+      background-color: WHITE;
+      color: #{$error}; }
+  entry.search-missing {
+    color: WHITE;
+    border-color: #{$bg-darker};
+    background-color: #aa3936; }
+    entry.search-missing image {
+      color: WHITE; }
+    entry.search-missing:focus {
+      color: WHITE;
+      background-color: #{$error};
+      box-shadow: none; }
+    entry.search-missing selection, entry.search-missing selection:focus {
+      background-color: WHITE;
+      color: #{$error}; }
+  entry:drop(active):focus, entry:drop(active) {
+    border-color: #{$accent};
+    box-shadow: none; }
+  .osd entry {
+    color: #{$fg};
+    border-color: rgba(22, 22, 22, 0.4);
+    background-color: rgba(109, 109, 109, 0.4); }
+    .osd entry image, .osd entry image:hover {
+      color: inherit; }
+    .osd entry:focus {
+      color: #FFFFFF;
+      border-color: rgba(22, 22, 22, 0.4);
+      background-color: #{$accent}; }
+    .osd entry:disabled {
+      color: rgba(219, 219, 219, 0.55);
+      background-color: rgba(109, 109, 109, 0.25); }
+    .osd entry selection:focus, .osd entry selection {
+      color: #{$accent};
+      background-color: #FFFFFF; }
+  entry progress {
+    margin: 0 -6px;
+    border-radius: 0;
+    border-width: 0 0 2px;
+    border-color: #{$accent};
+    border-style: solid;
+    background-image: none;
+    background-color: transparent;
+    box-shadow: none; }
+
+treeview entry.flat, treeview entry {
+  border-radius: 0;
+  background-image: none;
+  background-color: #{$bg}; }
+  treeview entry.flat:focus, treeview entry:focus {
+    border-color: #{$accent}; }
+
+@keyframes needs_attention {
+  from {
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.01, to(#{$accent}), to(transparent)); }
+  to {
+    background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(#{$accent}), to(transparent)); } }
+

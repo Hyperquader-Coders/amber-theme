@@ -1,0 +1,16 @@
+dist/
+out/
+# vendored standalone Dart Sass CLI, fetched by `make deps`
+.tools/
+# generated per-build; never committed
+src/scss/*/_profile.scss
+dist-icons/
+*.log
+
+# Agent files are local and are not shared.
+.claude/
+.mcp.json
+
+# Claude config dirs, if a session ever materialises one here.
+.claude-amber/
+.credentials.json

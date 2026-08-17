@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" width="1920" height="1080">
+<!-- AMBER LINUX · morning-resin (light) — thin polished slices of amber drifting
+     in morning light, overlapping into deeper golds where they cross. Quiet and
+     minimal; the lower left stays almost empty for desktop icons.
+     Palette: amberlinux.org tokens.css (light values) only. -->
+<defs>
+  <linearGradient id="paper" x1="0" y1="0" x2="0.4" y2="1">
+    <stop offset="0%"  stop-color="#fffdf7"/>
+    <stop offset="55%" stop-color="#fdf8ee"/>
+    <stop offset="100%" stop-color="#f5edd8"/>
+  </linearGradient>
+
+  <!-- a slice: translucent, warmer at the rim like real cut amber -->
+  <radialGradient id="slice" cx="42%" cy="38%" r="62%">
+    <stop offset="0%"  stop-color="#f0c840" stop-opacity="0.10"/>
+    <stop offset="60%" stop-color="#f5a623" stop-opacity="0.16"/>
+    <stop offset="90%" stop-color="#c07800" stop-opacity="0.22"/>
+    <stop offset="100%" stop-color="#a05800" stop-opacity="0.26"/>
+  </radialGradient>
+
+  <radialGradient id="slice-pale" cx="45%" cy="40%" r="60%">
+    <stop offset="0%"  stop-color="#f0c840" stop-opacity="0.06"/>
+    <stop offset="70%" stop-color="#f5a623" stop-opacity="0.10"/>
+    <stop offset="100%" stop-color="#c07800" stop-opacity="0.15"/>
+  </radialGradient>
+
+  <linearGradient id="shaft" x1="0.8" y1="0" x2="0.2" y2="1">
+    <stop offset="0%" stop-color="#fffdf7" stop-opacity="0.65"/>
+    <stop offset="100%" stop-color="#fffdf7" stop-opacity="0"/>
+  </linearGradient>
+
+  <linearGradient id="shaft-warm" x1="0.8" y1="0" x2="0.2" y2="1">
+    <stop offset="0%" stop-color="#f0c840" stop-opacity="0.22"/>
+    <stop offset="100%" stop-color="#f0c840" stop-opacity="0"/>
+  </linearGradient>
+
+  <filter id="haze"><feGaussianBlur stdDeviation="50"/></filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="16"/></filter>
+</defs>
+
+<!-- ============ morning air ============ -->
+<rect width="1920" height="1080" fill="url(#paper)"/>
+
+<!-- light shafts from the upper right -->
+<polygon points="1220,0 1560,0 760,1080 460,1080" fill="url(#shaft)" filter="url(#soft)"/>
+<polygon points="1620,0 1820,0 1180,1080 1010,1080" fill="url(#shaft-warm)" filter="url(#soft)"/>
+<polygon points="960,0 1090,0 330,1080 220,1080" fill="url(#shaft-warm)" opacity="0.5" filter="url(#soft)"/>
+
+<!-- warm ground haze along the bottom -->
+<ellipse cx="960" cy="1130" rx="1300" ry="220" fill="#f5edd8" opacity="0.9" filter="url(#haze)"/>
+<ellipse cx="1350" cy="1120" rx="700" ry="160" fill="#f0c840" opacity="0.14" filter="url(#haze)"/>
+
+<!-- ============ the slices ============ -->
+<!-- far, palest -->
+<g>
+  <circle cx="1690" cy="180" r="300" fill="url(#slice-pale)"/>
+  <circle cx="1690" cy="180" r="300" fill="none" stroke="#c07800" stroke-opacity="0.14" stroke-width="2.5"/>
+
+  <circle cx="1120" cy="120" r="170" fill="url(#slice-pale)"/>
+  <circle cx="1120" cy="120" r="170" fill="none" stroke="#c07800" stroke-opacity="0.12" stroke-width="2"/>
+
+  <circle cx="360" cy="210" r="120" fill="url(#slice-pale)"/>
+  <circle cx="360" cy="210" r="120" fill="none" stroke="#c07800" stroke-opacity="0.10" stroke-width="2"/>
+</g>
+
+<!-- main cluster, mid right — overlaps deepen where they cross -->
+<g>
+  <circle cx="1420" cy="480" r="330" fill="url(#slice)"/>
+  <circle cx="1420" cy="480" r="330" fill="none" stroke="#c07800" stroke-opacity="0.20" stroke-width="3"/>
+  <!-- growth rings inside the big slice -->
+  <g fill="none" stroke="#a05800">
+    <circle cx="1400" cy="466" r="252" stroke-opacity="0.10" stroke-width="1.6"/>
+    <circle cx="1386" cy="456" r="180" stroke-opacity="0.12" stroke-width="1.4"/>
+    <circle cx="1374" cy="448" r="116" stroke-opacity="0.13" stroke-width="1.2"/>
+    <circle cx="1366" cy="442" r="58"  stroke-opacity="0.14" stroke-width="1.2"/>
+  </g>
+  <!-- a few bright bubbles caught in the slice -->
+  <g>
+    <circle cx="1512" cy="392" r="7" fill="#fffdf7" opacity="0.7"/>
+    <circle cx="1512" cy="392" r="7" fill="none" stroke="#a05800" stroke-opacity="0.25" stroke-width="1"/>
+    <circle cx="1300" cy="588" r="5" fill="#fffdf7" opacity="0.6"/>
+    <circle cx="1300" cy="588" r="5" fill="none" stroke="#a05800" stroke-opacity="0.2" stroke-width="1"/>
+    <circle cx="1462" cy="620" r="3.5" fill="#fffdf7" opacity="0.55"/>
+  </g>
+
+  <circle cx="1080" cy="640" r="230" fill="url(#slice)"/>
+  <circle cx="1080" cy="640" r="230" fill="none" stroke="#c07800" stroke-opacity="0.18" stroke-width="2.5"/>
+  <g fill="none" stroke="#a05800">
+    <circle cx="1070" cy="632" r="164" stroke-opacity="0.10" stroke-width="1.4"/>
+    <circle cx="1062" cy="626" r="98"  stroke-opacity="0.12" stroke-width="1.2"/>
+  </g>
+
+  <circle cx="1660" cy="760" r="190" fill="url(#slice)"/>
+  <circle cx="1660" cy="760" r="190" fill="none" stroke="#c07800" stroke-opacity="0.18" stroke-width="2.5"/>
+  <circle cx="1652" cy="754" r="120" fill="none" stroke="#a05800" stroke-opacity="0.11" stroke-width="1.4"/>
+  <circle cx="1706" cy="700" r="4.5" fill="#fffdf7" opacity="0.6"/>
+</g>
+
+<!-- small drifting slices toward the left, thinning out -->
+<g>
+  <circle cx="700" cy="380" r="120" fill="url(#slice-pale)"/>
+  <circle cx="700" cy="380" r="120" fill="none" stroke="#c07800" stroke-opacity="0.12" stroke-width="2"/>
+  <circle cx="694" cy="376" r="70" fill="none" stroke="#a05800" stroke-opacity="0.09" stroke-width="1.2"/>
+
+  <circle cx="480" cy="640" r="76" fill="url(#slice-pale)"/>
+  <circle cx="480" cy="640" r="76" fill="none" stroke="#c07800" stroke-opacity="0.10" stroke-width="1.6"/>
+
+  <circle cx="250" cy="450" r="46" fill="url(#slice-pale)"/>
+  <circle cx="250" cy="450" r="46" fill="none" stroke="#c07800" stroke-opacity="0.09" stroke-width="1.4"/>
+</g>
+
+<!-- dust motes riding the shafts -->
+<g fill="#f0c840">
+  <circle cx="1240" cy="300" r="3"   opacity="0.30"/>
+  <circle cx="1330" cy="220" r="2.2" opacity="0.26"/>
+  <circle cx="1030" cy="440" r="2.6" opacity="0.24"/>
+  <circle cx="880"  cy="560" r="2"   opacity="0.20"/>
+  <circle cx="1560" cy="300" r="2.4" opacity="0.24"/>
+  <circle cx="760"  cy="720" r="2.2" opacity="0.18"/>
+  <circle cx="1760" cy="520" r="2.6" opacity="0.22"/>
+</g>
+
+<!-- one crisp highlight where two slices overlap and the light concentrates -->
+<ellipse cx="1236" cy="574" rx="60" ry="24" transform="rotate(-28 1236 574)" fill="#fffdf7" opacity="0.5" filter="url(#soft)"/>
+
+<!-- watermark -->
+<text x="1850" y="1062" font-family="monospace" font-size="13" fill="#a05800" opacity="0.28" text-anchor="end">AMBER LINUX · MORNING RESIN</text>
+</svg>

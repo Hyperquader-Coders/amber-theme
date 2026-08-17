@@ -1,0 +1,691 @@
+@use 'vars' as *;
+toolbar, .inline-toolbar {
+  -GtkWidget-window-dragging: true;
+  padding: 4px;
+  background-color: #{$bg}; }
+  toolbar separator, .inline-toolbar separator {
+    background: none; }
+  toolbar.horizontal separator, .horizontal.inline-toolbar separator {
+    margin: 0 6px; }
+  toolbar.vertical separator, .vertical.inline-toolbar separator {
+    margin: 6px 0; }
+  .osd toolbar, .osd .inline-toolbar {
+    background-color: transparent; }
+  toolbar.osd, .osd.inline-toolbar {
+    padding: 7px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    background-color: rgba(53, 53, 53, 0.9); }
+    toolbar.osd.left, .osd.left.inline-toolbar, toolbar.osd.right, .osd.right.inline-toolbar, toolbar.osd.top, .osd.top.inline-toolbar, toolbar.osd.bottom, .osd.bottom.inline-toolbar {
+      border-radius: 0; }
+    toolbar.osd.top, .osd.top.inline-toolbar {
+      border-width: 0 0 1px 0; }
+    toolbar.osd.bottom, .osd.bottom.inline-toolbar {
+      border-width: 1px 0 0 0; }
+    toolbar.osd.left, .osd.left.inline-toolbar {
+      border-width: 0 1px 0 0; }
+    toolbar.osd.right, .osd.right.inline-toolbar {
+      border-width: 0 0 0 1px; }
+  toolbar:not(.inline-toolbar) switch, .inline-toolbar:not(.inline-toolbar) switch,
+  toolbar:not(.inline-toolbar) scale,
+  .inline-toolbar:not(.inline-toolbar) scale,
+  toolbar:not(.inline-toolbar) entry,
+  .inline-toolbar:not(.inline-toolbar) entry,
+  toolbar:not(.inline-toolbar) spinbutton,
+  .inline-toolbar:not(.inline-toolbar) spinbutton,
+  toolbar:not(.inline-toolbar) button,
+  .inline-toolbar:not(.inline-toolbar) button {
+    margin-right: 1px;
+    margin-bottom: 1px; }
+  toolbar:not(.inline-toolbar) .linked > button, .inline-toolbar:not(.inline-toolbar) .linked > button,
+  toolbar:not(.inline-toolbar) .linked > entry,
+  .inline-toolbar:not(.inline-toolbar) .linked > entry {
+    margin-right: 0; }
+
+.primary-toolbar toolbar, .primary-toolbar .inline-toolbar,
+.primary-toolbar:not(.libreoffice-toolbar) {
+  color: #{$fg-high};
+  background-color: #{$bg-darkest};
+  box-shadow: none;
+  border-width: 0 0 1px 0;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, #{$bg-darkest}, #050506) 1 0 1 0; }
+
+.inline-toolbar {
+  background-color: #{$bg-darker};
+  border-style: solid;
+  border-color: #{$bg-darker};
+  border-width: 0 1px 1px;
+  padding: 3px;
+  border-radius: 0  0 3px 3px; }
+
+searchbar {
+  background-color: #{$bg};
+  border-style: solid;
+  border-color: #{$bg-darker};
+  border-width: 0 0 1px;
+  padding: 3px; }
+
+actionbar {
+  padding: 6px;
+  border-top: 1px solid #{$bg-darker};
+  background-color: #{$bg-darker}; }
+
+headerbar,
+.titlebar:not(headerbar) {
+  min-height: 46px;
+  padding: 0 6px;
+  border-width: 0 0 1px;
+  border-style: solid;
+  border-radius: 0;
+  border-color: #{$bg-darker};
+  color: #{$fg-high};
+  background-color: #{$bg-darker};
+  box-shadow: inset 0 1px #{$bg-border}; }
+  .csd headerbar, .csd .titlebar:not(headerbar) {
+    background-color: #{$bg-darker};
+    border-color: #{$bg-darker}; }
+  headerbar:backdrop,
+  .titlebar:backdrop:not(headerbar) {
+    color: #{$fg-low}; }
+  headerbar .title,
+  .titlebar:not(headerbar) .title {
+    font-weight: bold;
+    padding-left: 12px;
+    padding-right: 12px; }
+  headerbar .subtitle,
+  .titlebar:not(headerbar) .subtitle {
+    font-size: smaller;
+    padding-left: 12px;
+    padding-right: 12px; }
+  headerbar.selection-mode,
+  .selection-mode.titlebar:not(headerbar) {
+    color: #FFFFFF;
+    background-color: #{$accent};
+    border-color: #{$bg-border};
+    box-shadow: none; }
+    headerbar.selection-mode:backdrop,
+    .selection-mode.titlebar:backdrop:not(headerbar) {
+      background-color: #{$accent};
+      color: rgba(255, 255, 255, 0.6); }
+    headerbar.selection-mode button,
+    .selection-mode.titlebar:not(headerbar) button {
+      color: #FFFFFF;
+      outline-color: rgba(255, 255, 255, 0.3);
+      background-color: #{$fg-transparent};
+      border-color: #{$fg-transparent}; }
+      headerbar.selection-mode button.flat,
+      .selection-mode.titlebar:not(headerbar) button.flat {
+        border-color: transparent;
+        background-color: transparent;
+        background-image: none;
+        color: #FFFFFF;
+        background-color: #{$fg-transparent}; }
+      headerbar.selection-mode button:hover,
+      .selection-mode.titlebar:not(headerbar) button:hover {
+        color: #FFFFFF;
+        outline-color: rgba(255, 255, 255, 0.3);
+        background-color: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.5); }
+      headerbar.selection-mode button:active, headerbar.selection-mode button:checked,
+      .selection-mode.titlebar:not(headerbar) button:active,
+      .selection-mode.titlebar:not(headerbar) button:checked {
+        color: #{$accent};
+        outline-color: rgba(112, 115, 122, 0.3);
+        background-color: #FFFFFF;
+        border-color: #FFFFFF; }
+      headerbar.selection-mode button:disabled,
+      .selection-mode.titlebar:not(headerbar) button:disabled {
+        color: rgba(255, 255, 255, 0.4);
+        background-color: #{$fg-transparent};
+        border-color: #{$fg-transparent}; }
+        headerbar.selection-mode button:disabled:active, headerbar.selection-mode button:disabled:checked,
+        .selection-mode.titlebar:not(headerbar) button:disabled:active,
+        .selection-mode.titlebar:not(headerbar) button:disabled:checked {
+          color: rgba(112, 115, 122, 0.4);
+          background-color: rgba(255, 255, 255, 0.15);
+          border-color: rgba(255, 255, 255, 0.15); }
+    headerbar.selection-mode .selection-menu,
+    .selection-mode.titlebar:not(headerbar) .selection-menu {
+      box-shadow: none;
+      padding-left: 10px;
+      padding-right: 10px; }
+      headerbar.selection-mode .selection-menu GtkArrow,
+      .selection-mode.titlebar:not(headerbar) .selection-menu GtkArrow {
+        -GtkArrow-arrow-scaling: 1; }
+      headerbar.selection-mode .selection-menu .arrow,
+      .selection-mode.titlebar:not(headerbar) .selection-menu .arrow {
+        -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
+    .maximized headerbar.selection-mode, .maximized .selection-mode.titlebar:not(headerbar) {
+      background-color: #{$accent}; }
+  .tiled headerbar:backdrop, .tiled headerbar, .tiled-top headerbar:backdrop, .tiled-top headerbar, .tiled-right headerbar:backdrop, .tiled-right headerbar, .tiled-bottom headerbar:backdrop, .tiled-bottom headerbar, .tiled-left headerbar:backdrop, .tiled-left headerbar, .maximized headerbar:backdrop, .maximized headerbar, .fullscreen headerbar:backdrop, .fullscreen headerbar, .tiled .titlebar:not(headerbar), .tiled-top .titlebar:not(headerbar), .tiled-right .titlebar:not(headerbar), .tiled-bottom .titlebar:not(headerbar), .tiled-left .titlebar:not(headerbar), .maximized .titlebar:not(headerbar), .fullscreen .titlebar:not(headerbar) {
+    border-radius: 0; }
+  headerbar.default-decoration,
+  .default-decoration.titlebar:not(headerbar) {
+    min-height: 28px;
+    padding: 2px 6px;
+    border-bottom-width: 0; }
+    .maximized headerbar.default-decoration, .maximized .default-decoration.titlebar:not(headerbar) {
+      background-color: #{$bg-darkest}; }
+  .solid-csd headerbar:backdrop:dir(rtl), .solid-csd headerbar:backdrop:dir(ltr), .solid-csd headerbar:dir(rtl), .solid-csd headerbar:dir(ltr), .solid-csd .titlebar:dir(rtl):not(headerbar), .solid-csd .titlebar:dir(ltr):not(headerbar) {
+    margin-left: -1px;
+    margin-right: -1px;
+    margin-top: -1px;
+    border-radius: 0;
+    box-shadow: none; }
+
+.background .titlebar:backdrop, .background .titlebar {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px; }
+
+.background.tiled .titlebar:backdrop, .background.tiled .titlebar,
+.background.tiled-top .titlebar:backdrop,
+.background.tiled-top .titlebar,
+.background.tiled-right .titlebar:backdrop,
+.background.tiled-right .titlebar,
+.background.tiled-bottom .titlebar:backdrop,
+.background.tiled-bottom .titlebar,
+.background.tiled-left .titlebar:backdrop,
+.background.tiled-left .titlebar,
+.background.maximized .titlebar:backdrop,
+.background.maximized .titlebar,
+.background.solid-csd .titlebar:backdrop,
+.background.solid-csd .titlebar {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
+
+headerbar entry, headerbar button, headerbar separator {
+  margin-top: 6px;
+  margin-bottom: 6px; }
+
+separator:first-child + headerbar, separator:first-child + headerbar:backdrop, headerbar:first-child, headerbar:first-child:backdrop {
+  border-top-left-radius: 8px; }
+  .maximized separator:first-child + headerbar, .tiled separator:first-child + headerbar, .maximized separator:first-child + headerbar:backdrop, .tiled separator:first-child + headerbar:backdrop, .maximized headerbar:first-child, .tiled headerbar:first-child, .maximized headerbar:first-child:backdrop, .tiled headerbar:first-child:backdrop {
+    border-radius: 0; }
+
+headerbar:last-child, headerbar:last-child:backdrop {
+  border-top-right-radius: 8px; }
+  .maximized headerbar:last-child, .tiled headerbar:last-child, .maximized headerbar:last-child:backdrop, .tiled headerbar:last-child:backdrop {
+    border-radius: 0; }
+
+window > .titlebar:not(headerbar), window > .titlebar:not(headerbar):backdrop, window.csd > .titlebar:not(headerbar), window.csd > .titlebar:not(headerbar):backdrop {
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none; }
+
+.titlebar:not(headerbar) > separator {
+  background-image: linear-gradient(to bottom, #{$bg-darkest}, #{$bg-darkest}); }
+
+.primary-toolbar toolbar separator,
+.primary-toolbar:not(.libreoffice-toolbar) separator, .primary-toolbar .inline-toolbar separator {
+  min-width: 1px;
+  min-height: 1px;
+  border-width: 0 1px;
+  border-image: linear-gradient(to bottom, #{$fg-transparent} 25%, rgba(255, 255, 255, 0.22) 25%, rgba(255, 255, 255, 0.22) 75%, #{$fg-transparent} 75%) 0 1/0 1px stretch; }
+  .primary-toolbar toolbar separator:backdrop,
+  .primary-toolbar:not(.libreoffice-toolbar) separator:backdrop, .primary-toolbar .inline-toolbar separator:backdrop {
+    opacity: 0.6; }
+
+
+.primary-toolbar entry, headerbar entry {
+  color: #{$fg-high};
+  border-color: rgba(5, 5, 6, 0.4);
+  background-color: rgba(87, 87, 97, 0.4); }
+  
+  .primary-toolbar entry image, headerbar entry image {
+    color: inherit; }
+  
+  .primary-toolbar entry:backdrop, headerbar entry:backdrop {
+    opacity: 0.85; }
+  
+  .primary-toolbar entry:focus, headerbar entry:focus {
+    color: #{$fg-high};
+    border-color: #{$accent};
+    background-color: rgba(87, 87, 97, 0.4);
+    background-clip: padding-box; }
+    
+    .primary-toolbar entry:focus image, headerbar entry:focus image {
+      color: rgba(255, 255, 255, 0.72); }
+  
+  .primary-toolbar entry:disabled, headerbar entry:disabled {
+    color: #{$fg-low};
+    background-color: rgba(87, 87, 97, 0.25); }
+  
+  .primary-toolbar entry selection:focus, headerbar entry selection:focus {
+    background-color: #{$accent};
+    color: #FFFFFF; }
+  
+  .primary-toolbar entry progress, headerbar entry progress {
+    border-color: #{$accent};
+    background-image: none;
+    background-color: transparent; }
+  
+  .primary-toolbar entry.warning, headerbar entry.warning {
+    color: WHITE;
+    border-color: rgba(5, 5, 6, 0.4);
+    background-color: #9f562f; }
+    
+    .primary-toolbar entry.warning:focus, headerbar entry.warning:focus {
+      color: WHITE;
+      background-color: #{$warning}; }
+    
+    .primary-toolbar entry.warning selection, headerbar entry.warning selection {
+      background-color: WHITE;
+      color: #{$warning}; }
+  
+  .primary-toolbar entry.error, headerbar entry.error {
+    color: WHITE;
+    border-color: rgba(5, 5, 6, 0.4);
+    background-color: #a53531; }
+    
+    .primary-toolbar entry.error:focus, headerbar entry.error:focus {
+      color: WHITE;
+      background-color: #{$error}; }
+    
+    .primary-toolbar entry.error selection, headerbar entry.error selection {
+      background-color: WHITE;
+      color: #{$error}; }
+
+
+.primary-toolbar button, headerbar button {
+  color: #{$fg-high};
+  outline-color: #{$fg-outline};
+  outline-offset: -3px;
+  background-color: #{$bg-dark-trans};
+  border-color: #{$bg-dark-trans}; }
+  
+  .primary-toolbar button:backdrop, headerbar button:backdrop {
+    opacity: 0.7; }
+  
+  .primary-toolbar button:hover, headerbar button:hover {
+    color: #{$fg-high};
+    outline-color: #{$fg-outline};
+    border-color: rgba(5, 5, 6, 0.4);
+    background-color: rgba(87, 87, 97, 0.4); }
+  
+  .primary-toolbar button:active, headerbar button:active,
+  .primary-toolbar button:checked, headerbar button:checked {
+    color: #{$fg-high};
+    outline-color: #{$fg-outline};
+    border-color: rgba(5, 5, 6, 0.4);
+    background-color: rgba(0, 0, 0, 0.15);
+    background-clip: padding-box; }
+  
+  .primary-toolbar button:disabled, headerbar button:disabled {
+    color: #{$fg-low};
+    background-color: #{$bg-dark-trans};
+    border-color: #{$bg-dark-trans}; }
+    
+    .primary-toolbar button:disabled label, headerbar button:disabled label {
+      color: inherit; }
+  
+  .primary-toolbar button:disabled:active, headerbar button:disabled:active,
+  .primary-toolbar button:disabled:checked, headerbar button:disabled:checked {
+    color: rgba(255, 255, 255, 0.67);
+    border-color: rgba(8, 8, 8, 0.85);
+    background-color: rgba(0, 0, 0, 0.1); }
+
+.primary-toolbar toolbar.selection-mode button,
+.selection-mode.primary-toolbar button, .primary-toolbar .selection-mode.inline-toolbar button, headerbar.selection-mode button {
+  border-color: transparent;
+  background-color: transparent;
+  background-image: none;
+  color: #FFFFFF;
+  background-color: #{$fg-transparent}; }
+
+
+.primary-toolbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:last-child):not(:only-child), headerbar .linked:not(.vertical):not(.path-bar):not(.stack-switcher) button:not(:last-child):not(:only-child) {
+  margin-right: 1px; }
+
+.primary-toolbar toolbar .linked:not(.vertical):not(.path-bar) > button,
+.primary-toolbar .linked:not(.vertical):not(.path-bar) > button, .primary-toolbar .inline-toolbar .linked:not(.vertical):not(.path-bar) > button, headerbar .linked:not(.vertical):not(.path-bar) > button {
+  border-radius: 3px;
+  border-style: solid; }
+
+
+.primary-toolbar .linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action) + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action), headerbar .linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action) + button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action),
+.primary-toolbar toolbar .linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover:not(:only-child),
+.primary-toolbar .linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover:not(:only-child),
+.primary-toolbar .inline-toolbar .linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover:not(:only-child),
+headerbar .linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):hover:not(:only-child),
+.primary-toolbar toolbar .linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled:not(:only-child),
+.primary-toolbar .linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled:not(:only-child),
+.primary-toolbar .inline-toolbar .linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled:not(:only-child),
+headerbar .linked:not(.vertical):not(.path-bar) > button:not(:checked):not(:active):not(.suggested-action):not(.destructive-action):disabled:not(:only-child) {
+  box-shadow: none; }
+
+.primary-toolbar toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button,
+.primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button, .primary-toolbar .inline-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button,
+.primary-toolbar toolbar .linked:not(.vertical).path-bar > button,
+.primary-toolbar .linked:not(.vertical).path-bar > button,
+.primary-toolbar .inline-toolbar .linked:not(.vertical).path-bar > button,
+headerbar .linked:not(.vertical).path-bar > button {
+  color: #{$fg-high};
+  outline-color: #{$fg-outline};
+  border-color: rgba(5, 5, 6, 0.4);
+  background-color: #{$toolbar-btn-bg}; }
+  .primary-toolbar toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover,
+  .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover, .primary-toolbar .inline-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:hover,
+  .primary-toolbar toolbar .linked:not(.vertical).path-bar > button:hover,
+  .primary-toolbar .linked:not(.vertical).path-bar > button:hover,
+  .primary-toolbar .inline-toolbar .linked:not(.vertical).path-bar > button:hover,
+  headerbar .linked:not(.vertical).path-bar > button:hover {
+    background-color: #{$toolbar-btn-bg-hover}; }
+  .primary-toolbar toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active,
+  .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active, .primary-toolbar .inline-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:active, .primary-toolbar toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked,
+  .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked, .primary-toolbar .inline-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:checked,
+  .primary-toolbar toolbar .linked:not(.vertical).path-bar > button:active,
+  .primary-toolbar .linked:not(.vertical).path-bar > button:active,
+  .primary-toolbar .inline-toolbar .linked:not(.vertical).path-bar > button:active,
+  headerbar .linked:not(.vertical).path-bar > button:active,
+  .primary-toolbar toolbar .linked:not(.vertical).path-bar > button:checked,
+  .primary-toolbar .linked:not(.vertical).path-bar > button:checked,
+  .primary-toolbar .inline-toolbar .linked:not(.vertical).path-bar > button:checked,
+  headerbar .linked:not(.vertical).path-bar > button:checked {
+    color: #{$fg-high};
+    outline-color: #{$fg-outline};
+    border-color: rgba(5, 5, 6, 0.4);
+    background-color: rgba(0, 0, 0, 0.15); }
+  .primary-toolbar toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled,
+  .primary-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled, .primary-toolbar .inline-toolbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled, headerbar .linked:not(.vertical):not(.path-bar).stack-switcher > button:disabled,
+  .primary-toolbar toolbar .linked:not(.vertical).path-bar > button:disabled,
+  .primary-toolbar .linked:not(.vertical).path-bar > button:disabled,
+  .primary-toolbar .inline-toolbar .linked:not(.vertical).path-bar > button:disabled,
+  headerbar .linked:not(.vertical).path-bar > button:disabled {
+    color: #{$fg-low}; }
+
+
+.primary-toolbar .linked:not(.vertical) entry, headerbar .linked:not(.vertical) entry {
+  box-shadow: none; }
+  
+  .primary-toolbar .linked:not(.vertical) entry:focus, headerbar .linked:not(.vertical) entry:focus {
+    color: #{$fg-high};
+    border-color: rgba(5, 5, 6, 0.4);
+    background-color: rgba(87, 87, 97, 0.4);
+    background-clip: padding-box; }
+    
+    .primary-toolbar .linked:not(.vertical) entry:focus image, headerbar .linked:not(.vertical) entry:focus image {
+      color: inherit; }
+  
+  .primary-toolbar .linked:not(.vertical) entry + button:last-child, headerbar .linked:not(.vertical) entry + button:last-child {
+    color: #{$fg-high};
+    outline-color: #{$fg-outline};
+    border-color: rgba(5, 5, 6, 0.4);
+    background-color: rgba(87, 87, 97, 0.4); }
+    
+    .primary-toolbar .linked:not(.vertical) entry + button:last-child:hover, headerbar .linked:not(.vertical) entry + button:last-child:hover {
+      background-color: rgba(123, 123, 137, 0.4); }
+    
+    .primary-toolbar .linked:not(.vertical) entry + button:last-child:active, headerbar .linked:not(.vertical) entry + button:last-child:active,
+    .primary-toolbar .linked:not(.vertical) entry + button:last-child:checked, headerbar .linked:not(.vertical) entry + button:last-child:checked {
+      color: #{$fg-high};
+      outline-color: #{$fg-outline};
+      border-color: rgba(5, 5, 6, 0.4);
+      background-color: rgba(0, 0, 0, 0.15); }
+    
+    .primary-toolbar .linked:not(.vertical) entry + button:last-child:disabled, headerbar .linked:not(.vertical) entry + button:last-child:disabled {
+      color: rgba(255, 255, 255, 0.47);
+      background-color: rgba(87, 87, 97, 0.2);
+      border-color: rgba(5, 5, 6, 0.4); }
+      
+      .primary-toolbar .linked:not(.vertical) entry + button:last-child:disabled:checked, headerbar .linked:not(.vertical) entry + button:last-child:disabled:checked {
+        background-color: rgba(112, 115, 122, 0.65);
+        color: rgba(255, 255, 255, 0.75); }
+
+
+.primary-toolbar button.suggested-action, headerbar button.suggested-action {
+  background-clip: border-box;
+  color: #FFFFFF;
+  outline-color: rgba(255, 255, 255, 0.3);
+  background-color: #{$success};
+  border-color: #{$success}; }
+  
+  .primary-toolbar button.suggested-action.flat, headerbar button.suggested-action.flat {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    color: #{$success};
+    outline-color: rgba(109, 180, 66, 0.3); }
+  
+  .primary-toolbar button.suggested-action:hover, headerbar button.suggested-action:hover {
+    background-clip: border-box;
+    color: #FFFFFF;
+    outline-color: rgba(255, 255, 255, 0.3);
+    background-color: #{$success-light};
+    border-color: #{$success-light}; }
+  
+  .primary-toolbar button.suggested-action:active, headerbar button.suggested-action:active,
+  .primary-toolbar button.suggested-action:checked, headerbar button.suggested-action:checked {
+    background-clip: border-box;
+    color: #FFFFFF;
+    outline-color: rgba(255, 255, 255, 0.3);
+    background-color: #{$success-dark};
+    border-color: #{$success-dark}; }
+  
+  .primary-toolbar button.suggested-action:disabled, headerbar button.suggested-action:disabled {
+    color: #{$fg-low};
+    background-color: #{$bg-dark-trans};
+    border-color: #{$bg-dark-trans}; }
+    
+    .primary-toolbar button.suggested-action:disabled label, headerbar button.suggested-action:disabled label {
+      color: inherit; }
+
+
+.primary-toolbar button.suggested-action:backdrop, headerbar button.suggested-action:backdrop {
+  opacity: 0.8; }
+
+
+.primary-toolbar button.destructive-action, headerbar button.destructive-action {
+  background-clip: border-box;
+  color: #FFFFFF;
+  outline-color: rgba(255, 255, 255, 0.3);
+  background-color: #{$error};
+  border-color: #{$error}; }
+  
+  .primary-toolbar button.destructive-action.flat, headerbar button.destructive-action.flat {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    color: #{$error};
+    outline-color: rgba(240, 74, 80, 0.3); }
+  
+  .primary-toolbar button.destructive-action:hover, headerbar button.destructive-action:hover {
+    background-clip: border-box;
+    color: #FFFFFF;
+    outline-color: rgba(255, 255, 255, 0.3);
+    background-color: #{$error-light};
+    border-color: #{$error-light}; }
+  
+  .primary-toolbar button.destructive-action:active, headerbar button.destructive-action:active,
+  .primary-toolbar button.destructive-action:checked, headerbar button.destructive-action:checked {
+    background-clip: border-box;
+    color: #FFFFFF;
+    outline-color: rgba(255, 255, 255, 0.3);
+    background-color: #{$error-dark};
+    border-color: #{$error-dark}; }
+  
+  .primary-toolbar button.destructive-action:disabled, headerbar button.destructive-action:disabled {
+    color: #{$fg-low};
+    background-color: #{$bg-dark-trans};
+    border-color: #{$bg-dark-trans}; }
+    
+    .primary-toolbar button.destructive-action:disabled label, headerbar button.destructive-action:disabled label {
+      color: inherit; }
+
+
+.primary-toolbar button.destructive-action:backdrop, headerbar button.destructive-action:backdrop {
+  opacity: 0.8; }
+
+
+.primary-toolbar spinbutton:focus button, headerbar spinbutton:focus button {
+  color: #FFFFFF; }
+  
+  .primary-toolbar spinbutton:focus button:hover, headerbar spinbutton:focus button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: transparent; }
+  
+  .primary-toolbar spinbutton:focus button:disabled, headerbar spinbutton:focus button:disabled {
+    color: rgba(255, 255, 255, 0.4); }
+
+
+.primary-toolbar spinbutton button, headerbar spinbutton button {
+  color: #{$fg-high}; }
+  
+  .primary-toolbar spinbutton button:hover, headerbar spinbutton button:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: transparent; }
+  
+  .primary-toolbar spinbutton button:disabled, headerbar spinbutton button:disabled {
+    color: rgba(255, 255, 255, 0.57); }
+  
+  .primary-toolbar spinbutton button:active, headerbar spinbutton button:active {
+    background-color: rgba(0, 0, 0, 0.1); }
+
+
+.primary-toolbar combobox:disabled, headerbar combobox:disabled {
+  color: rgba(255, 255, 255, 0.27); }
+
+
+.primary-toolbar combobox > .linked > button.combo, headerbar combobox > .linked > button.combo {
+  color: #{$fg-high};
+  border-color: rgba(5, 5, 6, 0.4);
+  background-color: rgba(87, 87, 97, 0.4); }
+  
+  .primary-toolbar combobox > .linked > button.combo image, headerbar combobox > .linked > button.combo image {
+    color: inherit; }
+  
+  .primary-toolbar combobox > .linked > button.combo:hover, headerbar combobox > .linked > button.combo:hover {
+    color: #{$fg-high};
+    border-color: #{$accent};
+    background-color: rgba(87, 87, 97, 0.4);
+    box-shadow: none; }
+  
+  .primary-toolbar combobox > .linked > button.combo:disabled, headerbar combobox > .linked > button.combo:disabled {
+    color: #{$fg-low};
+    background-color: rgba(87, 87, 97, 0.25); }
+
+
+.primary-toolbar combobox > .linked > entry.combo:dir(ltr), headerbar combobox > .linked > entry.combo:dir(ltr) {
+  border-right-style: none; }
+  
+  .primary-toolbar combobox > .linked > entry.combo:dir(ltr):focus, headerbar combobox > .linked > entry.combo:dir(ltr):focus {
+    box-shadow: none; }
+
+
+.primary-toolbar combobox > .linked > entry.combo:dir(rtl), headerbar combobox > .linked > entry.combo:dir(rtl) {
+  border-left-style: none; }
+  
+  .primary-toolbar combobox > .linked > entry.combo:dir(rtl):focus, headerbar combobox > .linked > entry.combo:dir(rtl):focus {
+    box-shadow: none; }
+
+
+.primary-toolbar combobox > .linked > button.combo:dir(ltr), headerbar combobox > .linked > button.combo:dir(ltr) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0; }
+
+
+.primary-toolbar combobox > .linked > button.combo:dir(rtl), headerbar combobox > .linked > button.combo:dir(rtl) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
+
+
+.primary-toolbar switch:backdrop, headerbar switch:backdrop {
+  opacity: 0.75; }
+
+
+.primary-toolbar progressbar trough, headerbar progressbar trough {
+  background-color: rgba(5, 5, 6, 0.4); }
+
+
+.primary-toolbar progressbar:backdrop, headerbar progressbar:backdrop {
+  opacity: 0.75; }
+
+
+.primary-toolbar scale:backdrop, headerbar scale:backdrop {
+  opacity: 0.75; }
+
+
+.primary-toolbar scale slider, headerbar scale slider {
+  background-color: #3a3a41;
+  border-color: rgba(5, 5, 6, 0.7); }
+  
+  .primary-toolbar scale slider:hover, headerbar scale slider:hover {
+    background-color: #{$bg-hover};
+    border-color: rgba(5, 5, 6, 0.7); }
+  
+  .primary-toolbar scale slider:active, headerbar scale slider:active {
+    background-color: #{$accent};
+    border-color: #{$accent}; }
+  
+  .primary-toolbar scale slider:disabled, headerbar scale slider:disabled {
+    background-color: #{$bg-subtle};
+    border-color: rgba(5, 5, 6, 0.7); }
+
+
+.primary-toolbar scale trough, headerbar scale trough {
+  background-color: rgba(5, 5, 6, 0.4); }
+  
+  .primary-toolbar scale trough:disabled, headerbar scale trough:disabled {
+    background-color: rgba(5, 5, 6, 0.3); }
+
+.path-bar button.text-button, .path-bar button.image-button, .path-bar headerbar button.titlebutton, headerbar .path-bar button.titlebutton,
+.path-bar .titlebar button.titlebutton,
+.titlebar .path-bar button.titlebutton, .path-bar button {
+  padding-left: 6px;
+  padding-right: 6px; }
+
+.path-bar button.text-button.image-button label, .path-bar headerbar button.text-button.titlebutton label, headerbar .path-bar button.text-button.titlebutton label,
+.path-bar .titlebar button.text-button.titlebutton label,
+.titlebar .path-bar button.text-button.titlebutton label {
+  padding-left: 0;
+  padding-right: 0; }
+
+.path-bar button.text-button.image-button label:last-child, .path-bar button label:last-child {
+  padding-right: 10px; }
+
+.path-bar button.text-button.image-button label:first-child, .path-bar button label:first-child {
+  padding-left: 10px; }
+
+.path-bar button.slider-button, .path-bar button:not(.image-button):not(.text-button) {
+  padding-left: 1px;
+  padding-right: 1px; }
+
+.path-bar button image {
+  padding-left: 4px;
+  padding-right: 4px; }
+
+// ── Headerbar title buttons (GTK3 CSD) ───────────────────────────────────────
+
+headerbar button.titlebutton.minimize,
+headerbar button.titlebutton.maximize {
+  color: #{$wm-action-icon}; }
+
+headerbar button.titlebutton.minimize:backdrop,
+headerbar button.titlebutton.maximize:backdrop {
+  color: #{$wm-action-icon}; }
+
+headerbar button.titlebutton.minimize:hover,
+headerbar button.titlebutton.maximize:hover {
+  color: #{$wm-action-icon-hover};
+  background-image: radial-gradient(circle at 50%, #{$wm-action-bg-hover}, #{$wm-action-bg-hover} 65%, #{$bg-darkest} 65%);
+  background-size: 20px 20px;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+headerbar button.titlebutton.close {
+  background-image: radial-gradient(circle at 50%, #{$wm-close-bg}, #{$wm-close-bg} 65%, #{$bg-darkest} 65%);
+  background-size: 20px 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #{$wm-close-icon}; }
+
+headerbar button.titlebutton.close:backdrop {
+  background-image: radial-gradient(circle at 50%, #{$wm-close-bg-dim}, #{$wm-close-bg-dim} 65%, #{$bg-darkest} 65%); }
+
+headerbar button.titlebutton.close:hover {
+  background-image: radial-gradient(circle at 50%, #{$wm-close-bg-hover}, #{$wm-close-bg-hover} 65%, #{$bg-darkest} 65%); }
+
+headerbar button.titlebutton.close:active {
+  background-image: radial-gradient(circle at 50%, #{$wm-close-bg-active}, #{$wm-close-bg-active} 65%, #{$bg-darkest} 65%); }
+

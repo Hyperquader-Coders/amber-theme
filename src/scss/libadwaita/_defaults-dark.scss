@@ -1,0 +1,78 @@
+@use 'vars' as *;
+
+// libadwaita named colours, fully derived from the active profile.
+// Contrast model (same rules as the GTK widget + Cinnamon layers):
+//   • *_bg_color  — a filled surface; text on it uses the matching *_fg_color
+//   • *_fg_color  — text/icons ON the filled surface → always the darkest
+//                   surface ($bg-darkest) so it reads on any saturated accent
+//   • *_color     — the standalone accent/state tint drawn ON the window bg →
+//                   a light variant so it stays legible on the dark base
+//   • window/view/sidebar/card surfaces step through the $bg-* elevation scale
+//   • borders/shades stay neutral black alphas so they darken any surface
+
+/* Accent ------------------------------------------------------------------ */
+@define-color accent_bg_color #{$accent};
+@define-color accent_fg_color #{$fg-on-accent};
+@define-color accent_color #{$accent};
+
+/* Destructive ------------------------------------------------------------- */
+@define-color destructive_bg_color #{$error};
+@define-color destructive_fg_color #{$fg-on-accent};
+@define-color destructive_color #{$error-light};
+
+/* States ------------------------------------------------------------------ */
+@define-color success_bg_color #{$success};
+@define-color success_fg_color #{$fg-on-accent};
+@define-color success_color #{$success-light};
+@define-color warning_bg_color #{$warning};
+@define-color warning_fg_color #{$fg-on-accent};
+@define-color warning_color #{$warning-light};
+@define-color error_bg_color #{$error};
+@define-color error_fg_color #{$fg-on-accent};
+@define-color error_color #{$error-light};
+
+/* Window ------------------------------------------------------------------ */
+@define-color window_bg_color #{$bg};
+@define-color window_fg_color #{$fg-high};
+
+/* Content view (slightly recessed from the window) ------------------------ */
+@define-color view_bg_color #{$bg-dark};
+@define-color view_fg_color #{$fg};
+
+/* Header bar -------------------------------------------------------------- */
+@define-color headerbar_bg_color #{$bg-dark};
+@define-color headerbar_fg_color #{$fg-high};
+@define-color headerbar_border_color #{$bg-darkest};
+@define-color headerbar_backdrop_color #{$bg};
+@define-color headerbar_shade_color alpha(black, 0.36);
+@define-color headerbar_darker_shade_color alpha(black, 0.9);
+
+/* Sidebar ----------------------------------------------------------------- */
+@define-color sidebar_bg_color #{$bg-dark};
+@define-color sidebar_fg_color #{$fg-high};
+@define-color sidebar_backdrop_color #{$bg};
+@define-color sidebar_shade_color alpha(black, 0.25);
+@define-color sidebar_border_color alpha(black, 0.36);
+@define-color secondary_sidebar_bg_color #{$bg-darker};
+@define-color secondary_sidebar_fg_color #{$fg-high};
+@define-color secondary_sidebar_backdrop_color #{$bg-dark};
+@define-color secondary_sidebar_shade_color alpha(black, 0.25);
+@define-color secondary_sidebar_border_color alpha(black, 0.36);
+
+/* Cards (faint amber-tinted overlay so they lift off the window) ---------- */
+@define-color card_bg_color alpha(#{$fg}, 0.07);
+@define-color card_fg_color #{$fg-high};
+@define-color card_shade_color alpha(black, 0.36);
+
+/* Dialogs / popovers / thumbnails (elevated surfaces) --------------------- */
+@define-color dialog_bg_color #{$bg-mid};
+@define-color dialog_fg_color #{$fg-high};
+@define-color popover_bg_color #{$bg-mid};
+@define-color popover_fg_color #{$fg-high};
+@define-color popover_shade_color alpha(black, 0.25);
+@define-color thumbnail_bg_color #{$bg-mid};
+@define-color thumbnail_fg_color #{$fg-high};
+
+/* Misc -------------------------------------------------------------------- */
+@define-color shade_color alpha(black, 0.25);
+@define-color scrollbar_outline_color alpha(black, 0.5);

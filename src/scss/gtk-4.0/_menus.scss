@@ -1,0 +1,113 @@
+@use 'vars' as *;
+
+popover.background {
+  background-color: transparent;
+  font: initial; }
+  popover.background > arrow,
+  popover.background > contents {
+    background-color: #{$bg};
+    background-clip: border-box;
+    border: 1px solid #141416;
+    box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.35); }
+  popover.background > contents {
+    padding: 8px;
+    border-radius: 3px; }
+    popover.background > contents > list,
+    popover.background > contents > .view,
+    popover.background > contents > iconview,
+    popover.background > contents > .toolbar {
+      border-style: none;
+      background-color: transparent; }
+    popover.background > contents separator {
+      background-color: #{$bg};
+      margin: 2px 0; }
+    popover.background > contents list separator {
+      margin: 2px 0; }
+  .osd popover.background, popover.background.touch-selection, popover.background.magnifier {
+    background-color: transparent; }
+
+magnifier {
+  background-color: #{$bg}; }
+
+popover.menu {
+  padding: 0; }
+  popover.menu box.inline-buttons {
+    padding: 0 8px; }
+    popover.menu box.inline-buttons button.image-button.model, popover.menu box.inline-buttons windowcontrols button.model, windowcontrols popover.menu box.inline-buttons button.model {
+      color: #{$fg-high};
+      border-color: #{$bg-darker};
+      background-color: #{$bg-subtle}; }
+      popover.menu box.inline-buttons button.image-button.model, popover.menu box.inline-buttons windowcontrols button.model, windowcontrols popover.menu box.inline-buttons button.model, popover.menu box.inline-buttons button.image-button.model:dir(ltr) {
+        margin-left: 6px; }
+      popover.menu box.inline-buttons button.image-button.model:dir(rtl), popover.menu box.inline-buttons windowcontrols button.model:dir(rtl), windowcontrols popover.menu box.inline-buttons button.model:dir(rtl) {
+        margin-right: 6px; }
+      popover.menu box.inline-buttons button.image-button.model:focus, popover.menu box.inline-buttons windowcontrols button.model:focus, windowcontrols popover.menu box.inline-buttons button.model:focus {
+        color: #{$fg-high};
+        border-color: #{$bg-darker};
+        background-color: #{$bg-mid}; }
+      popover.menu box.inline-buttons button.image-button.model:active, popover.menu box.inline-buttons windowcontrols button.model:active, windowcontrols popover.menu box.inline-buttons button.model:active {
+        color: #{$fg-high};
+        border-color: #080808;
+        background-color: rgba(0, 0, 0, 0.15); }
+  popover.menu box.circular-buttons {
+    padding: 8px 8px 6px; }
+    popover.menu box.circular-buttons button.circular.image-button.model, popover.menu box.circular-buttons windowcontrols button.circular.model, windowcontrols popover.menu box.circular-buttons button.circular.model {
+      padding: 11px; }
+      popover.menu box.circular-buttons button.circular.image-button.model:focus, popover.menu box.circular-buttons windowcontrols button.circular.model:focus, windowcontrols popover.menu box.circular-buttons button.circular.model:focus {
+        color: #{$fg-high};
+        border-color: #{$bg-darker};
+        background-color: #{$bg-mid}; }
+      popover.menu box.circular-buttons button.circular.image-button.model:active, popover.menu box.circular-buttons windowcontrols button.circular.model:active, windowcontrols popover.menu box.circular-buttons button.circular.model:active {
+        color: #{$fg-high};
+        border-color: #080808;
+        background-color: rgba(0, 0, 0, 0.15); }
+  popover.menu accelerator {
+    opacity: 0.55; }
+    popover.menu accelerator:dir(ltr) {
+      margin-left: 22px; }
+    popover.menu accelerator:dir(rtl) {
+      margin-right: 22px; }
+  popover.menu arrow.left,
+  popover.menu radio.left,
+  popover.menu check.left {
+    margin-left: -1px;
+    margin-right: 7px; }
+  popover.menu arrow.right,
+  popover.menu radio.right,
+  popover.menu check.right {
+    margin-left: 7px;
+    margin-right: -1px; }
+  popover.menu scale {
+    padding: 5px 8px; }
+  popover.menu modelbutton {
+    min-height: 16px;
+    min-width: 40px;
+    padding: 5px 8px;
+    border-radius: 2px; }
+  popover.menu label.title {
+    font-weight: bold;
+    padding: 4px 28px; }
+
+menubar {
+  padding: 0px;
+  background-color: #{$bg-darkest};
+  color: #{$fg-high}; }
+  menubar:backdrop {
+    color: rgba(255, 255, 255, 0.57); }
+  menubar > item {
+    padding: 6px 8px;
+    border: solid transparent;
+    border-width: 0; }
+    menubar > item:selected {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #{$fg-high}; }
+    menubar > item:disabled {
+      color: rgba(255, 255, 255, 0.27);
+      border-color: transparent; }
+  menubar > item popover.menu modelbutton {
+    border-radius: 0; }
+  menubar > item popover.menu.background > contents {
+    padding: 4px 0;
+    border-radius: 2px; }
+  menubar > item popover.menu popover.menu {
+    margin-top: -5px; }

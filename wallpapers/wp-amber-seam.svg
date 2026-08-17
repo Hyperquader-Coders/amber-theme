@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" width="1920" height="1080">
+<!-- AMBER LINUX · amber-seam (dark) — a geological cross-section: sedimentary
+     strata in the dark, with one glowing seam of amber running through the rock
+     and fossils sleeping in the layers. The codebase as geology.
+     Palette: amberlinux.org tokens.css only. -->
+<defs>
+  <linearGradient id="skyfade" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#080600"/>
+    <stop offset="100%" stop-color="#100d00"/>
+  </linearGradient>
+
+  <radialGradient id="nodule" cx="40%" cy="35%" r="70%">
+    <stop offset="0%"  stop-color="#f0c840"/>
+    <stop offset="45%" stop-color="#f5a623"/>
+    <stop offset="85%" stop-color="#c07800"/>
+    <stop offset="100%" stop-color="#7d4400"/>
+  </radialGradient>
+
+  <radialGradient id="vig" cx="50%" cy="46%" r="78%">
+    <stop offset="55%" stop-color="#080600" stop-opacity="0"/>
+    <stop offset="100%" stop-color="#080600" stop-opacity="0.8"/>
+  </radialGradient>
+
+  <filter id="haze"><feGaussianBlur stdDeviation="45"/></filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="10"/></filter>
+  <filter id="fine"><feGaussianBlur stdDeviation="2.5"/></filter>
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="6" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+
+  <!-- the seam's path, reused for glow, body and bright core -->
+  <path id="seam" d="M 420 -40
+      C 500 120, 620 200, 780 250
+      C 960 306, 1080 360, 1150 470
+      C 1226 590, 1330 660, 1490 720
+      C 1640 776, 1740 880, 1790 1120" fill="none"/>
+
+  <!-- a branch veinlet -->
+  <path id="veinA" d="M 1150 470 C 1050 520, 960 610, 920 730 C 890 820, 900 920, 940 1010" fill="none"/>
+  <path id="veinB" d="M 780 250 C 700 300, 640 380, 620 470" fill="none"/>
+  <path id="veinC" d="M 1490 720 C 1560 660, 1650 630, 1760 628" fill="none"/>
+</defs>
+
+<!-- ============ the rock face ============ -->
+<rect width="1920" height="1080" fill="url(#skyfade)"/>
+
+<!-- strata, top to bottom, with gently waving boundaries -->
+<path d="M0 150 C 240 132, 480 158, 760 146 C 1060 134, 1340 160, 1920 142 L 1920 0 L 0 0 Z"
+      fill="#080600"/>
+<path d="M0 150 C 240 132, 480 158, 760 146 C 1060 134, 1340 160, 1920 142
+         L 1920 330 C 1560 348, 1200 322, 900 336 C 600 350, 300 328, 0 344 Z"
+      fill="#130f00"/>
+<path d="M0 344 C 300 328, 600 350, 900 336 C 1200 322, 1560 348, 1920 330
+         L 1920 540 C 1620 556, 1300 532, 980 546 C 660 560, 320 538, 0 556 Z"
+      fill="#100d00"/>
+<path d="M0 556 C 320 538, 660 560, 980 546 C 1300 532, 1620 556, 1920 540
+         L 1920 760 C 1580 776, 1240 752, 920 766 C 620 778, 300 758, 0 774 Z"
+      fill="#1a1600"/>
+<path d="M0 774 C 300 758, 620 778, 920 766 C 1240 752, 1580 776, 1920 760
+         L 1920 950 C 1600 964, 1260 944, 940 956 C 620 968, 300 950, 0 964 Z"
+      fill="#130f00"/>
+<path d="M0 964 C 300 950, 620 968, 940 956 C 1260 944, 1600 964, 1920 950
+         L 1920 1080 L 0 1080 Z" fill="#080600"/>
+
+<!-- bedding-plane hairlines along the boundaries -->
+<g fill="none" stroke="#2e2400" stroke-width="2" opacity="0.9">
+  <path d="M0 150 C 240 132, 480 158, 760 146 C 1060 134, 1340 160, 1920 142"/>
+  <path d="M0 344 C 300 328, 600 350, 900 336 C 1200 322, 1560 348, 1920 330"/>
+  <path d="M0 556 C 320 538, 660 560, 980 546 C 1300 532, 1620 556, 1920 540"/>
+  <path d="M0 774 C 300 758, 620 778, 920 766 C 1240 752, 1580 776, 1920 760"/>
+  <path d="M0 964 C 300 950, 620 968, 940 956 C 1260 944, 1600 964, 1920 950"/>
+</g>
+<!-- faint internal laminations -->
+<g fill="none" stroke="#2e2400" stroke-width="1" opacity="0.4">
+  <path d="M0 240 C 320 228, 640 244, 960 236 C 1280 228, 1600 242, 1920 234"/>
+  <path d="M0 450 C 320 438, 640 454, 960 446 C 1280 438, 1600 452, 1920 444"/>
+  <path d="M0 660 C 320 648, 640 664, 960 656 C 1280 648, 1600 662, 1920 654"/>
+  <path d="M0 870 C 320 858, 640 874, 960 866 C 1280 858, 1600 872, 1920 864"/>
+</g>
+
+<!-- scattered clasts in the rock -->
+<g fill="#2e2400" opacity="0.7">
+  <ellipse cx="300" cy="250" rx="10" ry="4" transform="rotate(-12 300 250)"/>
+  <ellipse cx="1500" cy="230" rx="8" ry="3.5" transform="rotate(8 1500 230)"/>
+  <ellipse cx="700" cy="640" rx="9" ry="4" transform="rotate(-6 700 640)"/>
+  <ellipse cx="1750" cy="440" rx="7" ry="3" transform="rotate(14 1750 440)"/>
+  <ellipse cx="160" cy="860" rx="11" ry="4.5" transform="rotate(-10 160 860)"/>
+  <ellipse cx="1100" cy="890" rx="8" ry="3.5" transform="rotate(6 1100 890)"/>
+  <ellipse cx="520" cy="440" rx="7" ry="3" transform="rotate(-16 520 440)"/>
+</g>
+
+<!-- ============ fossils sleeping in the strata ============ -->
+<!-- ammonite, lower left -->
+<g transform="translate(340 690) rotate(-14)" fill="none" stroke="#907326" opacity="0.4">
+  <path d="M 0 0
+           C 26 -4, 34 20, 12 30 C -14 40, -34 16, -22 -10
+           C -8 -40, 34 -44, 54 -18 C 74 8, 62 48, 28 60
+           C -12 74, -54 52, -60 10 C -66 -34, -34 -70, 12 -72
+           C 58 -74, 92 -42, 94 4" stroke-width="4"/>
+  <g stroke-width="2" opacity="0.8">
+    <path d="M 12 30 L 22 44 M -22 -10 L -38 -18 M 54 -18 L 68 -26 M 28 60 L 34 76 M -60 10 L -78 12 M 12 -72 L 10 -88"/>
+  </g>
+</g>
+
+<!-- fern frond, upper right stratum -->
+<g transform="translate(1560 250) rotate(18)" opacity="0.35">
+  <path d="M -120 0 C -60 -8, 60 -8, 130 6" fill="none" stroke="#907326" stroke-width="3"/>
+  <g fill="none" stroke="#907326" stroke-width="2">
+    <path d="M -96 -3 C -104 -18, -116 -26, -130 -28"/>
+    <path d="M -64 -6 C -72 -24, -86 -34, -102 -38"/>
+    <path d="M -28 -7 C -34 -28, -48 -40, -66 -44"/>
+    <path d="M 10 -7 C 6 -28, -6 -42, -24 -48"/>
+    <path d="M 48 -5 C 46 -26, 36 -40, 20 -46"/>
+    <path d="M 86 -2 C 86 -20, 78 -32, 64 -38"/>
+    <path d="M -96 3 C -104 16, -116 24, -130 26"/>
+    <path d="M -64 6 C -72 22, -86 32, -102 36"/>
+    <path d="M -28 7 C -34 26, -48 38, -66 42"/>
+    <path d="M 10 7 C 6 26, -6 40, -24 46"/>
+    <path d="M 48 6 C 46 24, 36 38, 20 44"/>
+    <path d="M 86 4 C 86 18, 78 30, 64 36"/>
+  </g>
+</g>
+
+<!-- small fish skeleton, middle left stratum -->
+<g transform="translate(430 450) rotate(-4)" fill="none" stroke="#907326" opacity="0.32">
+  <path d="M -70 0 C -30 -14, 40 -14, 78 0 C 40 14, -30 14, -70 0 Z" stroke-width="2.5"/>
+  <line x1="-62" y1="0" x2="70" y2="0" stroke-width="2"/>
+  <g stroke-width="1.5">
+    <path d="M -44 -8 L -44 8 M -26 -10 L -26 10 M -8 -11 L -8 11 M 10 -11 L 10 11 M 28 -10 L 28 10 M 46 -8 L 46 8"/>
+  </g>
+  <path d="M 78 0 L 100 -14 M 78 0 L 100 14 M 100 -14 L 100 14" stroke-width="2"/>
+  <circle cx="-56" cy="-2" r="2.5" fill="#907326" stroke="none"/>
+</g>
+
+<!-- dragonfly wing, right, near the seam -->
+<g transform="translate(1620 500) rotate(-24)" fill="none" stroke="#907326" opacity="0.3">
+  <ellipse cx="0" cy="0" rx="86" ry="20" stroke-width="2.5"/>
+  <path d="M -80 0 L 82 0 M -60 -12 C -20 -4, 30 -4, 74 6 M -60 12 C -20 4, 30 4, 74 -6" stroke-width="1.2"/>
+  <path d="M -40 -17 L -34 17 M -10 -20 L -4 20 M 22 -19 L 28 19 M 50 -15 L 56 15" stroke-width="1.2"/>
+</g>
+
+<!-- ============ the amber seam ============ -->
+<!-- deep glow bleeding into the rock -->
+<use xlink:href="#seam" stroke="#c07800" stroke-width="90" opacity="0.16" filter="url(#haze)"/>
+<use xlink:href="#seam" stroke="#c07800" stroke-width="42" opacity="0.35" filter="url(#soft)"/>
+<!-- seam body -->
+<use xlink:href="#seam" stroke="#f5a623" stroke-width="15" opacity="0.85" stroke-linecap="round" filter="url(#fine)"/>
+<!-- molten core -->
+<use xlink:href="#seam" stroke="#f0c840" stroke-width="5" opacity="0.95" stroke-linecap="round"/>
+
+<!-- branch veinlets -->
+<g stroke-linecap="round" fill="none">
+  <use xlink:href="#veinA" stroke="#c07800" stroke-width="18" opacity="0.25" filter="url(#soft)"/>
+  <use xlink:href="#veinA" stroke="#f5a623" stroke-width="6" opacity="0.6" filter="url(#fine)"/>
+  <use xlink:href="#veinA" stroke="#f0c840" stroke-width="2" opacity="0.7"/>
+  <use xlink:href="#veinB" stroke="#c07800" stroke-width="14" opacity="0.22" filter="url(#soft)"/>
+  <use xlink:href="#veinB" stroke="#f5a623" stroke-width="4.5" opacity="0.55" filter="url(#fine)"/>
+  <use xlink:href="#veinB" stroke="#f0c840" stroke-width="1.6" opacity="0.65"/>
+  <use xlink:href="#veinC" stroke="#c07800" stroke-width="14" opacity="0.22" filter="url(#soft)"/>
+  <use xlink:href="#veinC" stroke="#f5a623" stroke-width="4.5" opacity="0.55" filter="url(#fine)"/>
+  <use xlink:href="#veinC" stroke="#f0c840" stroke-width="1.6" opacity="0.65"/>
+</g>
+
+<!-- nodules swelling along the seam -->
+<g filter="url(#glow)">
+  <ellipse cx="782" cy="252" rx="34" ry="26" transform="rotate(18 782 252)" fill="url(#nodule)"/>
+  <ellipse cx="1152" cy="472" rx="44" ry="34" transform="rotate(30 1152 472)" fill="url(#nodule)"/>
+  <ellipse cx="1492" cy="722" rx="30" ry="24" transform="rotate(20 1492 722)" fill="url(#nodule)"/>
+  <ellipse cx="500" cy="122" rx="24" ry="18" transform="rotate(40 500 122)" fill="url(#nodule)"/>
+  <ellipse cx="1730" cy="984" rx="26" ry="20" transform="rotate(55 1730 984)" fill="url(#nodule)"/>
+  <ellipse cx="936" cy="1000" rx="20" ry="16" transform="rotate(10 936 1000)" fill="url(#nodule)"/>
+  <ellipse cx="622" cy="466" rx="17" ry="13" transform="rotate(24 622 466)" fill="url(#nodule)"/>
+  <ellipse cx="1758" cy="628" rx="16" ry="12" transform="rotate(-8 1758 628)" fill="url(#nodule)"/>
+</g>
+<!-- speculars on the bigger nodules -->
+<circle cx="1140" cy="458" r="6" fill="#fff" opacity="0.5" filter="url(#fine)"/>
+<circle cx="772" cy="242" r="4.5" fill="#fff" opacity="0.45" filter="url(#fine)"/>
+<circle cx="1484" cy="712" r="4" fill="#fff" opacity="0.4" filter="url(#fine)"/>
+
+<!-- the insect asleep in the largest nodule -->
+<g transform="translate(1156 474) rotate(-18)" fill="#2d1800" opacity="0.8">
+  <ellipse cx="4" cy="0" rx="10" ry="3.2"/>
+  <circle cx="-8" cy="0" r="3"/>
+  <g fill="none" stroke="#2d1800" stroke-width="1.1" stroke-linecap="round">
+    <path d="M -6 -3 C -11 -8, -15 -10, -20 -11"/>
+    <path d="M -2 -3 C -3 -9, -6 -13, -10 -15"/>
+    <path d="M -6 3 C -11 8, -15 10, -20 11"/>
+    <path d="M -2 3 C -3 9, -6 13, -10 15"/>
+    <path d="M 6 -3 C 10 -8, 13 -10, 17 -11"/>
+    <path d="M 6 3 C 10 8, 13 10, 17 11"/>
+  </g>
+  <ellipse cx="8" cy="-5" rx="9" ry="2.6" transform="rotate(-18 8 -5)" opacity="0.5"/>
+  <ellipse cx="8" cy="5" rx="9" ry="2.6" transform="rotate(18 8 5)" opacity="0.5"/>
+</g>
+
+<!-- glints where the seam crosses a bedding plane -->
+<g fill="#f0c840" filter="url(#fine)">
+  <circle cx="700" cy="222" r="3" opacity="0.6"/>
+  <circle cx="1046" cy="340" r="2.6" opacity="0.55"/>
+  <circle cx="1256" cy="590" r="3" opacity="0.6"/>
+  <circle cx="1608" cy="790" r="2.6" opacity="0.5"/>
+  <circle cx="560" cy="164" r="2.2" opacity="0.5"/>
+</g>
+
+<!-- the fossils nearest the seam catch a little of its light -->
+<ellipse cx="1620" cy="500" rx="150" ry="80" fill="#c07800" opacity="0.10" filter="url(#haze)"/>
+<ellipse cx="430" cy="450" rx="160" ry="70" fill="#c07800" opacity="0.06" filter="url(#haze)"/>
+
+<!-- vignette -->
+<rect width="1920" height="1080" fill="url(#vig)"/>
+
+<!-- watermark -->
+<text x="1850" y="1062" font-family="monospace" font-size="13" fill="#f5a623" opacity="0.22" text-anchor="end">AMBER LINUX · THE SEAM</text>
+</svg>

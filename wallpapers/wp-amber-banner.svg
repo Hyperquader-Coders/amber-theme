@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440">
+  <!-- All content sits in YouTube's 1546x423 safe area centred at 1280,720. -->
+  <defs>
+    <radialGradient id="amber" cx="38%" cy="30%" r="80%">
+      <stop offset="0%" stop-color="#f5e080"/>
+      <stop offset="45%" stop-color="#f5a623"/>
+      <stop offset="100%" stop-color="#8a4a00"/>
+    </radialGradient>
+  </defs>
+  <rect width="2560" height="1440" fill="#080600"/>
+  <g transform="translate(660 590)">
+    <g transform="scale(2.05)">
+      <rect x="8" y="8" width="112" height="112" rx="24" fill="url(#amber)" stroke="#6e3000" stroke-width="6"/>
+      <g transform="translate(64 68) rotate(-16) scale(0.34)">
+        <path d="M0,-108 C 62,-72 84,-14 52,52 C 34,90 12,108 0,116 C -12,108 -34,90 -52,52 C -84,-14 -62,-72 0,-108 Z" fill="#3c6b33"/>
+        <path d="M0,-96 L0,104" stroke="#254c1f" stroke-width="10" stroke-linecap="round" fill="none"/>
+        <path d="M0,-46 C 22,-40 36,-26 46,-6 M0,10 C 20,16 32,28 40,48 M0,-46 C -22,-40 -36,-26 -46,-6 M0,10 C -20,16 -32,28 -40,48"
+          stroke="#254c1f" stroke-width="7" stroke-linecap="round" fill="none" opacity="0.85"/>
+      </g>
+      <ellipse cx="42" cy="32" rx="21" ry="11" fill="#ffffff" opacity="0.35" transform="rotate(-24 42 32)"/>
+    </g>
+  </g>
+  <g font-family="SauceCodePro Nerd Font Mono" text-anchor="start">
+    <text x="960" y="705" font-size="96" font-weight="bold" fill="#f0c840">Amber Linux</text>
+    <text x="964" y="775" font-size="40" fill="#907326">Tree sap today, treasure tomorrow.</text>
+    <text x="964" y="845" font-size="44" fill="#f5a623">amberlinux.org</text>
+  </g>
+</svg>

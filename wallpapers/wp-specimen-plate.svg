@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080" width="1920" height="1080">
+<!-- AMBER LINUX · specimen-plate (light) — a naturalist's plate: a sunlit piece
+     of amber on cream paper, daylight passing through it onto the page.
+     Palette: amberlinux.org tokens.css (light values) only. -->
+<defs>
+  <linearGradient id="paper" x1="0" y1="0" x2="0.3" y2="1">
+    <stop offset="0%"  stop-color="#fffdf7"/>
+    <stop offset="55%" stop-color="#fdf8ee"/>
+    <stop offset="100%" stop-color="#f5edd8"/>
+  </linearGradient>
+
+  <!-- translucent stone: daylight coming through from behind/above-left -->
+  <radialGradient id="stone" cx="38%" cy="32%" r="80%">
+    <stop offset="0%"  stop-color="#f0c840" stop-opacity="0.55"/>
+    <stop offset="35%" stop-color="#f5a623" stop-opacity="0.62"/>
+    <stop offset="72%" stop-color="#c07800" stop-opacity="0.62"/>
+    <stop offset="92%" stop-color="#a05800" stop-opacity="0.72"/>
+    <stop offset="100%" stop-color="#7d4400" stop-opacity="0.8"/>
+  </radialGradient>
+
+  <!-- transmitted-light hot spot inside the stone -->
+  <radialGradient id="through" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#fffdf7" stop-opacity="0.55"/>
+    <stop offset="100%" stop-color="#fffdf7" stop-opacity="0"/>
+  </radialGradient>
+
+  <!-- caustic pool the stone throws onto the paper -->
+  <radialGradient id="caustic" cx="50%" cy="50%" r="50%">
+    <stop offset="0%"  stop-color="#f0c840" stop-opacity="0.5"/>
+    <stop offset="60%" stop-color="#f5a623" stop-opacity="0.25"/>
+    <stop offset="100%" stop-color="#f5a623" stop-opacity="0"/>
+  </radialGradient>
+
+  <filter id="soft"><feGaussianBlur stdDeviation="12"/></filter>
+  <filter id="fine"><feGaussianBlur stdDeviation="3.5"/></filter>
+  <filter id="hair"><feGaussianBlur stdDeviation="0.7"/></filter>
+
+  <pattern id="grain" x="0" y="0" width="26" height="26" patternUnits="userSpaceOnUse">
+    <circle cx="6" cy="8" r="0.9" fill="#e8d5a8" opacity="0.5"/>
+    <circle cx="19" cy="20" r="0.7" fill="#e8d5a8" opacity="0.4"/>
+  </pattern>
+
+  <!-- specimen outline: a tumbled nugget, right of centre -->
+  <path id="spec" d="M 1050 500
+    C 1042 372, 1150 258, 1330 250
+    C 1500 242, 1640 340, 1662 480
+    C 1684 622, 1580 736, 1408 758
+    C 1230 780, 1058 664, 1050 500 Z"/>
+  <clipPath id="specclip"><use xlink:href="#spec"/></clipPath>
+</defs>
+
+<!-- ============ the page ============ -->
+<rect width="1920" height="1080" fill="url(#paper)"/>
+<rect width="1920" height="1080" fill="url(#grain)"/>
+
+<!-- soft daylight falling across the sheet from upper left -->
+<ellipse cx="420" cy="120" rx="900" ry="500" fill="#fffdf7" opacity="0.5" filter="url(#soft)"/>
+
+<!-- plate frame: double rule -->
+<rect x="46" y="46" width="1828" height="988" fill="none" stroke="#e8d5a8" stroke-width="3"/>
+<rect x="60" y="60" width="1800" height="960" fill="none" stroke="#9a6830" stroke-width="1" opacity="0.5"/>
+
+<!-- ============ light through the stone, cast onto the paper ============ -->
+<ellipse cx="1470" cy="840" rx="360" ry="110" fill="url(#caustic)" filter="url(#soft)"/>
+<!-- caustic arcs — focused ribbons of light -->
+<g fill="none" stroke="#f0c840" stroke-linecap="round" filter="url(#fine)">
+  <path d="M 1300 828 C 1420 868, 1560 872, 1680 830" stroke-width="9" opacity="0.5"/>
+  <path d="M 1350 862 C 1450 892, 1560 892, 1650 860" stroke-width="6" opacity="0.4"/>
+</g>
+<!-- contact shadow -->
+<ellipse cx="1350" cy="762" rx="290" ry="34" fill="#9a6830" opacity="0.20" filter="url(#fine)"/>
+
+<!-- ============ the specimen ============ -->
+<use xlink:href="#spec" fill="url(#stone)"/>
+
+<g clip-path="url(#specclip)">
+  <!-- resin flow layers -->
+  <g fill="none" stroke="#a05800" stroke-linecap="round">
+    <path d="M 1110 380 C 1240 316, 1440 308, 1590 386" stroke-width="26" opacity="0.18" filter="url(#fine)"/>
+    <path d="M 1090 500 C 1250 420, 1480 412, 1640 508" stroke-width="32" opacity="0.20" filter="url(#fine)"/>
+    <path d="M 1110 620 C 1270 548, 1470 542, 1620 636" stroke-width="28" opacity="0.18" filter="url(#fine)"/>
+  </g>
+  <!-- growth rings -->
+  <g fill="none" stroke="#7d4400">
+    <path d="M 1160 400 C 1260 344, 1420 338, 1540 402" stroke-width="2" opacity="0.35" filter="url(#hair)"/>
+    <path d="M 1130 478 C 1260 402, 1460 394, 1600 480" stroke-width="2" opacity="0.32" filter="url(#hair)"/>
+    <path d="M 1112 560 C 1265 468, 1490 460, 1636 566" stroke-width="2.5" opacity="0.28" filter="url(#hair)"/>
+    <path d="M 1128 648 C 1285 556, 1480 550, 1612 652" stroke-width="2" opacity="0.25" filter="url(#hair)"/>
+  </g>
+
+  <!-- transmitted daylight blazing through the thin lower-right edge -->
+  <ellipse cx="1520" cy="640" rx="200" ry="170" fill="url(#through)"/>
+  <ellipse cx="1560" cy="670" rx="90" ry="70" fill="#fffdf7" opacity="0.35" filter="url(#fine)"/>
+
+  <!-- the inclusion: a fern pinna -->
+  <g transform="translate(1290 470) rotate(-24)">
+    <path d="M -110 0 C -60 -6, 60 -6, 118 4" fill="none" stroke="#7d4400" stroke-width="3.5" opacity="0.85"/>
+    <g fill="#7d4400" opacity="0.75">
+      <ellipse cx="-88" cy="-14" rx="20" ry="5.5" transform="rotate(-38 -88 -14)"/>
+      <ellipse cx="-58" cy="-17" rx="24" ry="6.5" transform="rotate(-36 -58 -17)"/>
+      <ellipse cx="-26" cy="-19" rx="27" ry="7" transform="rotate(-34 -26 -19)"/>
+      <ellipse cx="8"   cy="-20" rx="27" ry="7" transform="rotate(-32 8 -20)"/>
+      <ellipse cx="42"  cy="-18" rx="24" ry="6.5" transform="rotate(-30 42 -18)"/>
+      <ellipse cx="74"  cy="-14" rx="20" ry="5.5" transform="rotate(-28 74 -14)"/>
+      <ellipse cx="100" cy="-9"  rx="15" ry="4.5" transform="rotate(-26 100 -9)"/>
+      <ellipse cx="-88" cy="12" rx="20" ry="5.5" transform="rotate(38 -88 12)"/>
+      <ellipse cx="-58" cy="15" rx="24" ry="6.5" transform="rotate(36 -58 15)"/>
+      <ellipse cx="-26" cy="17" rx="27" ry="7" transform="rotate(34 -26 17)"/>
+      <ellipse cx="8"   cy="18" rx="27" ry="7" transform="rotate(32 8 18)"/>
+      <ellipse cx="42"  cy="16" rx="24" ry="6.5" transform="rotate(30 42 16)"/>
+      <ellipse cx="74"  cy="12" rx="20" ry="5.5" transform="rotate(28 74 12)"/>
+      <ellipse cx="100" cy="8"  rx="15" ry="4.5" transform="rotate(26 100 8)"/>
+    </g>
+  </g>
+
+  <!-- air bubbles: bright in transmitted light -->
+  <g>
+    <g transform="translate(1470 380)">
+      <circle r="11" fill="#fffdf7" opacity="0.45"/>
+      <circle r="11" fill="none" stroke="#a05800" stroke-width="1.4" opacity="0.5"/>
+    </g>
+    <g transform="translate(1180 620)">
+      <circle r="8" fill="#fffdf7" opacity="0.4"/>
+      <circle r="8" fill="none" stroke="#a05800" stroke-width="1.2" opacity="0.45"/>
+    </g>
+    <g transform="translate(1395 690)">
+      <circle r="5.5" fill="#fffdf7" opacity="0.4"/>
+      <circle r="5.5" fill="none" stroke="#a05800" stroke-width="1" opacity="0.4"/>
+    </g>
+  </g>
+
+  <!-- surface polish -->
+  <path d="M 1110 350 C 1230 272, 1420 258, 1570 320" fill="none" stroke="#fffdf7" stroke-width="22" stroke-linecap="round" opacity="0.35" filter="url(#fine)"/>
+  <ellipse cx="1245" cy="316" rx="40" ry="14" transform="rotate(-16 1245 316)" fill="#fff" opacity="0.65" filter="url(#hair)"/>
+</g>
+
+<!-- rim -->
+<use xlink:href="#spec" fill="none" stroke="#7d4400" stroke-width="3" opacity="0.55"/>
+<use xlink:href="#spec" fill="none" stroke="#f0c840" stroke-width="1.2" opacity="0.6"/>
+
+<!-- ============ annotations ============ -->
+<g font-family="'Courier New', Courier, monospace" fill="#5c3a10">
+  <text x="200" y="330" font-size="30" letter-spacing="2">Fig. 1 — succinite</text>
+  <text x="200" y="374" font-size="19" fill="#9a6830">Baltic amber, Eocene, c. 44 MYA</text>
+  <text x="200" y="404" font-size="19" fill="#9a6830">viewed in transmitted daylight</text>
+
+  <text x="200" y="520" font-size="17" fill="#9a6830">a. fern pinna, complete</text>
+  <text x="200" y="552" font-size="17" fill="#9a6830">b. air vesicle, 2 mm</text>
+  <text x="200" y="584" font-size="17" fill="#9a6830">c. resin flow banding</text>
+</g>
+
+<!-- leader lines -->
+<g fill="none" stroke="#9a6830" stroke-width="1.2" opacity="0.6">
+  <path d="M 420 514 C 640 500, 920 480, 1176 470"/>
+  <path d="M 400 546 C 640 570, 920 608, 1168 618"/>
+  <path d="M 418 578 C 660 640, 900 680, 1118 654"/>
+</g>
+<g fill="#9a6830" opacity="0.7">
+  <circle cx="1176" cy="470" r="3"/>
+  <circle cx="1168" cy="618" r="3"/>
+  <circle cx="1118" cy="654" r="3"/>
+</g>
+
+<!-- scale bar -->
+<g stroke="#5c3a10" stroke-width="1.6">
+  <line x1="1150" y1="920" x2="1350" y2="920"/>
+  <line x1="1150" y1="912" x2="1150" y2="928"/>
+  <line x1="1250" y1="915" x2="1250" y2="925"/>
+  <line x1="1350" y1="912" x2="1350" y2="928"/>
+</g>
+<text x="1250" y="952" font-family="'Courier New', Courier, monospace" font-size="15" fill="#5c3a10" text-anchor="middle">10 mm</text>
+
+<!-- plate caption -->
+<text x="960" y="1000" font-family="'Courier New', Courier, monospace" font-size="16" fill="#9a6830" text-anchor="middle" letter-spacing="6" opacity="0.85">AMBER LINUX · SPECIMEN PLATE I</text>
+
+<!-- watermark -->
+<text x="1850" y="1062" font-family="monospace" font-size="13" fill="#a05800" opacity="0.35" text-anchor="end">AMBER LINUX · SPECIMEN</text>
+</svg>

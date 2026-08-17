@@ -1,0 +1,116 @@
+@use 'vars' as *;
+treeview.view {
+  border-left-color: rgba(255, 255, 255, 0.22);
+  border-top-color: rgba(255, 255, 255, 0.22); }
+  * {
+    -GtkTreeView-horizontal-separator: 4;
+    -GtkTreeView-grid-line-width: 1;
+    -GtkTreeView-grid-line-pattern: '';
+    -GtkTreeView-tree-line-width: 1;
+    -GtkTreeView-tree-line-pattern: '';
+    -GtkTreeView-expander-size: 16; }
+  treeview.view acceleditor > label {
+    background-color: #{$accent}; }
+  treeview.view:selected, treeview.view:selected:focus {
+    border-radius: 0;
+    border-left-color: #b8b9bd;
+    border-top-color: #{$fg-transparent}; }
+  treeview.view:disabled {
+    color: #{$fg-low}; }
+    treeview.view:disabled:selected {
+      color: #a9abaf; }
+  treeview.view.separator {
+    min-height: 2px;
+    color: rgba(0, 0, 0, 0.1); }
+  treeview.view:drop(active) {
+    border-style: solid none;
+    border-width: 1px;
+    border-color: rgba(174, 176, 180, 0.935); }
+    treeview.view:drop(active).after {
+      border-top-style: none; }
+    treeview.view:drop(active).before {
+      border-bottom-style: none; }
+  treeview.view.expander {
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+    color: rgba(137, 137, 140, 0.935); }
+    treeview.view.expander:dir(rtl) {
+      -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl"); }
+    treeview.view.expander:hover {
+      color: #{$fg-high}; }
+    treeview.view.expander:selected {
+      color: #d4d5d7; }
+      treeview.view.expander:selected:hover {
+        color: #FFFFFF; }
+    treeview.view.expander:checked {
+      -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
+  treeview.view.progressbar, treeview.view.progressbar:focus {
+    color: #FFFFFF;
+    border-radius: 2px;
+    background-color: #{$accent}; }
+    treeview.view.progressbar:selected, treeview.view.progressbar:selected:focus, treeview.view.progressbar:focus:selected, treeview.view.progressbar:focus:selected:focus {
+      color: #{$accent};
+      box-shadow: none;
+      background-color: #FFFFFF; }
+  treeview.view.trough {
+    color: #{$fg-high};
+    background-color: #{$bg-darkest};
+    border-radius: 2px;
+    border: 1px solid #{$bg-darker}; }
+    treeview.view.trough:selected, treeview.view.trough:selected:focus {
+      color: #FFFFFF;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 2px;
+      border-width: 0; }
+  treeview.view header button {
+    padding: 3px 6px;
+    font-weight: bold;
+    color: rgba(204, 204, 205, 0.896);
+    background-color: #{$bg-dark};
+    background-image: none;
+    border-style: none solid solid none;
+    border-radius: 0;
+    border-color: #{$bg-darker}; }
+    treeview.view header button:active, treeview.view header button:hover {
+      background-color: #{$bg-subtle}; }
+    treeview.view header button:active:hover {
+      color: #{$fg-high}; }
+    treeview.view header button:disabled {
+      border-color: #{$bg};
+      background-image: none; }
+    treeview.view header button:last-child {
+      border-right-style: none; }
+  treeview.view button.dnd, treeview.view button.dnd:selected, treeview.view button.dnd:hover, treeview.view button.dnd:active,
+  treeview.view header.button.dnd,
+  treeview.view header.button.dnd:selected,
+  treeview.view header.button.dnd:hover,
+  treeview.view header.button.dnd:active {
+    transition: none;
+    color: #{$accent};
+    box-shadow: inset 1px 1px 0 1px #{$accent}, inset -1px 0 0 1px #{$accent}, inset 1px 1px #{$bg}, inset -1px 0 #{$bg}; }
+
+menubar,
+.menubar {
+  -GtkWidget-window-dragging: true;
+  padding: 0px;
+  background-color: #{$bg-darkest};
+  color: #{$fg-high}; }
+  menubar:backdrop,
+  .menubar:backdrop {
+    color: rgba(255, 255, 255, 0.57); }
+  menubar > menuitem,
+  .menubar > menuitem {
+    padding: 6px 8px;
+    border: solid transparent;
+    border-width: 0; }
+    menubar > menuitem:hover,
+    .menubar > menuitem:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #{$fg-high}; }
+    menubar > menuitem:disabled,
+    .menubar > menuitem:disabled {
+      color: rgba(255, 255, 255, 0.27);
+      border-color: transparent; }
+    menubar > menuitem > label:disabled,
+    .menubar > menuitem > label:disabled {
+      color: #{$fg-low}; }
+

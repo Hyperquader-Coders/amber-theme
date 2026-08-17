@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+<defs>
+  <radialGradient id="bg" cx="50%" cy="50%" r="60%">
+    <stop offset="0%" stop-color="#0e0b00"/>
+    <stop offset="100%" stop-color="#040300"/>
+  </radialGradient>
+  <!-- Dim base dot -->
+  <radialGradient id="dg" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#c87000"/>
+    <stop offset="100%" stop-color="#6a3800" stop-opacity="0"/>
+  </radialGradient>
+  <!-- Bright dot -->
+  <radialGradient id="bg2" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#ffd060"/>
+    <stop offset="60%" stop-color="#f5a623"/>
+    <stop offset="100%" stop-color="#f5a623" stop-opacity="0"/>
+  </radialGradient>
+  <!-- Scanline overlay -->
+  <pattern id="scan" x="0" y="0" width="1" height="4" patternUnits="userSpaceOnUse">
+    <rect x="0" y="0" width="1920" height="1" fill="#000000" opacity="0.25"/>
+  </pattern>
+  <!-- Dim dot tile (24px grid) -->
+  <pattern id="dim-dot" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
+    <circle cx="12" cy="12" r="2.8" fill="#c87000" opacity="0.22"/>
+  </pattern>
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="4" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="bloom">
+    <feGaussianBlur stdDeviation="20"/>
+  </filter>
+  <filter id="haze">
+    <feGaussianBlur stdDeviation="60"/>
+  </filter>
+</defs>
+
+<!-- Background -->
+<rect width="1920" height="1080" fill="url(#bg)"/>
+
+<!-- Base phosphor dot field -->
+<rect width="1920" height="1080" fill="url(#dim-dot)"/>
+
+<!-- Warm centre bloom -->
+<ellipse cx="960" cy="540" rx="600" ry="400" fill="#c87000" opacity="0.06" filter="url(#haze)"/>
+
+<!-- Bright phosphor dots — spelling / forming patterns
+     Arranged to form a "10" shape in the dot grid, using brighter dots -->
+
+<!-- Left part of "1" — column ~x=720 -->
+<g filter="url(#glow)">
+  <!-- Digit "1" — vertical bar at x=720, y=240 to 840 -->
+  <circle cx="720" cy="240" r="5" fill="#ffd060" opacity="0.9"/>
+  <circle cx="720" cy="264" r="5" fill="#f5a623" opacity="0.85"/>
+  <circle cx="720" cy="288" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="312" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="336" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="360" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="384" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="408" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="432" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="456" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="480" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="504" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="528" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="552" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="576" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="600" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="624" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="648" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="672" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="696" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="720" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="744" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="768" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="720" cy="792" r="5" fill="#f5a623" opacity="0.85"/>
+  <circle cx="720" cy="816" r="5" fill="#ffd060" opacity="0.9"/>
+  <!-- Serif at top -->
+  <circle cx="696" cy="264" r="4" fill="#f5a623" opacity="0.7"/>
+  <circle cx="744" cy="264" r="4" fill="#f5a623" opacity="0.7"/>
+  <!-- Diagonal to top -->
+  <circle cx="696" cy="240" r="4.5" fill="#f5a623" opacity="0.75"/>
+
+  <!-- Digit "0" — oval shape x=840-1020, y=240-840 -->
+  <!-- Top arc -->
+  <circle cx="936" cy="240" r="5" fill="#ffd060" opacity="0.9"/>
+  <circle cx="960" cy="240" r="5" fill="#ffd060" opacity="0.95"/>
+  <circle cx="984" cy="240" r="5" fill="#ffd060" opacity="0.9"/>
+  <circle cx="912" cy="252" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="1008" cy="252" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="888" cy="276" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="1032" cy="276" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="864" cy="300" r="4" fill="#f5a623" opacity="0.75"/>
+  <circle cx="1056" cy="300" r="4" fill="#f5a623" opacity="0.75"/>
+  <!-- Left side -->
+  <circle cx="852" cy="336" r="4" fill="#f5a623" opacity="0.75"/>
+  <circle cx="840" cy="384" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="840" cy="432" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="840" cy="480" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="840" cy="528" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="840" cy="576" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="840" cy="624" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="840" cy="672" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="840" cy="720" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="852" cy="756" r="4" fill="#f5a623" opacity="0.75"/>
+  <!-- Right side -->
+  <circle cx="1068" cy="336" r="4" fill="#f5a623" opacity="0.75"/>
+  <circle cx="1080" cy="384" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="1080" cy="432" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="1080" cy="480" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="1080" cy="528" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="1080" cy="576" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="1080" cy="624" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="1080" cy="672" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="1080" cy="720" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="1068" cy="756" r="4" fill="#f5a623" opacity="0.75"/>
+  <!-- Bottom arc -->
+  <circle cx="864" cy="780" r="4" fill="#f5a623" opacity="0.75"/>
+  <circle cx="888" cy="800" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="912" cy="812" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="936" cy="816" r="5" fill="#f5a623" opacity="0.85"/>
+  <circle cx="960" cy="816" r="5" fill="#ffd060" opacity="0.9"/>
+  <circle cx="984" cy="816" r="5" fill="#f5a623" opacity="0.85"/>
+  <circle cx="1008" cy="812" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="1032" cy="800" r="4.5" fill="#f5a623" opacity="0.8"/>
+  <circle cx="1056" cy="780" r="4" fill="#f5a623" opacity="0.75"/>
+
+  <!-- Scattered bright extras across field -->
+  <circle cx="200" cy="180" r="4" fill="#f5a623" opacity="0.55"/>
+  <circle cx="350" cy="420" r="3.5" fill="#c87000" opacity="0.6"/>
+  <circle cx="520" cy="300" r="4" fill="#f5a623" opacity="0.5"/>
+  <circle cx="150" cy="650" r="3.5" fill="#c87000" opacity="0.55"/>
+  <circle cx="480" cy="750" r="4" fill="#f5a623" opacity="0.5"/>
+  <circle cx="1400" cy="200" r="4" fill="#f5a623" opacity="0.55"/>
+  <circle cx="1600" cy="450" r="3.5" fill="#c87000" opacity="0.6"/>
+  <circle cx="1750" cy="300" r="4" fill="#f5a623" opacity="0.5"/>
+  <circle cx="1350" cy="700" r="3.5" fill="#c87000" opacity="0.55"/>
+  <circle cx="1680" cy="820" r="4" fill="#f5a623" opacity="0.5"/>
+</g>
+
+<!-- Scanline overlay -->
+<rect width="1920" height="1080" fill="url(#scan)"/>
+
+<!-- Vignette -->
+<radialGradient id="vig" cx="50%" cy="50%" r="70%">
+  <stop offset="50%" stop-color="transparent"/>
+  <stop offset="100%" stop-color="#020100"/>
+</radialGradient>
+<rect width="1920" height="1080" fill="url(#vig)"/>
+
+<!-- Watermark -->
+<text x="960" y="960" font-family="monospace" font-size="13" fill="#f5a623" opacity="0.2" text-anchor="middle" letter-spacing="6">AMBER LINUX · PHOSPHOR GRID · P3 PHOSPHOR EMISSION</text>
+</svg>

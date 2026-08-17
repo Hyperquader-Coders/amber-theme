@@ -1,0 +1,283 @@
+@use 'vars' as *;
+
+tooltip {
+  border-radius: 5px;
+  border: none; }
+  tooltip.background {
+    background-color: rgba(106, 109, 116, 0.95);
+    background-clip: padding-box;
+    color: #FFFFFF;
+    padding: 6px 10px; }
+    tooltip.background label {
+      padding: 4px; }
+
+colorswatch {
+  outline-color: rgba($fg, 0.3);
+  outline-style: dashed;
+  outline-offset: -3px; }
+
+colorswatch:focus:focus-visible {
+  outline-width: 1px; }
+
+colorswatch, colorswatch:drop(active) {
+  border-style: none; }
+
+colorswatch.top {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px; }
+  colorswatch.top overlay {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px; }
+
+colorswatch.bottom {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px; }
+  colorswatch.bottom overlay {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px; }
+
+colorswatch.left, colorswatch:first-child:not(.top) {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px; }
+  colorswatch.left overlay, colorswatch:first-child:not(.top) overlay {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px; }
+
+colorswatch.right, colorswatch:last-child:not(.bottom) {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px; }
+  colorswatch.right overlay, colorswatch:last-child:not(.bottom) overlay {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px; }
+
+colorswatch.dark overlay {
+  color: rgba(255, 255, 255, 0.7); }
+  colorswatch.dark overlay:hover {
+    border-color: #{$bg-darker}; }
+
+colorswatch.light overlay {
+  color: rgba(0, 0, 0, 0.7); }
+  colorswatch.light overlay:hover {
+    border-color: #{$bg-darker}; }
+
+colorswatch overlay {
+  border: 1px solid #{$bg-darker}; }
+  colorswatch overlay:hover {
+    background-color: rgba(255, 255, 255, 0.2); }
+
+colorswatch:disabled {
+  opacity: 0.5; }
+  colorswatch:disabled overlay {
+    border-color: rgba(0, 0, 0, 0.6);
+    box-shadow: none; }
+
+colorswatch#add-color-button {
+  border-style: solid;
+  border-width: 1px;
+  color: #{$fg-high};
+  border-color: #{$bg-darker};
+  background-color: #{$bg-subtle}; }
+  colorswatch#add-color-button:hover {
+    color: #{$fg-high};
+    border-color: #{$bg-darker};
+    background-color: #{$bg-mid}; }
+  colorswatch#add-color-button overlay {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none; }
+
+button.color {
+  padding: 0; }
+  button.color colorswatch:first-child:last-child, button.color colorswatch:first-child:last-child overlay {
+    margin: 4px;
+    border-radius: 0; }
+
+colorchooser .popover.osd {
+  border-radius: 3px; }
+
+.content-view {
+  background-color: #{$bg}; }
+  .content-view:hover {
+    -gtk-icon-filter: brightness(1.2); }
+  .content-view .tile {
+    margin: 2px;
+    background-color: black;
+    border-radius: 0;
+    padding: 0; }
+    .content-view .tile:active, .content-view .tile:selected {
+      background-color: #{$accent}; }
+    .content-view .tile:disabled {
+      background-color: #{$bg-subtle}; }
+
+.scale-popup button:hover {
+  color: #{$fg-high};
+  border-color: #{$bg-darker};
+  background-color: #{$bg-mid}; }
+
+window {
+  border-width: 0px; }
+  window.csd {
+    box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.75);
+    margin: 0;
+    border-radius: 8px 8px 0 0; }
+    window.csd:backdrop {
+      box-shadow: 0 3px 9px 1px transparent, 0 2px 6px 2px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.75); }
+    window.csd.popup {
+      border-radius: 8px;
+      box-shadow: 0 3px 9px 1px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 0, 0, 0.75); }
+    window.csd.dialog.message {
+      border-radius: 8px 8px 0 0; }
+  window.fullscreen, window.maximized {
+    border-radius: 0;
+    box-shadow: none; }
+  window.tiled, window.tiled-top, window.tiled-right, window.tiled-bottom, window.tiled-left {
+    border-radius: 0;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.75), 0 0 0 20px transparent; }
+    window.tiled:backdrop, window.tiled-top:backdrop, window.tiled-right:backdrop, window.tiled-bottom:backdrop, window.tiled-left:backdrop {
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.75), 0 0 0 20px transparent; }
+  window.popup {
+    box-shadow: none;
+    border-radius: 0; }
+  window.ssd {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.75); }
+  window.ssd:backdrop {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.75); }
+  window.ssd.maximized, window.ssd.maximized:backdrop {
+    box-shadow: none; }
+  window.solid-csd {
+    border-radius: 0;
+    margin: 0;
+    background-color: #{$bg-darkest};
+    box-shadow: none; }
+
+tooltip.csd {
+  border-radius: 5px;
+  box-shadow: none; }
+
+.view:selected, .view:selected:focus,
+textview > text:selected,
+textview > text:selected:focus, textview > text > selection:focus, textview > text > selection, iconview:selected, iconview:selected:focus, flowbox > flowboxchild:selected, gridview > child:selected,
+entry > text > selection, spinbutton text > text > selection, columnview.view:selected, columnview.view:selected:focus,
+treeview.view:selected,
+treeview.view:selected:focus, row:selected, calendar > grid > label.today, calendar > grid > label.today:selected, calendar > grid > label.today:focus {
+  background-color: #{$accent}; }
+  row:selected label, label:selected, .view:selected, .view:selected:focus,
+  textview > text:selected,
+  textview > text:selected:focus, textview > text > selection:focus, textview > text > selection, iconview:selected, iconview:selected:focus, flowbox > flowboxchild:selected, gridview > child:selected,
+  entry > text > selection, spinbutton text > text > selection, columnview.view:selected, columnview.view:selected:focus,
+  treeview.view:selected,
+  treeview.view:selected:focus, row:selected, calendar > grid > label.today, calendar > grid > label.today:selected, calendar > grid > label.today:focus {
+    color: #FFFFFF; }
+    label:disabled > selection, row:selected label:disabled, label:disabled:selected, .view:disabled:selected,
+    textview > text:disabled:selected,
+    textview > text:disabled:selected:focus, textview > text > selection:disabled, iconview:disabled:selected, iconview:disabled:selected:focus, flowbox > flowboxchild:disabled:selected, gridview > child:disabled:selected,
+    entry > text > selection:disabled, spinbutton text > text > selection:disabled, row:disabled:selected, calendar > grid > label.today:disabled {
+      color: #b8b9bd; }
+
+shortcuts-section {
+  margin: 20px; }
+
+.shortcuts-search-results {
+  margin: 20px;
+  border-spacing: 24px; }
+
+shortcut {
+  border-spacing: 6px; }
+
+shortcut > .keycap {
+  min-width: 20px;
+  min-height: 25px;
+  margin-top: 2px;
+  padding-bottom: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  color: #{$fg-high};
+  background-color: #{$bg};
+  border: 1px solid;
+  border-color: #{$bg-darker};
+  border-radius: 5px;
+  box-shadow: inset 0 -3px #25252a;
+  font-size: smaller; }
+
+:not(decoration):not(window):drop(active):focus,
+:not(decoration):not(window):drop(active) {
+  border-color: #{$accent};
+  box-shadow: inset 0 0 0 1px #{$accent};
+  caret-color: #{$accent}; }
+
+stackswitcher.circular {
+  border-spacing: 12px; }
+  stackswitcher.circular > button.circular,
+  stackswitcher.circular > button.text-button.circular {
+    min-width: 0;
+    min-height: 0;
+    padding: 0; }
+
+/* Outline for low res icons */
+.lowres-icon {
+  -gtk-icon-shadow: none; }
+
+/* Drapshadow for large icons */
+.icon-dropshadow {
+  -gtk-icon-shadow: none; }
+
+popover.emoji-picker > contents {
+  padding: 0; }
+
+.emoji-searchbar {
+  padding: 5px;
+  border-spacing: 6px;
+  border-bottom: 1px solid #{$bg-darker}; }
+
+.emoji-toolbar {
+  padding: 5px;
+  border-spacing: 6px;
+  border-top: 1px solid #{$bg-darker}; }
+
+button.emoji-section:active, button.emoji-section:checked {
+  border-color: transparent; }
+
+popover.emoji-picker emoji {
+  font-size: x-large;
+  padding: 5px;
+  border-radius: 2px; }
+  popover.emoji-picker emoji:focus, popover.emoji-picker emoji:hover {
+    background: #{$accent}; }
+
+emoji-completion-row > box {
+  border-spacing: 8px;
+  padding: 2px 8px; }
+
+emoji-completion-row:focus,
+emoji-completion-row:hover {
+  background-color: #{$accent};
+  color: #FFFFFF; }
+
+emoji-completion-row emoji:focus,
+emoji-completion-row emoji:hover {
+  background-color: #{$accent};
+  color: #FFFFFF; }
+
+popover.entry-completion > contents {
+  padding: 0; }
+
+statusbar {
+  padding: 5px 8px 5px 8px; }
+
+menubutton > button > box {
+  border-spacing: 6px; }
+
+menubutton arrow {
+  min-height: 16px;
+  min-width: 16px; }
+  menubutton arrow.none {
+    -gtk-icon-source: -gtk-icontheme("open-menu-symbolic"); }
+  menubutton arrow.down {
+    -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
+  menubutton arrow.up {
+    -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
+  menubutton arrow.left {
+    -gtk-icon-source: -gtk-icontheme("pan-start-symbolic"); }
+  menubutton arrow.right {
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
+

@@ -1,0 +1,65 @@
+# Build the GTK/Cinnamon theme variants with the standalone Dart Sass CLI —
+# no Node/Bun/npm involved (see build.sh).
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      # `make deps` also installs the packaging toolchain (lintian, the
+      # Mint-Y-Yaru/Yaru icon bases) that `deb` needs — this job only compiles
+      # SCSS, so it fetches just the sass CLI `make all` needs.
+      - name: install
+        run: make fetch-sass
+
+      - name: build
+        run: make all
+
+      - name: variants produced
+        run: ls -1 dist/
+
+  package:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      # mint-y-icons ships from Linux Mint's own apt repo, not Ubuntu's —
+      # build-icons.sh reads it (and Ubuntu's own yaru-theme-icon) as the
+      # upstream base for the generated folder icon themes. Bootstrapped the
+      # same way a fresh Mint install trusts its own repo: download the
+      # keyring .deb directly (no keyserver — those are a CI flakiness risk)
+      # and dpkg -i it. No `[signed-by=...]` on the sources.list line — the
+      # package also drops its key into /etc/apt/trusted.gpg.d/, which apt
+      # scans globally, and a first real CI run showed apt's signed-by parser
+      # rejecting that same keyring file with NO_PUBKEY even though the key
+      # is verifiably present (`gpg --show-keys`); trusted.gpg.d is older but
+      # actually works here. Codename `zena` (Mint 22.3) targets the same
+      # Ubuntu `noble` base as the `ubuntu-24.04` runner — see
+      # amberlinux-apt/docs/SPEC.md.
+      - name: add Linux Mint apt repo
+        run: |
+          curl -fsSL -o /tmp/linuxmint-keyring.deb \
+            http://packages.linuxmint.com/pool/main/l/linuxmint-keyring/linuxmint-keyring_2022.06.21_all.deb
+          sudo dpkg -i /tmp/linuxmint-keyring.deb
+          echo "deb http://packages.linuxmint.com zena main upstream import backport" \
+            | sudo tee /etc/apt/sources.list.d/linuxmint.list
+          sudo apt-get update
+
+      - name: install
+        run: make deps
+
+      - name: package
+        run: make ci
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: amber-theme-deb
+          path: dist/*.deb

@@ -1,0 +1,660 @@
+@use 'vars' as *;
+
+@keyframes needs_attention {
+  from {
+    background-image: radial-gradient(farthest-side, #{$accent} 0%, #{$accent-trans} 0%); }
+  to {
+    background-image: radial-gradient(farthest-side, #{$accent} 95%, #{$accent-trans}); } }
+
+popover.background.touch-selection button, popover.background.magnifier button,
+button {
+  min-height: 22px;
+  min-width: 20px;
+  transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 5px 8px;
+  color: #{$fg-high};
+  border-color: #{$bg-darker};
+  background-color: #{$bg-subtle}; }
+  popover.background.touch-selection button, popover.background.magnifier button,
+  button {
+    outline-color: rgba($fg, 0.3);
+    outline-style: dashed;
+    outline-offset: -3px; }
+  popover.background.touch-selection button:focus:focus-visible, popover.background.magnifier button:focus:focus-visible,
+  button:focus:focus-visible {
+    outline-width: 1px; }
+  popover.background.touch-selection button:hover, popover.background.magnifier button:hover,
+  button:hover {
+    color: #{$fg-high};
+    border-color: #{$bg-darker};
+    background-color: #{$bg-mid};
+    -gtk-icon-filter: brightness(1.2); }
+  popover.background.touch-selection button.keyboard-activating, popover.background.magnifier button.keyboard-activating, popover.background.touch-selection button:active, popover.background.magnifier button:active, popover.background.touch-selection button:checked, popover.background.magnifier button:checked,
+  button.keyboard-activating,
+  button:active,
+  button:checked {
+    color: #{$fg-high};
+    border-color: #080808;
+    background-color: rgba(0, 0, 0, 0.15);
+    background-clip: padding-box;
+    transition-duration: 50ms; }
+    
+    button.keyboard-activating:not(:disabled) label:disabled,
+    button:active:not(:disabled) label:disabled,
+    button:checked:not(:disabled) label:disabled {
+      color: inherit;
+      opacity: 0.6; }
+  popover.background.touch-selection button:disabled, popover.background.magnifier button:disabled,
+  button:disabled {
+    color: #{$fg-low};
+    border-color: rgba(32, 32, 35, 0.55);
+    background-color: rgba(51, 51, 56, 0.55);
+    -gtk-icon-filter: opacity(0.5); }
+    popover.background.touch-selection button:disabled label, popover.background.magnifier button:disabled label,
+    button:disabled label {
+      color: inherit; }
+    popover.background.touch-selection button:disabled:active, popover.background.magnifier button:disabled:active, popover.background.touch-selection button:disabled:checked, popover.background.magnifier button:disabled:checked,
+    button:disabled:active,
+    button:disabled:checked {
+      color: rgba(255, 255, 255, 0.67);
+      border-color: rgba(8, 8, 8, 0.85);
+      background-color: rgba(0, 0, 0, 0.1);
+      opacity: 0.6; }
+      
+      button:disabled:active label,
+      button:disabled:checked label {
+        color: inherit; }
+  button.sidebar-button, .toolbar > button,
+  .toolbar > :not(.linked) > button,
+  .toolbar :not(.linked) > menubutton > button,
+  .toolbar :not(.linked) > scalebutton > button,
+  .toolbar :not(.linked) > dropdown > button,
+  .toolbar :not(.linked) > colorbutton > button,
+  .toolbar :not(.linked) > fontbutton > button,
+  .toolbar :not(.linked) > appchooserbutton > button,
+  .toolbar :not(.linked) > combobox > box > button, popover.background.touch-selection button.flat, popover.background.magnifier button.flat,
+  button.flat {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    transition: none; }
+    button.sidebar-button:hover, .toolbar > button:hover,
+    .toolbar > :not(.linked) > button:hover,
+    .toolbar :not(.linked) > menubutton > button:hover,
+    .toolbar :not(.linked) > scalebutton > button:hover,
+    .toolbar :not(.linked) > dropdown > button:hover,
+    .toolbar :not(.linked) > colorbutton > button:hover,
+    .toolbar :not(.linked) > fontbutton > button:hover,
+    .toolbar :not(.linked) > appchooserbutton > button:hover,
+    .toolbar :not(.linked) > combobox > box > button:hover, popover.background.touch-selection button.flat:hover, popover.background.magnifier button.flat:hover,
+    button.flat:hover {
+      color: #{$fg-high};
+      border-color: #{$bg-darker};
+      background-color: #{$bg-mid};
+      transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition-duration: 350ms; }
+    button.keyboard-activating.sidebar-button, .toolbar > button.keyboard-activating,
+    .toolbar > :not(.linked) > button.keyboard-activating,
+    .toolbar :not(.linked) > menubutton > button.keyboard-activating,
+    .toolbar :not(.linked) > scalebutton > button.keyboard-activating,
+    .toolbar :not(.linked) > dropdown > button.keyboard-activating,
+    .toolbar :not(.linked) > colorbutton > button.keyboard-activating,
+    .toolbar :not(.linked) > fontbutton > button.keyboard-activating,
+    .toolbar :not(.linked) > appchooserbutton > button.keyboard-activating,
+    .toolbar :not(.linked) > combobox > box > button.keyboard-activating, button.sidebar-button:active, .toolbar > button:active,
+    .toolbar > :not(.linked) > button:active,
+    .toolbar :not(.linked) > menubutton > button:active,
+    .toolbar :not(.linked) > scalebutton > button:active,
+    .toolbar :not(.linked) > dropdown > button:active,
+    .toolbar :not(.linked) > colorbutton > button:active,
+    .toolbar :not(.linked) > fontbutton > button:active,
+    .toolbar :not(.linked) > appchooserbutton > button:active,
+    .toolbar :not(.linked) > combobox > box > button:active, button.sidebar-button:checked, .toolbar > button:checked,
+    .toolbar > :not(.linked) > button:checked,
+    .toolbar :not(.linked) > menubutton > button:checked,
+    .toolbar :not(.linked) > scalebutton > button:checked,
+    .toolbar :not(.linked) > dropdown > button:checked,
+    .toolbar :not(.linked) > colorbutton > button:checked,
+    .toolbar :not(.linked) > fontbutton > button:checked,
+    .toolbar :not(.linked) > appchooserbutton > button:checked,
+    .toolbar :not(.linked) > combobox > box > button:checked, popover.background.touch-selection button.flat.keyboard-activating, popover.background.magnifier button.flat.keyboard-activating, popover.background.touch-selection button.flat:active, popover.background.magnifier button.flat:active, popover.background.touch-selection button.flat:checked, popover.background.magnifier button.flat:checked,
+    button.flat.keyboard-activating,
+    button.flat:active,
+    button.flat:checked {
+      color: #{$fg-high};
+      border-color: #080808;
+      background-color: rgba(0, 0, 0, 0.15);
+      transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    button.sidebar-button:disabled, .toolbar > button:disabled,
+    .toolbar > :not(.linked) > button:disabled,
+    .toolbar :not(.linked) > menubutton > button:disabled,
+    .toolbar :not(.linked) > scalebutton > button:disabled,
+    .toolbar :not(.linked) > dropdown > button:disabled,
+    .toolbar :not(.linked) > colorbutton > button:disabled,
+    .toolbar :not(.linked) > fontbutton > button:disabled,
+    .toolbar :not(.linked) > appchooserbutton > button:disabled,
+    .toolbar :not(.linked) > combobox > box > button:disabled, popover.background.touch-selection button.flat:disabled, popover.background.magnifier button.flat:disabled,
+    button.flat:disabled {
+      border-color: transparent;
+      background-color: transparent;
+      background-image: none; }
+  popover.background.touch-selection button.image-button, popover.background.magnifier button.image-button, windowcontrols popover.background.touch-selection button, popover.background.touch-selection windowcontrols button, windowcontrols popover.background.magnifier button, popover.background.magnifier windowcontrols button,
+  button.image-button,
+  windowcontrols button {
+    min-width: 24px;
+    padding-left: 5px;
+    padding-right: 5px; }
+  popover.background.touch-selection button.text-button, popover.background.magnifier button.text-button,
+  button.text-button {
+    padding-left: 12px;
+    padding-right: 12px; }
+  windowcontrols button.text-button, popover.background.touch-selection button.text-button.image-button, popover.background.magnifier button.text-button.image-button,
+  button.text-button.image-button {
+    padding-left: 5px;
+    padding-right: 5px; }
+    windowcontrols button.text-button label:first-child,
+    button.text-button.image-button label:first-child {
+      padding-left: 8px;
+      padding-right: 2px; }
+    windowcontrols button.text-button label:last-child,
+    button.text-button.image-button label:last-child {
+      padding-right: 8px;
+      padding-left: 2px; }
+    windowcontrols button.text-button label:only-child,
+    button.text-button.image-button label:only-child {
+      padding-left: 8px;
+      padding-right: 8px; }
+    windowcontrols button.text-button.popup,
+    button.text-button.image-button.popup {
+      padding-right: 8px;
+      padding-left: 8px; }
+  popover.background.touch-selection button.arrow-button, popover.background.magnifier button.arrow-button,
+  button.arrow-button {
+    padding-left: 10px;
+    padding-right: 10px; }
+    popover.background.touch-selection button.arrow-button > box, popover.background.magnifier button.arrow-button > box,
+    button.arrow-button > box {
+      border-spacing: 4px; }
+  dropdown:drop(active) button.combo,
+  combobox:drop(active) button.combo, popover.background.touch-selection button:drop(active), popover.background.magnifier button:drop(active),
+  button:drop(active) {
+    color: #{$accent};
+    border-color: #{$accent};
+    box-shadow: none; }
+
+popover.background.touch-selection button.osd, popover.background.magnifier button.osd,
+button.osd {
+  color: #{$fg};
+  background-color: #353535;
+  border-color: #212121; }
+  popover.background.touch-selection button.osd.image-button, popover.background.magnifier button.osd.image-button, windowcontrols button.osd,
+  button.osd.image-button {
+    padding: 0;
+    min-height: 36px;
+    min-width: 36px; }
+  popover.background.touch-selection button.osd:hover, popover.background.magnifier button.osd:hover,
+  button.osd:hover {
+    color: #{$accent}; }
+  popover.background.touch-selection button.osd:active, popover.background.magnifier button.osd:active, popover.background.touch-selection button.osd:checked, popover.background.magnifier button.osd:checked,
+  button.osd:active,
+  button.osd:checked {
+    color: #{$fg};
+    border-color: rgba(22, 22, 22, 0.4);
+    background-color: rgba(0, 0, 0, 0.15); }
+  popover.background.touch-selection button.osd:disabled, popover.background.magnifier button.osd:disabled,
+  button.osd:disabled {
+    color: #{$bg-muted};
+    border-color: rgba(22, 22, 22, 0.4);
+    background-color: rgba(109, 109, 109, 0.25); }
+
+.osd popover.background.touch-selection button, popover.background.touch-selection .osd button, .osd popover.background.magnifier button, popover.background.magnifier .osd button, .osd button {
+  color: #{$fg};
+  border-color: rgba(22, 22, 22, 0.4);
+  background-color: rgba(109, 109, 109, 0.4); }
+  .osd popover.background.touch-selection button:hover, popover.background.touch-selection .osd button:hover, .osd popover.background.magnifier button:hover, popover.background.magnifier .osd button:hover, .osd button:hover {
+    color: #{$fg};
+    border-color: rgba(22, 22, 22, 0.4);
+    background-color: rgba(127, 127, 127, 0.5); }
+  .osd popover.background.touch-selection button:active, popover.background.touch-selection .osd button:active, .osd popover.background.magnifier button:active, popover.background.magnifier .osd button:active, .osd popover.background.touch-selection button:checked, popover.background.touch-selection .osd button:checked, .osd popover.background.magnifier button:checked, popover.background.magnifier .osd button:checked, .osd button:active, .osd button:checked {
+    background-clip: padding-box;
+    color: #{$fg};
+    border-color: rgba(22, 22, 22, 0.4);
+    background-color: rgba(0, 0, 0, 0.15); }
+  .osd popover.background.touch-selection button:disabled, popover.background.touch-selection .osd button:disabled, .osd popover.background.magnifier button:disabled, popover.background.magnifier .osd button:disabled, .osd button:disabled {
+    color: #{$bg-muted};
+    border-color: rgba(22, 22, 22, 0.4);
+    background-color: rgba(109, 109, 109, 0.25); }
+  .osd popover.background.touch-selection button.flat, popover.background.touch-selection .osd button.flat, .osd popover.background.magnifier button.flat, popover.background.magnifier .osd button.flat, .osd button.flat {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none; }
+    .osd button.flat:hover {
+      color: #{$fg};
+      border-color: rgba(22, 22, 22, 0.4);
+      background-color: rgba(127, 127, 127, 0.5); }
+    .osd button.flat:disabled {
+      color: #{$bg-muted};
+      border-color: rgba(22, 22, 22, 0.4);
+      background-color: rgba(109, 109, 109, 0.25);
+      background-image: none; }
+    .osd button.flat:active, .osd button.flat:checked {
+      color: #{$fg};
+      border-color: rgba(22, 22, 22, 0.4);
+      background-color: rgba(0, 0, 0, 0.15); }
+
+.osd popover.background.touch-selection .linked:not(.vertical):not(.path-bar) > button:hover:not(:checked):not(:active):not(:only-child), .osd popover.background.magnifier .linked:not(.vertical):not(.path-bar) > button:hover:not(:checked):not(:active):not(:only-child), .osd .linked:not(.vertical):not(.path-bar) > button:hover:not(:checked):not(:active):not(:only-child), .osd .linked:not(.vertical):not(.path-bar) > button:hover:not(:checked):not(:active) + button:not(:checked):not(:active) {
+  box-shadow: none; }
+
+popover.background.touch-selection button.suggested-action, popover.background.magnifier button.suggested-action,
+button.suggested-action {
+  background-clip: border-box;
+  color: #FFFFFF;
+  background-color: #{$success};
+  border-color: #{$success}; }
+  popover.background.touch-selection button.suggested-action, popover.background.magnifier button.suggested-action,
+  button.suggested-action {
+    outline-color: rgba($fg, 0.3);
+    outline-style: dashed;
+    outline-offset: -3px; }
+  
+  button.suggested-action:focus:focus-visible {
+    outline-width: 1px; }
+  popover.background.touch-selection button.suggested-action.flat, popover.background.magnifier button.suggested-action.flat,
+  button.suggested-action.flat {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    color: #{$success}; }
+  popover.background.touch-selection button.suggested-action:hover, popover.background.magnifier button.suggested-action:hover,
+  button.suggested-action:hover {
+    background-clip: border-box;
+    color: #FFFFFF;
+    background-color: #{$success-light};
+    border-color: #{$success-light}; }
+  popover.background.touch-selection button.suggested-action:active, popover.background.magnifier button.suggested-action:active, popover.background.touch-selection button.suggested-action:checked, popover.background.magnifier button.suggested-action:checked,
+  button.suggested-action:active,
+  button.suggested-action:checked {
+    background-clip: border-box;
+    color: #FFFFFF;
+    background-color: #{$success-dark};
+    border-color: #{$success-dark}; }
+  
+  button.suggested-action.flat:disabled {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    color: #{$fg-low}; }
+  popover.background.touch-selection button.suggested-action:disabled, popover.background.magnifier button.suggested-action:disabled,
+  button.suggested-action:disabled {
+    color: #{$fg-low};
+    border-color: rgba(32, 32, 35, 0.55);
+    background-color: rgba(51, 51, 56, 0.55); }
+    
+    button.suggested-action:disabled label {
+      color: inherit; }
+
+popover.background.touch-selection button.destructive-action, popover.background.magnifier button.destructive-action,
+button.destructive-action {
+  background-clip: border-box;
+  color: #FFFFFF;
+  background-color: #{$error};
+  border-color: #{$error}; }
+  popover.background.touch-selection button.destructive-action, popover.background.magnifier button.destructive-action,
+  button.destructive-action {
+    outline-color: rgba($fg, 0.3);
+    outline-style: dashed;
+    outline-offset: -3px; }
+  
+  button.destructive-action:focus:focus-visible {
+    outline-width: 1px; }
+  popover.background.touch-selection button.destructive-action.flat, popover.background.magnifier button.destructive-action.flat,
+  button.destructive-action.flat {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    color: #{$error}; }
+  popover.background.touch-selection button.destructive-action:hover, popover.background.magnifier button.destructive-action:hover,
+  button.destructive-action:hover {
+    background-clip: border-box;
+    color: #FFFFFF;
+    background-color: #{$error-light};
+    border-color: #{$error-light}; }
+  popover.background.touch-selection button.destructive-action:active, popover.background.magnifier button.destructive-action:active, popover.background.touch-selection button.destructive-action:checked, popover.background.magnifier button.destructive-action:checked,
+  button.destructive-action:active,
+  button.destructive-action:checked {
+    background-clip: border-box;
+    color: #FFFFFF;
+    background-color: #{$error-dark};
+    border-color: #{$error-dark}; }
+  
+  button.destructive-action.flat:disabled {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    color: #{$fg-low}; }
+  popover.background.touch-selection button.destructive-action:disabled, popover.background.magnifier button.destructive-action:disabled,
+  button.destructive-action:disabled {
+    color: #{$fg-low};
+    border-color: rgba(32, 32, 35, 0.55);
+    background-color: rgba(51, 51, 56, 0.55); }
+    
+    button.destructive-action:disabled label {
+      color: inherit; }
+
+popover.background.touch-selection stackswitcher > button > label, popover.background.magnifier stackswitcher > button > label, stackswitcher > button > label {
+  padding-left: 6px;
+  padding-right: 6px; }
+
+popover.background.touch-selection stackswitcher > button > image, popover.background.magnifier stackswitcher > button > image, stackswitcher > button > image {
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 3px;
+  padding-bottom: 3px; }
+
+popover.background.touch-selection stackswitcher > button.text-button, popover.background.magnifier stackswitcher > button.text-button, stackswitcher > button.text-button {
+  padding-left: 10px;
+  padding-right: 10px; }
+
+popover.background.touch-selection stackswitcher > button.image-button, popover.background.magnifier stackswitcher > button.image-button, windowcontrols popover.background.touch-selection stackswitcher > button, popover.background.touch-selection windowcontrols stackswitcher > button, windowcontrols popover.background.magnifier stackswitcher > button, popover.background.magnifier windowcontrols stackswitcher > button, stackswitcher > button.image-button, windowcontrols stackswitcher > button {
+  padding-left: 2px;
+  padding-right: 2px; }
+
+stackswitcher > button.needs-attention:active > label, stackswitcher > button.needs-attention:active > image, stackswitcher > button.needs-attention:checked > label, stackswitcher > button.needs-attention:checked > image {
+  animation: none;
+  background-image: none; }
+
+popover.background.touch-selection button stacksidebar row.needs-attention > label, stacksidebar popover.background.touch-selection button row.needs-attention > label, popover.background.magnifier button stacksidebar row.needs-attention > label, stacksidebar popover.background.magnifier button row.needs-attention > label, popover.background.touch-selection stackswitcher > button.needs-attention > label, popover.background.magnifier stackswitcher > button.needs-attention > label, popover.background.touch-selection stackswitcher > button.needs-attention > image, popover.background.magnifier stackswitcher > button.needs-attention > image,
+button stacksidebar row.needs-attention > label,
+stacksidebar button row.needs-attention > label,
+stackswitcher > button.needs-attention > label,
+stackswitcher > button.needs-attention > image {
+  animation: needs_attention 150ms ease-in;
+  background-image: radial-gradient(farthest-side, #{$accent} 96%, #{$accent-trans});
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  background-position: right 3px, right 2px; }
+  
+  button stacksidebar row.needs-attention > label:dir(rtl),
+  stacksidebar button row.needs-attention > label:dir(rtl),
+  stackswitcher > button.needs-attention > label:dir(rtl),
+  stackswitcher > button.needs-attention > image:dir(rtl) {
+    background-position: left 3px, left 2px; }
+
+popover.background.touch-selection button.font separator, popover.background.magnifier button.font separator,
+button.font separator {
+  background-color: transparent; }
+
+popover.background.touch-selection button.font > box, popover.background.magnifier button.font > box,
+button.font > box {
+  border-spacing: 6px; }
+
+popover.background.touch-selection button.font > box > box > label, popover.background.magnifier button.font > box > box > label,
+button.font > box > box > label {
+  font-weight: bold; }
+
+menubutton.circular popover.background.touch-selection button, popover.background.touch-selection menubutton.circular button, menubutton.circular popover.background.magnifier button, popover.background.magnifier menubutton.circular button, popover.background.touch-selection button.circular, popover.background.magnifier button.circular, menubutton.circular button,
+button.circular {
+  min-width: 24px;
+  min-height: 24px;
+  padding: 2px;
+  border-radius: 9999px; }
+  menubutton.circular popover.background.touch-selection button label, popover.background.touch-selection menubutton.circular button label, menubutton.circular popover.background.magnifier button label, popover.background.magnifier menubutton.circular button label, popover.background.touch-selection button.circular label, popover.background.magnifier button.circular label, menubutton.circular button label,
+  button.circular label {
+    padding: 0; }
+
+.linked:not(.vertical) > dropdown > box > button.combo:dir(ltr), .linked:not(.vertical) > dropdown > box > button.combo:dir(rtl), .linked:not(.vertical) > combobox > box > button.combo:dir(ltr), .linked:not(.vertical) > combobox > box > button.combo:dir(rtl), headerbar .linked:not(.vertical) entry + button:last-child, headerbar stackswitcher.linked:not(.vertical):not(.path-bar) > button,
+headerbar .linked.path-bar:not(.vertical) > button, spinbutton:not(.vertical) button, spinbutton:not(.vertical) text, spinbutton .linked:not(.vertical) > text, .linked:not(.vertical) > entry, popover.background.touch-selection .linked:not(.vertical) > button, popover.background.magnifier .linked:not(.vertical) > button, .linked:not(.vertical) > button, .linked:not(.vertical) > button:hover, .linked:not(.vertical) > button:active, .linked:not(.vertical) > button:checked {
+  border-radius: 0;
+  border-right-style: none; }
+
+.linked:not(.vertical) > dropdown:first-child > box > button.combo, .linked:not(.vertical) > combobox:first-child > box > button.combo, headerbar .linked:not(.vertical) entry + button:first-child:last-child, headerbar stackswitcher.linked:not(.vertical):not(.path-bar) > button:first-child,
+headerbar .linked:not(.vertical).path-bar > button:first-child, spinbutton:not(.vertical) button:first-child, spinbutton:not(.vertical) text:first-child, spinbutton .linked:not(.vertical) > text:first-child, .linked:not(.vertical) > entry:first-child, popover.background.touch-selection .linked:not(.vertical) > button:first-child, popover.background.magnifier .linked:not(.vertical) > button:first-child, .linked:not(.vertical) > button:first-child, .linked:not(.vertical) > button:first-child:hover, .linked:not(.vertical) > button:first-child:active, .linked:not(.vertical) > button:first-child:checked {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
+
+.linked:not(.vertical) > dropdown:last-child > box > button.combo, .linked:not(.vertical) > combobox:last-child > box > button.combo, headerbar .linked:not(.vertical) entry + button:last-child, headerbar stackswitcher.linked:not(.vertical):not(.path-bar) > button:last-child,
+headerbar .linked:not(.vertical).path-bar > button:last-child, spinbutton:not(.vertical) button:last-child, spinbutton:not(.vertical) text:last-child, spinbutton .linked:not(.vertical) > text:last-child, .linked:not(.vertical) > entry:last-child, popover.background.touch-selection .linked:not(.vertical) > button:last-child, popover.background.magnifier .linked:not(.vertical) > button:last-child, .linked:not(.vertical) > button:last-child, .linked:not(.vertical) > button:last-child:hover, .linked:not(.vertical) > button:last-child:active, .linked:not(.vertical) > button:last-child:checked {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-right-style: solid; }
+
+.linked:not(.vertical) > dropdown:only-child > box > button.combo, .linked:not(.vertical) > combobox:only-child > box > button.combo, headerbar .linked:not(.vertical) entry + button:only-child:last-child, headerbar stackswitcher.linked:not(.vertical):not(.path-bar) > button:only-child,
+headerbar .linked:not(.vertical).path-bar > button:only-child, spinbutton:not(.vertical) button:only-child, spinbutton:not(.vertical) text:only-child, spinbutton .linked:not(.vertical) > text:only-child, .linked:not(.vertical) > entry:only-child, popover.background.touch-selection .linked:not(.vertical) > button:only-child, popover.background.magnifier .linked:not(.vertical) > button:only-child, .linked:not(.vertical) > button:only-child, .linked:not(.vertical) > button:only-child:hover, .linked:not(.vertical) > button:only-child:active, .linked:not(.vertical) > button:only-child:checked {
+  border-radius: 3px;
+  border-style: solid; }
+
+.linked.vertical > dropdown > box > button.combo, .linked.vertical > combobox > box > button.combo, spinbutton.vertical button, spinbutton.vertical text, spinbutton .linked.vertical > text, .linked.vertical > entry, popover.background.touch-selection .linked.vertical > button, popover.background.magnifier .linked.vertical > button, .linked.vertical > button, .linked.vertical > button:hover, .linked.vertical > button:active, .linked.vertical > button:checked {
+  border-radius: 0;
+  border-bottom-style: none; }
+
+.linked.vertical > dropdown:first-child > box > button.combo, .linked.vertical > combobox:first-child > box > button.combo, spinbutton.vertical button:first-child, spinbutton.vertical text:first-child, spinbutton .linked.vertical > text:first-child, .linked.vertical > entry:first-child, popover.background.touch-selection .linked.vertical > button:first-child, popover.background.magnifier .linked.vertical > button:first-child, .linked.vertical > button:first-child, .linked.vertical > button:first-child:hover, .linked.vertical > button:first-child:active, .linked.vertical > button:first-child:checked {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px; }
+
+.linked.vertical > dropdown:last-child > box > button.combo, .linked.vertical > combobox:last-child > box > button.combo, spinbutton.vertical button:last-child, spinbutton.vertical text:last-child, spinbutton .linked.vertical > text:last-child, .linked.vertical > entry:last-child, popover.background.touch-selection .linked.vertical > button:last-child, popover.background.magnifier .linked.vertical > button:last-child, .linked.vertical > button:last-child, .linked.vertical > button:last-child:hover, .linked.vertical > button:last-child:active, .linked.vertical > button:last-child:checked {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-style: solid; }
+
+.linked.vertical > dropdown:only-child > box > button.combo, .linked.vertical > combobox:only-child > box > button.combo, spinbutton.vertical button:only-child, spinbutton.vertical text:only-child, spinbutton .linked.vertical > text:only-child, .linked.vertical > entry:only-child, popover.background.touch-selection .linked.vertical > button:only-child, popover.background.magnifier .linked.vertical > button:only-child, .linked.vertical > button:only-child, .linked.vertical > button:only-child:hover, .linked.vertical > button:only-child:active, .linked.vertical > button:only-child:checked {
+  border-radius: 3px;
+  border-style: solid; }
+
+calendar > header > button, calendar > header > button:hover, calendar > header > button:active, calendar > header > button:disabled, .app-notification button.flat:disabled, .app-notification button.flat, notebook > header > tabs > tab button.flat:active, notebook > header > tabs > tab button.flat:active:hover, notebook > header > tabs > tab button.flat:hover, button.link, button.link:hover, button.link:active, button.link:checked, modelbutton.flat {
+  border-color: transparent;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none; }
+
+modelbutton.flat {
+  transition: none;
+  min-height: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 2px; }
+  modelbutton.flat:hover {
+    background-color: rgba(255, 255, 255, 0.1); }
+  modelbutton.flat:active, modelbutton.flat:active arrow, modelbutton.flat:selected, modelbutton.flat:selected arrow {
+    background-color: rgba(255, 255, 255, 0.1); }
+  modelbutton.flat:checked {
+    color: #{$fg-high}; }
+
+modelbutton.flat arrow.left {
+  -gtk-icon-source: -gtk-icontheme("pan-start-symbolic"); }
+
+modelbutton.flat arrow.right {
+  -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
+
+/* oldstyle toolbar buttons */
+.toolbar > button,
+.toolbar > :not(.linked) > button,
+.toolbar :not(.linked) > menubutton > button,
+.toolbar :not(.linked) > scalebutton > button,
+.toolbar :not(.linked) > dropdown > button,
+.toolbar :not(.linked) > colorbutton > button,
+.toolbar :not(.linked) > fontbutton > button,
+.toolbar :not(.linked) > appchooserbutton > button,
+.toolbar :not(.linked) > combobox > box > button {
+  margin: 1px 0; }
+
+button.color {
+  padding: 2px; }
+  button.color > colorswatch:only-child, button.color > colorswatch:only-child > overlay {
+    border-radius: 0; }
+
+/* list buttons */
+popover.menu box.circular-buttons button.circular.image-button.model:hover, popover.menu box.circular-buttons windowcontrols button.circular.model:hover, windowcontrols popover.menu box.circular-buttons button.circular.model:hover,
+list > row button.image-button:not(.flat):hover,
+list > row windowcontrols button:not(.flat):hover,
+windowcontrols list > row button:not(.flat):hover {
+  color: #{$fg-high};
+  border-color: #{$bg-darker};
+  background-color: #{$bg-mid}; }
+
+popover.menu box.circular-buttons button.circular.image-button.model:active, popover.menu box.circular-buttons windowcontrols button.circular.model:active, windowcontrols popover.menu box.circular-buttons button.circular.model:active, popover.menu box.circular-buttons button.circular.image-button.model:checked, popover.menu box.circular-buttons windowcontrols button.circular.model:checked, windowcontrols popover.menu box.circular-buttons button.circular.model:checked,
+list > row button.image-button:not(.flat):active,
+list > row windowcontrols button:not(.flat):active,
+windowcontrols list > row button:not(.flat):active,
+list > row button.image-button:not(.flat):checked,
+list > row windowcontrols button:not(.flat):checked,
+windowcontrols list > row button:not(.flat):checked {
+  color: #{$fg-high};
+  border-color: #080808;
+  background-color: rgba(0, 0, 0, 0.15); }
+
+popover.menu box.circular-buttons button.suggested-action.circular.image-button.model, popover.menu box.circular-buttons windowcontrols button.suggested-action.circular.model, windowcontrols popover.menu box.circular-buttons button.suggested-action.circular.model,
+list > row button.image-button:not(.flat).suggested-action,
+list > row windowcontrols button:not(.flat).suggested-action,
+windowcontrols list > row button:not(.flat).suggested-action {
+  background-clip: border-box;
+  color: #FFFFFF;
+  background-color: #{$success};
+  border-color: #{$success}; }
+
+popover.menu box.circular-buttons button.destructive-action.circular.image-button.model, popover.menu box.circular-buttons windowcontrols button.destructive-action.circular.model, windowcontrols popover.menu box.circular-buttons button.destructive-action.circular.model,
+list > row button.image-button:not(.flat).destructive-action,
+list > row windowcontrols button:not(.flat).destructive-action,
+windowcontrols list > row button:not(.flat).destructive-action {
+  background-clip: border-box;
+  color: #FFFFFF;
+  background-color: #{$error};
+  border-color: #{$error}; }
+
+button.link,
+link {
+  color: #5294E2;
+  text-decoration: underline; }
+  button.link:visited,
+  link:visited {
+    color: #5294E2; }
+    *:selected button.link:visited, *:selected link:visited {
+      color: #c6c7ca; }
+  button.link:hover,
+  link:hover {
+    color: #7eafe9; }
+    *:selected button.link:hover, *:selected link:hover {
+      color: #f1f1f2; }
+  button.link:active,
+  link:active {
+    color: #5294E2; }
+    *:selected button.link:active, *:selected link:active {
+      color: #e2e3e4; }
+  button.link:disabled,
+  link:disabled {
+    color: rgba(154, 154, 154, 0.8); }
+  infobar.info *:link, infobar.question *:link, infobar.warning *:link, infobar.error *:link, button.link:selected, *:selected button.link,
+  link:selected, *:selected link {
+    color: #e2e3e4; }
+
+link {
+  outline-color: rgba($fg, 0.3);
+  outline-style: dashed;
+  outline-offset: -3px; }
+
+link:focus:focus-visible {
+  outline-width: 1px; }
+
+button.link, button.link:hover, button.link:active, button.link:checked {
+  text-shadow: none; }
+
+button.link > label {
+  text-decoration: underline; }
+
+spinbutton {
+  font-feature-settings: "tnum"; }
+  spinbutton:disabled {
+    color: #{$fg-low}; }
+  spinbutton:not(.vertical) text {
+    min-width: 28px; }
+  spinbutton:not(.vertical):dir(ltr) text, spinbutton:not(.vertical):dir(rtl) button.up {
+    border-radius: 3px 0 0 3px; }
+  spinbutton:not(.vertical) > button + button {
+    border-left-style: none; }
+  spinbutton:not(.vertical) > button + button,
+  spinbutton:not(.vertical) > button:hover:not(:active),
+  spinbutton:not(.vertical) > button:hover + button {
+    box-shadow: inset 1px 0 #{$bg-darker}; }
+  spinbutton:not(.vertical) > button:disabled + button:not(:disabled):not(:active):not(:checked):not(:hover),
+  spinbutton:not(.vertical) > button:not(:disabled):not(:active):not(:checked):not(:hover) + button:disabled {
+    box-shadow: inset 1px 0 rgba(32, 32, 35, 0.5); }
+  spinbutton:not(.vertical) > button:first-child:hover:not(:active),
+  spinbutton:not(.vertical) > button.up:dir(rtl):hover:not(:active),
+  spinbutton:not(.vertical) > text + button:not(:active):hover {
+    box-shadow: none; }
+  spinbutton:not(.vertical) > text:focus + button {
+    border-left-color: #{$bg-darker}; }
+  spinbutton:not(.vertical) > text:drop(active) + button {
+    border-left-color: #{$accent}; }
+  .osd spinbutton:not(.vertical) > button:hover:not(:active),
+  .osd spinbutton:not(.vertical) > button:hover + button {
+    box-shadow: inset 1px 0 rgba(22, 22, 22, 0.4); }
+  .osd spinbutton:not(.vertical) > button:first-child:hover:not(:active),
+  .osd spinbutton:not(.vertical) > button.up:dir(rtl):hover:not(:active),
+  .osd spinbutton:not(.vertical) > text + button:not(:active):hover {
+    box-shadow: none; }
+  .osd spinbutton:not(.vertical) > text:focus + button {
+    border-left-color: rgba(22, 22, 22, 0.4); }
+  spinbutton.vertical button, spinbutton.vertical text {
+    padding-left: 4px;
+    padding-right: 4px;
+    min-width: 0; }
+  spinbutton.vertical button.up {
+    border-radius: 3px 3px 0 0; }
+  spinbutton.vertical > text:focus + button {
+    border-top-color: #{$bg-darker}; }
+  spinbutton.vertical > text:drop(active) + button {
+    border-top-color: #{$accent}; }
+
+dropdown > popover.menu.background > contents {
+  padding: 0; }
+
+dropdown > button > box {
+  border-spacing: 6px; }
+  dropdown > button > box > stack > row.activatable:hover {
+    background: none;
+    box-shadow: none; }
+
+dropdown arrow,
+combobox arrow {
+  -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+  min-height: 16px;
+  min-width: 16px; }
+
+dropdown > popover.background.menu > contents,
+combobox > popover.background.menu > contents {
+  padding: 4px 0;
+  border-radius: 2px; }
+
+dropdown > popover.menu > contents modelbutton,
+combobox > popover.menu > contents modelbutton {
+  min-height: 16px;
+  padding: 5px 6px;
+  border-radius: 0; }
+
+dropdown popover,
+combobox popover {
+  padding: 0; }
+  dropdown popover listview.view,
+  combobox popover listview.view {
+    margin: 4px 0;
+    background-color: transparent; }
+    dropdown popover listview.view > row,
+    combobox popover listview.view > row {
+      min-height: 16px;
+      padding: 5px 6px; }
+      dropdown popover listview.view > row:selected, dropdown popover listview.view > row:selected:hover,
+      combobox popover listview.view > row:selected,
+      combobox popover listview.view > row:selected:hover {
+        color: #FFFFFF;
+        background-color: #{$accent}; }
+  dropdown popover .dropdown-searchbar,
+  combobox popover .dropdown-searchbar {
+    padding: 6px;
+    border-bottom: 1px solid #{$bg-darker}; }

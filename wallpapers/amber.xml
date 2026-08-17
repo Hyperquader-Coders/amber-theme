@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!DOCTYPE wallpapers SYSTEM "gnome-wp-list.dtd">
+<wallpapers>
+    <wallpaper deleted="false">
+        <name>Phosphor</name>
+        <filename>/usr/share/backgrounds/amber-linux/wp-phosphor.svg</filename>
+        <options>zoom</options>
+        <shade_type>solid</shade_type>
+        <pcolor>#080600</pcolor>
+        <scolor>#080600</scolor>
+        <artist>Amber Linux</artist>
+    </wallpaper>
+    <wallpaper deleted="false">
+        <name>Mark</name>
+        <filename>/usr/share/backgrounds/amber-linux/wp-amber-mint.svg</filename>
+        <options>zoom</options>
+        <shade_type>solid</shade_type>
+        <pcolor>#080600</pcolor>
+        <scolor>#080600</scolor>
+        <artist>Amber Linux</artist>
+    </wallpaper>
+    <wallpaper deleted="false">
+        <name>Fossil</name>
+        <filename>/usr/share/backgrounds/amber-linux/wp-fossil.svg</filename>
+        <options>zoom</options>
+        <shade_type>solid</shade_type>
+        <pcolor>#080600</pcolor>
+        <scolor>#080600</scolor>
+        <artist>Amber Linux</artist>
+    </wallpaper>
+    <wallpaper deleted="false">
+        <name>Jurassic</name>
+        <filename>/usr/share/backgrounds/amber-linux/wp-jurassic.svg</filename>
+        <options>zoom</options>
+        <shade_type>solid</shade_type>
+        <pcolor>#080600</pcolor>
+        <scolor>#080600</scolor>
+        <artist>Amber Linux</artist>
+    </wallpaper>
+    <wallpaper deleted="false">
+        <name>Rain</name>
+        <filename>/usr/share/backgrounds/amber-linux/wp-rain.svg</filename>
+        <options>zoom</options>
+        <shade_type>solid</shade_type>
+        <pcolor>#080600</pcolor>
+        <scolor>#080600</scolor>
+        <artist>Amber Linux</artist>
+    </wallpaper>
+    <wallpaper deleted="false">
+        <name>Banner</name>
+        <filename>/usr/share/backgrounds/amber-linux/wp-amber-banner.svg</filename>
+        <options>zoom</options>
+        <shade_type>solid</shade_type>
+        <pcolor>#080600</pcolor>
+        <scolor>#080600</scolor>
+        <artist>Amber Linux</artist>
+    </wallpaper>
+    <wallpaper deleted="false">
+        <name>Seam</name>
+        <filename>/usr/share/backgrounds/amber-linux/wp-amber-seam.svg</filename>
+        <options>zoom</options>
+        <shade_type>solid</shade_type>
+        <pcolor>#080600</pcolor>
+        <scolor>#080600</scolor>
+        <artist>Amber Linux</artist>
+    </wallpaper>
+    <wallpaper deleted="false">
+        <name>Specimen</name>
+        <filename>/usr/share/backgrounds/amber-linux/wp-specimen-plate.svg</filename>
+        <options>zoom</options>
+        <shade_type>solid</shade_type>
+        <pcolor>#fdf8ee</pcolor>
+        <scolor>#fdf8ee</scolor>
+        <artist>Amber Linux</artist>
+    </wallpaper>
+    <wallpaper deleted="false">
+        <name>Field Notes</name>
+        <filename>/usr/share/backgrounds/amber-linux/wp-field-notes.svg</filename>
+        <options>zoom</options>
+        <shade_type>solid</shade_type>
+        <pcolor>#fdf8ee</pcolor>
+        <scolor>#fdf8ee</scolor>
+        <artist>Amber Linux</artist>
+    </wallpaper>
+    <wallpaper deleted="false">
+        <name>Morning Resin</name>
+        <filename>/usr/share/backgrounds/amber-linux/wp-morning-resin.svg</filename>
+        <options>zoom</options>
+        <shade_type>solid</shade_type>
+        <pcolor>#fdf8ee</pcolor>
+        <scolor>#fdf8ee</scolor>
+        <artist>Amber Linux</artist>
+    </wallpaper>
+</wallpapers>

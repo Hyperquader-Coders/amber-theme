@@ -1,0 +1,6 @@
+// Amber Linux is a dark, amber-phosphor theme by design — a glowing-on-black
+// CRT look has no meaningful "light" rendering. Rather than invent a washed-out
+// light palette the profiles don't define, the light entry point reuses the
+// dark surface definitions so libadwaita apps that request the light scheme
+// still get a coherent, readable amber theme instead of a half-themed mix.
+@use 'defaults-dark';

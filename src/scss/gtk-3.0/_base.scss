@@ -1,0 +1,128 @@
+@use 'vars' as *;
+* {
+  background-clip: padding-box;
+  -GtkToolButton-icon-spacing: 4;
+  -GtkTextView-error-underline-color: #{$error};
+  -GtkScrolledWindow-scrollbar-spacing: 0;
+  -GtkToolItemGroup-expander-size: 11;
+  -GtkWidget-text-handle-width: 20;
+  -GtkWidget-text-handle-height: 20;
+  -GtkDialog-button-spacing: 4;
+  -GtkDialog-action-area-border: 6;
+  outline-color: #{$fg-outline};
+  outline-style: dashed;
+  outline-offset: -3px;
+  outline-width: 1px;
+  -gtk-outline-radius: 2px; }
+
+.background {
+  color: #{$fg-high};
+  background-color: #{$bg}; }
+
+*:disabled {
+  -gtk-icon-effect: dim; }
+
+.gtkstyle-fallback {
+  background-color: #{$bg};
+  color: #{$fg-high}; }
+  .gtkstyle-fallback:hover {
+    background-color: #{$bg-hover};
+    color: #{$fg-high}; }
+  .gtkstyle-fallback:active {
+    background-color: #{$bg-darkest};
+    color: #{$fg-high}; }
+  .gtkstyle-fallback:disabled {
+    background-color: #{$bg-subtle};
+    color: #{$fg-low}; }
+  .gtkstyle-fallback:selected {
+    background-color: #{$accent};
+    color: #FFFFFF; }
+
+.view, iconview,
+.view text,
+iconview text,
+textview text {
+  color: #{$fg};
+  background-color: #{$bg}; }
+  .view:selected, iconview:selected, .view:selected:focus, iconview:selected:focus,
+  .view text:selected,
+  iconview text:selected,
+  textview text:selected,
+  .view text:selected:focus,
+  iconview text:selected:focus,
+  textview text:selected:focus {
+    border-radius: 2px; }
+
+textview border {
+  background-color: #{$bg}; }
+
+rubberband, .content-view rubberband, treeview.view rubberband, flowbox rubberband,
+.rubberband {
+  border: 1px solid #{$bg-border};
+  background-color: rgba(88, 90, 95, 0.2); }
+
+flowbox flowboxchild {
+  padding: 3px;
+  border-radius: 2px; }
+  flowbox flowboxchild:selected {
+    outline-offset: -2px; }
+
+label.separator {
+  color: #{$fg-high}; }
+
+label selection {
+  color: #FFFFFF;
+  background-color: #{$accent}; }
+
+label:disabled {
+  color: #{$fg-low}; }
+
+.dim-label, popover label.separator,
+popover.background label.separator, label.separator {
+  color: rgba(255, 255, 255, 0.52); }
+
+assistant .sidebar {
+  background-color: #{$bg};
+  border-top: 1px solid #{$bg-darker}; }
+  assistant .sidebar:dir(ltr) {
+    border-right: 1px solid #{$bg-darker}; }
+  assistant .sidebar:dir(rtl) {
+    border-left: 1px solid #{$bg-darker}; }
+
+assistant.csd .sidebar {
+  border-top-style: none; }
+
+assistant .sidebar label {
+  padding: 6px 12px; }
+
+assistant .sidebar label.highlight {
+  background-color: #{$accent};
+  color: #FFFFFF; }
+
+textview {
+  background-color: #{$bg};
+  color: #{$fg}; }
+
+.osd .scale-popup, popover.osd, popover.magnifier, .csd popover.osd, .csd popover.magnifier,
+popover.background.osd,
+popover.background.magnifier, .csd popover.background.osd, .csd popover.background.magnifier, .osd {
+  color: #{$fg};
+  border: none;
+  background-color: #353535;
+  background-clip: padding-box;
+  box-shadow: none; }
+
+@keyframes spin {
+  to {
+    -gtk-icon-transform: rotate(1turn); } }
+
+spinner {
+  background-image: none;
+  opacity: 0;
+  -gtk-icon-source: -gtk-icontheme("process-working-symbolic"); }
+  spinner:checked {
+    opacity: 1;
+    animation: spin 1s linear infinite; }
+    spinner:checked:disabled {
+      opacity: 0.5; }
+

@@ -1,0 +1,194 @@
+@use 'vars' as *;
+
+
+.background {
+  color: #{$fg-high};
+  background-color: #{$bg}; }
+
+dnd {
+  color: #{$fg-high}; }
+
+.normal-icons {
+  -gtk-icon-size: 16px; }
+
+.large-icons {
+  -gtk-icon-size: 32px; }
+
+image:disabled {
+  -gtk-icon-filter: opacity(0.5); }
+
+.view, iconview,
+textview > text {
+  color: #{$fg};
+  background-color: #{$bg}; }
+  .view:selected, iconview:selected, .view:selected:focus, iconview:selected:focus,
+  textview > text:selected,
+  textview > text:selected:focus {
+    border-radius: 2px; }
+
+textview:drop(active) {
+  caret-color: #{$accent}; }
+
+textview border {
+  background-color: #{$bg}; }
+
+iconview {
+  outline-color: rgba($fg, 0.3);
+  outline-style: dashed;
+  outline-offset: -3px; }
+
+iconview:focus:focus-visible {
+  outline-width: 1px; }
+
+iconview:drop(active) {
+  box-shadow: none; }
+
+iconview > dndtarget:drop(active) {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #4b4d52; }
+
+rubberband, .content-view > rubberband, columnview.view > rubberband,
+treeview.view > rubberband, gridview > rubberband, flowbox > rubberband {
+  border: 1px solid #{$bg-border};
+  background-color: rgba(88, 90, 95, 0.2); }
+
+flowbox > flowboxchild {
+  padding: 3px;
+  border-radius: 2px; }
+  flowbox > flowboxchild {
+    outline-color: rgba($fg, 0.3);
+    outline-style: dashed;
+    outline-offset: -3px; }
+  flowbox > flowboxchild:focus:focus-visible {
+    outline-width: 1px; }
+
+gridview > child {
+  padding: 3px;
+  border-radius: 2px; }
+  gridview > child {
+    outline-color: rgba($fg, 0.3);
+    outline-style: dashed;
+    outline-offset: -3px; }
+  gridview > child:focus:focus-visible {
+    outline-width: 1px; }
+  gridview > child box {
+    border-spacing: 8px;
+    margin: 12px; }
+
+coverflow cover {
+  color: #{$fg};
+  background-color: #{$bg};
+  border: 1px solid black; }
+
+label {
+  outline-color: rgba($fg, 0.3);
+  outline-style: dashed;
+  outline-offset: -3px; }
+
+label:focus:focus-visible {
+  outline-width: 1px; }
+
+label.separator {
+  color: #{$fg-high}; }
+
+label > selection {
+  color: #FFFFFF;
+  background-color: #{$accent}; }
+
+label:disabled {
+  color: #{$fg-low}; }
+  button label:disabled {
+    color: inherit; }
+
+label.error {
+  color: #{$error}; }
+  label.error:disabled {
+    color: rgba(252, 65, 56, 0.5); }
+
+.dim-label, spinbutton text > text > placeholder,
+entry > text > placeholder, label.separator {
+  color: rgba(255, 255, 255, 0.52); }
+
+window.assistant .sidebar {
+  background-color: #{$bg};
+  border-top: 1px solid #{$bg-darker}; }
+  window.assistant .sidebar:dir(ltr) {
+    border-right: 1px solid #{$bg-darker}; }
+  window.assistant .sidebar:dir(rtl) {
+    border-left: 1px solid #{$bg-darker}; }
+
+window.assistant.csd .sidebar {
+  border-top-style: none; }
+
+window.assistant .sidebar > label {
+  padding: 6px 12px; }
+
+window.assistant .sidebar > label.highlight {
+  background-color: #{$accent};
+  color: #FFFFFF; }
+
+window.aboutdialog image.large-icons {
+  -gtk-icon-size: 128px; }
+
+.osd .scale-popup, .osd popover.background > arrow,
+.osd popover.background > contents, popover.background.touch-selection > arrow,
+popover.background.touch-selection > contents, popover.background.magnifier > arrow,
+popover.background.magnifier > contents,
+.osd {
+  color: #{$fg};
+  border: none;
+  background-color: #353535;
+  background-clip: padding-box;
+  box-shadow: none; }
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn); } }
+
+spinner {
+  background-image: none;
+  opacity: 0;
+  -gtk-icon-source: -gtk-icontheme("process-working-symbolic"); }
+  spinner:checked {
+    opacity: 1;
+    animation: spin 1s linear infinite; }
+    spinner:checked:disabled {
+      opacity: 0.5; }
+
+.large-title {
+  font-weight: 300;
+  font-size: 24pt; }
+
+.title-1 {
+  font-weight: 800;
+  font-size: 20pt; }
+
+.title-2 {
+  font-weight: 800;
+  font-size: 15pt; }
+
+.title-3 {
+  font-weight: 700;
+  font-size: 15pt; }
+
+.title-4 {
+  font-weight: 700;
+  font-size: 13pt; }
+
+.heading {
+  font-weight: 700;
+  font-size: 11pt; }
+
+.body {
+  font-weight: 400;
+  font-size: 11pt; }
+
+.caption-heading {
+  font-weight: 700;
+  font-size: 9pt; }
+
+.caption {
+  font-weight: 400;
+  font-size: 9pt; }
+

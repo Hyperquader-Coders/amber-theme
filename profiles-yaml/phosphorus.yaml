@@ -1,0 +1,8 @@
+name:    phosphorus
+accent:  "#f5a623"
+bg:      "#080600"
+fg:      "#f0c840"
+error:   "#ef5350"
+warning: "#f5a623"
+success: "#4caf50"
+strong:  "#e8590c"

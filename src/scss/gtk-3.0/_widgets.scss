@@ -1,0 +1,224 @@
+@use 'vars' as *;
+@use 'sass:color';
+
+// CSS-only check, radio and switch widgets.
+// Replaces all -gtk-icon-source / background-image: url("assets/...") rules
+// from the original PNG-based implementation. Requires GTK 3.20+.
+
+// ── Checkbox ─────────────────────────────────────────────────────────────────
+
+check,
+.check {
+  min-width:  16px;
+  min-height: 16px;
+  border:     1px solid $bg-border;
+  border-radius: 3px;
+  background-color: $bg-hover;
+  -gtk-icon-source: none;
+  transition: background-color 150ms, border-color 150ms;
+}
+
+check:hover, .check:hover {
+  border-color: $accent;
+}
+
+// selected row context
+.view check, iconview check,
+row:selected check, infobar check,
+menuitem:hover check {
+  border-color: $bg-border;
+  background-color: $bg-mid;
+}
+
+// checked state
+check:checked, .check:checked,
+treeview.check:checked {
+  background-color: $accent;
+  border-color:     $accent-active;
+  -gtk-icon-source: -gtk-icontheme("object-select-symbolic");
+  color: #ffffff;
+}
+
+check:checked:hover, .check:checked:hover {
+  background-color: $accent-hover;
+}
+
+.view check:checked:selected, iconview check:checked:selected,
+treeview.check:checked:selected,
+row:selected check:checked,
+infobar check:checked,
+menuitem:hover check:checked {
+  background-color: $accent;
+  border-color:     $accent-active;
+  -gtk-icon-source: -gtk-icontheme("object-select-symbolic");
+}
+
+// mixed/indeterminate
+check:indeterminate, .check:indeterminate,
+treeview.check:indeterminate {
+  background-color: $bg-hover;
+  border-color:     $accent;
+  -gtk-icon-source: -gtk-icontheme("list-remove-symbolic");
+  color: $accent;
+}
+
+// disabled
+check:disabled, .check:disabled {
+  border-color:     $bg-mid;
+  background-color: $bg-subtle;
+  -gtk-icon-source: none;
+}
+
+check:checked:disabled, .check:checked:disabled,
+treeview.check:checked:disabled {
+  background-color: $accent-dim;
+  border-color:     $accent-dim;
+  -gtk-icon-source: -gtk-icontheme("object-select-symbolic");
+  color: $fg-low;
+}
+
+// ── Radio button ─────────────────────────────────────────────────────────────
+
+radio,
+.radio {
+  min-width:  16px;
+  min-height: 16px;
+  border:     1px solid $bg-border;
+  border-radius: 50%;
+  background-color: $bg-hover;
+  -gtk-icon-source: none;
+  transition: background-color 150ms, border-color 150ms;
+}
+
+radio:hover, .radio:hover {
+  border-color: $accent;
+}
+
+row:selected radio, infobar radio,
+menuitem:hover radio {
+  border-color: $bg-border;
+  background-color: $bg-mid;
+}
+
+radio:checked, .radio:checked {
+  background-color: $accent;
+  border-color:     $accent-active;
+  -gtk-icon-source: -gtk-icontheme("object-select-symbolic");
+  color: #ffffff;
+}
+
+radio:checked:hover, .radio:checked:hover {
+  background-color: $accent-hover;
+}
+
+row:selected radio:checked, infobar radio:checked,
+menuitem:hover radio:checked {
+  background-color: $accent;
+  border-color:     $accent-active;
+}
+
+radio:disabled, .radio:disabled {
+  border-color:     $bg-mid;
+  background-color: $bg-subtle;
+}
+
+radio:checked:disabled, .radio:checked:disabled {
+  background-color: $accent-dim;
+  border-color:     $accent-dim;
+  color: $fg-low;
+}
+
+// ── Menu-context size override (14×14 instead of 16×16) ──────────────────────
+
+menuitem check, menuitem .check,
+menuitem radio, menuitem .radio {
+  min-width:  14px;
+  min-height: 14px;
+}
+
+// ── Switch ───────────────────────────────────────────────────────────────────
+
+switch {
+  min-width:     40px;
+  min-height:    16px;
+  border:        1px solid $bg-border;
+  border-radius: 8px;
+  background-color: $bg-hover;
+  outline-color: $accent-alpha;
+  transition: background-color 200ms, border-color 200ms;
+  -gtk-icon-source: none;
+  background-image: none;
+  color: transparent;
+  font-size: 1px;
+}
+
+switch:hover {
+  border-color: $accent;
+}
+
+switch:checked {
+  background-color: $accent;
+  border-color:     $accent-active;
+  background-image: none;
+}
+
+switch:checked:hover {
+  background-color: $accent-hover;
+}
+
+switch:disabled {
+  background-color: $bg-subtle;
+  border-color:     $bg-mid;
+  background-image: none;
+}
+
+switch:checked:disabled {
+  background-color: $accent-dim;
+  border-color:     $accent-dim;
+  background-image: none;
+}
+
+// Switch slider (the draggable circle)
+switch slider {
+  min-width:    12px;
+  min-height:   12px;
+  margin:       1px;
+  border-radius: 50%;
+  border:        1px solid $bg-border;
+  background-color: $fg-medium;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  transition: background-color 150ms, margin 150ms;
+}
+
+switch:checked slider {
+  background-color: #{$fg-on-accent};
+  border-color: $accent-active;
+}
+
+switch:disabled slider {
+  background-color: $bg-border;
+  border-color: $bg-mid;
+}
+
+switch:checked:disabled slider {
+  background-color: color.change($fg, $alpha: 0.5);
+}
+
+// Context overrides: headerbar and selected rows get lighter treatment
+headerbar switch,
+.primary-toolbar switch,
+menuitem:hover switch,
+row:selected switch,
+infobar switch {
+  background-color: $bg-mid;
+  background-image: none;
+}
+
+headerbar switch:checked,
+.primary-toolbar switch:checked,
+menuitem:hover switch:checked,
+row:selected switch:checked,
+infobar switch:checked {
+  background-color: $accent;
+  background-image: none;
+}

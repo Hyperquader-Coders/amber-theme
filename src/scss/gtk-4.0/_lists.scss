@@ -1,0 +1,139 @@
+@use 'vars' as *;
+
+columnview.view,
+treeview.view {
+  border-left-color: rgba(255, 255, 255, 0.22);
+  border-top-color: rgba(255, 255, 255, 0.22); }
+  columnview.view:selected, columnview.view:selected:focus,
+  treeview.view:selected,
+  treeview.view:selected:focus {
+    border-radius: 0;
+    border-left-color: #b8b9bd;
+    border-top-color: #{$fg-transparent}; }
+  columnview.view:disabled,
+  treeview.view:disabled {
+    color: #{$fg-low}; }
+    columnview.view:disabled:selected,
+    treeview.view:disabled:selected {
+      color: #a9abaf; }
+  columnview.view.separator,
+  treeview.view.separator {
+    min-height: 2px;
+    color: rgba(0, 0, 0, 0.1); }
+  columnview.view:drop(active),
+  treeview.view:drop(active) {
+    border-style: solid none;
+    border-width: 1px;
+    border-color: rgba(174, 176, 180, 0.935); }
+  columnview.view > dndtarget:drop(active),
+  treeview.view > dndtarget:drop(active) {
+    border-style: solid none;
+    border-width: 1px;
+    border-color: rgba(174, 176, 180, 0.935); }
+    columnview.view > dndtarget:drop(active).after,
+    treeview.view > dndtarget:drop(active).after {
+      border-top-style: none; }
+    columnview.view > dndtarget:drop(active).before,
+    treeview.view > dndtarget:drop(active).before {
+      border-bottom-style: none; }
+  columnview.view.expander,
+  treeview.view.expander {
+    min-width: 16px;
+    min-height: 16px;
+    -gtk-icon-source: -gtk-icontheme("pan-end-symbolic");
+    color: rgba(137, 137, 140, 0.935); }
+    columnview.view.expander:dir(rtl),
+    treeview.view.expander:dir(rtl) {
+      -gtk-icon-source: -gtk-icontheme("pan-end-symbolic-rtl"); }
+    columnview.view.expander:hover,
+    treeview.view.expander:hover {
+      color: #{$fg-high}; }
+    columnview.view.expander:selected,
+    treeview.view.expander:selected {
+      color: #d4d5d7; }
+      columnview.view.expander:selected:hover,
+      treeview.view.expander:selected:hover {
+        color: #FFFFFF; }
+    columnview.view.expander:checked,
+    treeview.view.expander:checked {
+      -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
+  columnview.view.progressbar, columnview.view.progressbar:focus,
+  treeview.view.progressbar,
+  treeview.view.progressbar:focus {
+    color: #FFFFFF;
+    border-radius: 2px;
+    background-color: #{$accent}; }
+    columnview.view.progressbar:selected, columnview.view.progressbar:selected:focus, columnview.view.progressbar:focus:selected, columnview.view.progressbar:focus:selected:focus,
+    treeview.view.progressbar:selected,
+    treeview.view.progressbar:selected:focus,
+    treeview.view.progressbar:focus:selected,
+    treeview.view.progressbar:focus:selected:focus {
+      color: #{$accent};
+      box-shadow: none;
+      background-color: #FFFFFF; }
+  columnview.view.trough,
+  treeview.view.trough {
+    color: #{$fg-high};
+    background-color: #{$bg-darkest};
+    border-radius: 2px;
+    border: 1px solid #{$bg-darker}; }
+    columnview.view.trough:selected, columnview.view.trough:selected:focus,
+    treeview.view.trough:selected,
+    treeview.view.trough:selected:focus {
+      color: #FFFFFF;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 2px;
+      border-width: 0; }
+  columnview.view > header > button,
+  treeview.view > header > button {
+    padding: 3px 6px;
+    font-weight: bold;
+    color: rgba(204, 204, 205, 0.896);
+    background-color: #{$bg-dark};
+    background-image: none;
+    border-style: none solid solid none;
+    border-radius: 0;
+    border-color: #{$bg-darker}; }
+    columnview.view > header > button:active, columnview.view > header > button:hover,
+    treeview.view > header > button:active,
+    treeview.view > header > button:hover {
+      background-color: #{$bg-subtle}; }
+    columnview.view > header > button:active:hover,
+    treeview.view > header > button:active:hover {
+      color: #{$fg-high}; }
+    columnview.view > header > button:disabled,
+    treeview.view > header > button:disabled {
+      border-color: #{$bg};
+      background-image: none; }
+    columnview.view > header > button:last-child,
+    treeview.view > header > button:last-child {
+      border-right-style: none; }
+    columnview.view > header > button sort-indicator,
+    treeview.view > header > button sort-indicator {
+      min-height: 16px;
+      min-width: 16px; }
+      columnview.view > header > button sort-indicator.ascending,
+      treeview.view > header > button sort-indicator.ascending {
+        -gtk-icon-source: -gtk-icontheme("pan-up-symbolic"); }
+      columnview.view > header > button sort-indicator.descending,
+      treeview.view > header > button sort-indicator.descending {
+        -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); }
+  columnview.view button.dnd, columnview.view button.dnd:selected, columnview.view button.dnd:hover, columnview.view button.dnd:active,
+  columnview.view header.button.dnd,
+  columnview.view header.button.dnd:selected,
+  columnview.view header.button.dnd:hover,
+  columnview.view header.button.dnd:active,
+  treeview.view button.dnd,
+  treeview.view button.dnd:selected,
+  treeview.view button.dnd:hover,
+  treeview.view button.dnd:active,
+  treeview.view header.button.dnd,
+  treeview.view header.button.dnd:selected,
+  treeview.view header.button.dnd:hover,
+  treeview.view header.button.dnd:active {
+    transition: none;
+    color: #{$accent};
+    box-shadow: inset 1px 1px 0 1px #{$accent}, inset -1px 0 0 1px #{$accent}, inset 1px 1px #{$bg}, inset -1px 0 #{$bg}; }
+  columnview.view acceleditor > label,
+  treeview.view acceleditor > label {
+    background-color: #{$accent}; }

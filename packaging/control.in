@@ -1,0 +1,25 @@
+Package: amber-theme
+Version: @VERSION@-1
+Architecture: all
+Maintainer: Hyperquader <hyperquader@gmail.com>
+Installed-Size: @SIZE@
+Depends: hicolor-icon-theme, mint-y-icons, yaru-theme-icon, librsvg2-common
+Recommends: cinnamon, nemo-python
+Section: x11
+Priority: optional
+Homepage: https://github.com/Hyperquader-Coders/amber-theme
+Description: Amber Linux — 1980s amber-phosphorus Cinnamon/GTK theme suite
+ A Cinnamon/GTK theme built around the warm amber glow of 1980s phosphor CRT
+ monitors. Every colour in every shell component traces back to a handful of
+ primitive tokens per profile, so the same architecture drives five distinct
+ looks: phosphorus (dark), Amber-Light, Amber-Kat800, Amber-Katai and
+ Amber-Mint.
+ .
+ Bundles GTK 3, GTK 4, libadwaita, Cinnamon shell styling, a Metacity/Muffin
+ window-border theme, per-profile folder icon themes with Nemo folder-colour
+ integration, and ten amber-phosphor desktop wallpapers.
+ .
+ Forked from Linux Mint's Mint-Y-Dark-Grey (GTK/Cinnamon) and recoloured
+ folder icons from Yaru / Mint-Y-Yaru — the base icon themes remain a runtime
+ dependency since only the folder art is overridden, everything else falls
+ through via Inherits=.

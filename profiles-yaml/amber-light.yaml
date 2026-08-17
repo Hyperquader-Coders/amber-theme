@@ -1,0 +1,8 @@
+name:    Amber-Light
+accent:  "#a05800"
+bg:      "#fdf8ee"
+fg:      "#2d1800"
+error:   "#ef5350"
+warning: "#f5a623"
+success: "#4caf50"
+strong:  "#b34700"

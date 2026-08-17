@@ -1,0 +1,197 @@
+@use 'vars' as *;
+
+
+progressbar > trough, scale > trough > fill, scale > trough {
+  border: none;
+  border-radius: 2.5px;
+  background-color: #{$bg-darkest}; }
+  progressbar > trough:disabled, scale > trough > fill:disabled, scale > trough:disabled {
+    background-color: rgba(34, 34, 38, 0.55); }
+  modelbutton:hover progressbar > trough, modelbutton:hover scale > trough > fill, modelbutton:hover scale > trough, row:selected progressbar > trough, row:selected scale > trough > fill, row:selected scale > trough, infobar progressbar > trough, infobar scale > trough > fill, infobar scale > trough {
+    background-color: rgba(0, 0, 0, 0.2); }
+    modelbutton:hover progressbar > trough:disabled, modelbutton:hover scale > trough > fill:disabled, modelbutton:hover scale > trough:disabled, row:selected progressbar > trough:disabled, row:selected scale > trough > fill:disabled, row:selected scale > trough:disabled, infobar progressbar > trough:disabled, infobar scale > trough > fill:disabled, infobar scale > trough:disabled {
+      background-color: rgba(0, 0, 0, 0.1); }
+  .osd progressbar > trough, .osd scale > trough > fill, .osd scale > trough {
+    background-color: #474747; }
+
+progressbar > trough > progress, scale > trough > highlight {
+  border: none;
+  border-radius: 2.5px;
+  background-color: #{$accent}; }
+  progressbar > trough > progress:disabled, scale > trough > highlight:disabled {
+    background-color: rgba(112, 115, 122, 0.55); }
+  modelbutton:hover progressbar > trough > progress, modelbutton:hover scale > trough > highlight, row:selected progressbar > trough > progress, row:selected scale > trough > highlight, infobar progressbar > trough > progress, infobar scale > trough > highlight {
+    background-color: #FFFFFF; }
+    modelbutton:hover progressbar > trough > progress:disabled, modelbutton:hover scale > trough > highlight:disabled, row:selected progressbar > trough > progress:disabled, row:selected scale > trough > highlight:disabled, infobar progressbar > trough > progress:disabled, infobar scale > trough > highlight:disabled {
+      background-color: #bfc0c3; }
+  .osd progressbar > trough > progress, .osd scale > trough > highlight {
+    background-color: #{$accent}; }
+
+scale {
+  min-height: 15px;
+  min-width: 15px;
+  padding: 3px; }
+  scale {
+    outline-color: rgba($fg, 0.3);
+    outline-style: dashed;
+    outline-offset: -3px; }
+  scale:focus:focus-visible {
+    outline-width: 1px; }
+  scale slider {
+    min-height: 15px;
+    min-width: 15px;
+    margin: -6px; }
+  scale.fine-tune slider {
+    margin: -4px; }
+  scale.fine-tune fill,
+  scale.fine-tune highlight,
+  scale.fine-tune trough {
+    border-radius: 5px; }
+  scale > trough > fill {
+    background-color: rgba(112, 115, 122, 0.5); }
+    scale > trough > fill:disabled {
+      background-color: transparent; }
+  scale > trough > slider {
+    background-clip: border-box;
+    background-color: #{$bg-subtle};
+    border: 1px solid #1b1b1e;
+    border-radius: 50%;
+    box-shadow: none; }
+    scale > trough > slider:disabled {
+      background-color: #{$bg};
+      border-color: rgba(27, 27, 30, 0.8); }
+    scale > trough > slider:active {
+      background-color: #{$accent};
+      border-color: #{$accent}; }
+    .osd scale > trough > slider {
+      background-color: #353535;
+      border-color: #{$accent}; }
+      .osd scale > trough > slider:hover {
+        background-color: #{$accent}; }
+      .osd scale > trough > slider:active {
+        background-color: #{$bg-border};
+        border-color: #{$bg-border}; }
+    modelbutton:hover scale > trough > slider, row:selected scale > trough > slider, infobar scale > trough > slider {
+      background-color: #FFFFFF;
+      border-color: #FFFFFF; }
+      modelbutton:hover scale > trough > slider:hover, row:selected scale > trough > slider:hover, infobar scale > trough > slider:hover {
+        background-color: #eaeaeb;
+        border-color: #eaeaeb; }
+      modelbutton:hover scale > trough > slider:active, row:selected scale > trough > slider:active, infobar scale > trough > slider:active {
+        background-color: #b8b9bd;
+        border-color: #b8b9bd; }
+      modelbutton:hover scale > trough > slider:disabled, row:selected scale > trough > slider:disabled, infobar scale > trough > slider:disabled {
+        background-color: #bfc0c3;
+        border-color: #bfc0c3; }
+  scale > value {
+    opacity: 0.4;
+    font-feature-settings: "tnum"; }
+  scale.horizontal > marks {
+    opacity: 0.4; }
+    scale.horizontal > marks.top {
+      margin-bottom: 1px;
+      margin-top: -4px; }
+    scale.horizontal > marks.bottom {
+      margin-top: 1px;
+      margin-bottom: -4px; }
+    scale.horizontal > marks indicator {
+      background-color: currentColor;
+      min-height: 3px;
+      min-width: 1px; }
+  scale.horizontal.fine-tune > marks.top {
+    margin-bottom: 0px;
+    margin-top: -2px; }
+  scale.horizontal.fine-tune > marks.bottom {
+    margin-top: 0px;
+    margin-bottom: -2px; }
+  scale.horizontal.fine-tune > marks indicator {
+    min-height: 2px; }
+  scale.vertical > marks {
+    opacity: 0.4; }
+    scale.vertical > marks.top {
+      margin-right: 1px;
+      margin-left: -4px; }
+    scale.vertical > marks.bottom {
+      margin-left: 1px;
+      margin-right: -4px; }
+    scale.vertical > marks indicator {
+      background-color: currentColor;
+      min-height: 1px;
+      min-width: 3px; }
+  scale.vertical.fine-tune > marks.top {
+    margin-right: 0px;
+    margin-left: -2px; }
+  scale.vertical.fine-tune > marks.bottom {
+    margin-left: 0px;
+    margin-right: -2px; }
+  scale.vertical.fine-tune > marks indicator {
+    min-height: 2px; }
+
+progressbar {
+  padding: 0;
+  font-size: smaller;
+  color: rgba(255, 255, 255, 0.57);
+  font-feature-settings: "tnum"; }
+  progressbar.horizontal > trough {
+    min-width: 150px; }
+    progressbar.horizontal > trough, progressbar.horizontal > trough > progress {
+      min-height: 6px; }
+  progressbar.vertical > trough {
+    min-height: 80px; }
+    progressbar.vertical > trough, progressbar.vertical > trough > progress {
+      min-width: 6px; }
+  progressbar > trough {
+    border-radius: 3px; }
+  progressbar > trough > progress {
+    border-radius: 3px; }
+  progressbar.osd {
+    min-width: 3px;
+    min-height: 3px;
+    background-color: transparent; }
+    progressbar.osd > trough {
+      border-style: none;
+      background-color: transparent;
+      box-shadow: none; }
+  progressbar > trough.empty > progress {
+    all: unset; }
+
+levelbar.horizontal trough > block {
+  min-height: 1px; }
+
+levelbar.horizontal.discrete trough > block {
+  margin: 0 1px;
+  min-width: 32px; }
+
+levelbar.vertical trough > block {
+  min-width: 1px; }
+
+levelbar.vertical.discrete > trough > block {
+  margin: 1px 0;
+  min-height: 32px; }
+
+levelbar > trough {
+  border: none;
+  padding: 3px;
+  border-radius: 3px;
+  background-color: #{$bg-darkest}; }
+
+levelbar > trough > block:not(.empty) {
+  border: 1px solid #{$accent};
+  background-color: #{$accent};
+  border-radius: 2px; }
+
+levelbar > trough > block.low {
+  border-color: #{$warning};
+  background-color: #{$warning}; }
+
+levelbar > trough > block.high {
+  border-color: #{$accent};
+  background-color: #{$accent}; }
+
+levelbar > trough > block.full {
+  border-color: #{$success};
+  background-color: #{$success}; }
+
+levelbar > trough > block.empty {
+  background-color: #{$bg};
+  border-color: #{$bg}; }

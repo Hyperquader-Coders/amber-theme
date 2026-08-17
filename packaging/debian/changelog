@@ -1,0 +1,7 @@
+amber-theme (0.1.0-1) noble; urgency=medium
+
+  * Initial package: phosphorus, Amber-Light, Amber-Kat800, Amber-Katai and
+    Amber-Mint profiles, each covering GTK 3, GTK 4, libadwaita, Cinnamon
+    shell, Metacity/Muffin window borders, and per-profile folder icons.
+
+ -- Hyperquader <hyperquader@gmail.com>  Sun, 16 Aug 2026 19:27:04 +0100

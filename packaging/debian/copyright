@@ -1,0 +1,39 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: amber-theme
+Source: https://github.com/Hyperquader-Coders/amber-theme
+
+Files: *
+Copyright: 2026 Andre Bremer
+License: GPL-3.0-or-later
+
+Files: references/*
+Copyright: Linux Mint (Mint-Y-Dark-Grey theme)
+License: GPL-3.0-or-later
+Comment: Unmodified upstream copy kept in this repository for diffing against
+ Mint 23 upstream; not used by build.sh. One stanza covers the whole tree —
+ it is a single aggregate-origin vendor copy, not many individually-authored
+ files.
+
+Files: references/*.md
+Copyright: 2026 Andre Bremer
+License: GPL-3.0-or-later
+Comment: Provenance notes written for this project — the amberlinux.org colour
+ tokens and the kat800 terminal palette the profiles derive from. They sit
+ beside the vendor copy because they document it, and are not part of it.
+
+Files: usr/share/icons/*
+Copyright: Canonical Ltd. (Yaru), Linux Mint (Mint-Y-Yaru)
+License: GPL-3.0-or-later or CC-BY-SA-3.0
+Comment: Generated at build time by build-icons.sh, which recolours the
+ places/ folder icons of these two upstream icon themes per profile. Only the
+ folder art is overridden — everything else is inherited from the installed
+ Yaru / Mint-Y-Yaru packages at runtime (see Depends in packaging/control.in).
+
+License: GPL-3.0-or-later
+ This program is free software: you can redistribute it and/or modify it
+ under the terms of the GNU General Public License as published by the Free
+ Software Foundation, either version 3 of the License, or (at your option)
+ any later version.
+ .
+ On Debian systems, the complete text of the GNU General Public License
+ version 3 can be found in /usr/share/common-licenses/GPL-3.

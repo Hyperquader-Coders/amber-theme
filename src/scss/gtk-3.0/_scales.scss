@@ -1,0 +1,274 @@
+@use 'vars' as *;
+scale {
+  min-height: 15px;
+  min-width: 15px;
+  padding: 3px; }
+  scale.horizontal trough {
+    padding: 0 4px; }
+  scale.horizontal highlight, scale.horizontal fill {
+    margin: 0 -4px; }
+  scale.vertical trough {
+    padding: 4px 0; }
+  scale.vertical highlight, scale.vertical fill {
+    margin: -4px 0; }
+  scale slider {
+    min-height: 15px;
+    min-width: 15px;
+    margin: -6px; }
+  scale.fine-tune slider {
+    margin: -4px; }
+  scale.fine-tune fill,
+  scale.fine-tune highlight,
+  scale.fine-tune trough {
+    border-radius: 5px;
+    -gtk-outline-radius: 7px; }
+  scale slider {
+    background-clip: border-box;
+    background-color: #{$bg-subtle};
+    border: 1px solid #1b1b1e;
+    border-radius: 50%;
+    box-shadow: none; }
+    scale slider:disabled {
+      background-color: #{$bg};
+      border-color: rgba(27, 27, 30, 0.8); }
+    scale slider:active {
+      background-color: #{$accent};
+      border-color: #{$accent}; }
+    .osd scale slider {
+      background-color: #353535;
+      border-color: #{$accent}; }
+      .osd scale slider:hover {
+        background-color: #{$accent}; }
+      .osd scale slider:active {
+        background-color: #{$bg-border};
+        border-color: #{$bg-border}; }
+    menuitem:hover scale slider, row:selected scale slider, infobar scale slider {
+      background-color: #FFFFFF;
+      border-color: #FFFFFF; }
+      menuitem:hover scale slider:hover, row:selected scale slider:hover, infobar scale slider:hover {
+        background-color: #eaeaeb;
+        border-color: #eaeaeb; }
+      menuitem:hover scale slider:active, row:selected scale slider:active, infobar scale slider:active {
+        background-color: #b8b9bd;
+        border-color: #b8b9bd; }
+      menuitem:hover scale slider:disabled, row:selected scale slider:disabled, infobar scale slider:disabled {
+        background-color: #bfc0c3;
+        border-color: #bfc0c3; }
+  scale trough {
+    outline-offset: 2px;
+    -gtk-outline-radius: 4.5px;
+    border-radius: 2.5px;
+    background-color: #{$bg-darkest}; }
+    scale trough:disabled {
+      background-color: rgba(34, 34, 38, 0.55); }
+    .osd scale trough {
+      background-color: #474747;
+      outline-color: rgba(219, 219, 219, 0.2); }
+      .osd scale trough highlight {
+        background-color: #{$accent}; }
+    menuitem:hover scale trough row:selected scale trough, infobar scale trough {
+      background-color: rgba(0, 0, 0, 0.2); }
+      menuitem:hover scale trough row:selected scale trough highlight, infobar scale trough highlight {
+        background-color: #FFFFFF; }
+        menuitem:hover scale trough row:selected scale trough highlight:disabled, infobar scale trough highlight:disabled {
+          background-color: #bfc0c3; }
+      menuitem:hover scale trough row:selected scale trough:disabled, infobar scale trough:disabled {
+        background-color: rgba(0, 0, 0, 0.1); }
+  scale highlight {
+    border-radius: 2.5px;
+    background-color: #{$accent}; }
+    scale highlight:disabled {
+      background-color: rgba(112, 115, 122, 0.55); }
+  scale fill {
+    border-radius: 2.5px;
+    background-color: rgba(112, 115, 122, 0.5); }
+    scale fill:disabled {
+      background-color: transparent; }
+  scale value {
+    opacity: 0.4; }
+    scale value.top {
+      margin-bottom: 3px; }
+    scale value.bottom {
+      margin-top: 3px; }
+    scale value.left {
+      margin-right: 3px; }
+    scale value.right {
+      margin-left: 3px; }
+  scale marks {
+    opacity: 0.4; }
+    scale marks.top {
+      margin-bottom: 1px;
+      margin-top: -8px; }
+    scale marks.bottom {
+      margin-top: 1px;
+      margin-bottom: -8px; }
+    scale marks.top {
+      margin-right: 1px;
+      margin-left: -8px; }
+    scale marks.bottom {
+      margin-left: 1px;
+      margin-right: -8px; }
+  scale.fine-tune marks.top {
+    margin-bottom: 0px;
+    margin-top: -6px; }
+  scale.fine-tune marks.bottom {
+    margin-top: 0px;
+    margin-bottom: -6px; }
+  scale.fine-tune marks.top {
+    margin-right: 0px;
+    margin-left: -6px; }
+  scale.fine-tune marks.bottom {
+    margin-left: 0px;
+    margin-right: -6px; }
+  scale.horizontal indicator {
+    min-height: 7px;
+    min-width: 1px; }
+  scale.horizontal.fine-tune indicator {
+    min-height: 6px; }
+  scale.vertical indicator {
+    min-height: 1px;
+    min-width: 7px; }
+  scale.vertical.fine-tune indicator {
+    min-width: 6px; }
+
+progressbar {
+  padding: 0;
+  font-size: smaller;
+  color: rgba(255, 255, 255, 0.57); }
+  progressbar.osd {
+    min-width: 3px;
+    min-height: 3px;
+    background-color: transparent; }
+    progressbar.osd trough {
+      border-style: none;
+      background-color: transparent;
+      box-shadow: none; }
+  progressbar progress {
+    background-color: #{$accent};
+    border-radius: 0px;
+    box-shadow: none; }
+    row:selected progressbar progress, infobar progressbar progress {
+      background-color: #FFFFFF; }
+  progressbar trough {
+    border: 1px solid #{$bg-darker};
+    border-radius: 2px;
+    background-color: #{$bg-darkest}; }
+    row:selected progressbar trough, infobar progressbar trough {
+      background-color: rgba(0, 0, 0, 0.2); }
+
+.osd .progressbar {
+  background-color: #{$accent}; }
+
+.osd .trough {
+  background-color: #f4f4f4; }
+
+levelbar block {
+  min-width: 32px;
+  min-height: 1px; }
+
+levelbar.vertical block {
+  min-width: 1px;
+  min-height: 32px; }
+
+levelbar trough {
+  border: none;
+  padding: 3px;
+  border-radius: 3px;
+  background-color: #{$bg-darkest}; }
+
+levelbar.horizontal.discrete block {
+  margin: 0 1px; }
+
+levelbar.vertical.discrete block {
+  margin: 1px 0; }
+
+levelbar block:not(.empty) {
+  border: 1px solid #{$accent};
+  background-color: #{$accent};
+  border-radius: 2px; }
+
+levelbar block.low {
+  border-color: #{$warning};
+  background-color: #{$warning}; }
+
+levelbar block.high {
+  border-color: #{$accent};
+  background-color: #{$accent}; }
+
+levelbar block.full {
+  border-color: #{$success};
+  background-color: #{$success}; }
+
+levelbar block.empty {
+  background-color: #{$bg};
+  border-color: #{$bg}; }
+
+frame > border,
+.frame {
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  border: 1px solid #{$bg-darker}; }
+
+frame.flat > border,
+frame > border.flat,
+.frame.flat {
+  border-style: none; }
+
+scrolledwindow viewport.frame {
+  border-style: none; }
+
+scrolledwindow overshoot.top {
+  background-image: -gtk-gradient(radial, center top, 0, center top, 0.6, from(rgba(112, 115, 122, 0.2)), to(#{$accent-trans}));
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-color: transparent;
+  border: none;
+  box-shadow: none; }
+
+scrolledwindow overshoot.bottom {
+  background-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.6, from(rgba(112, 115, 122, 0.2)), to(#{$accent-trans}));
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-color: transparent;
+  border: none;
+  box-shadow: none; }
+
+scrolledwindow overshoot.left {
+  background-image: -gtk-gradient(radial, left center, 0, left center, 0.6, from(rgba(112, 115, 122, 0.2)), to(#{$accent-trans}));
+  background-size: 60% 100%;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-color: transparent;
+  border: none;
+  box-shadow: none; }
+
+scrolledwindow overshoot.right {
+  background-image: -gtk-gradient(radial, right center, 0, right center, 0.6, from(rgba(112, 115, 122, 0.2)), to(#{$accent-trans}));
+  background-size: 60% 100%;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-color: transparent;
+  border: none;
+  box-shadow: none; }
+
+scrolledwindow undershoot.top {
+  background-color: transparent;
+  background-image: linear-gradient(to left, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0.2) 50%);
+  padding-top: 1px;
+  background-size: 10px 1px;
+  background-repeat: repeat-x;
+  background-origin: content-box;
+  background-position: center top; }
+
+scrolledwindow undershoot.bottom {
+  background-color: transparent;
+  background-image: linear-gradient(to left, rgba(255, 255, 255, 0.2) 50%, rgba(0, 0, 0, 0.2) 50%);
+  padding-bottom: 1px;
+  background-size: 10px 1px;
+  background-repeat: repeat-x;
+  background-origin: content-box;
+  background-position: center bottom; }
+

@@ -1,0 +1,50 @@
+profiles: "profiles-yaml/*.yaml\n7 colour primitives" {
+  shape: page
+}
+
+fork: "Forked SCSS partials\ngtk-3.0 · gtk-4.0 · cinnamon\nliteral Mint-Y-Dark-Grey, same selectors" {
+  shape: page
+  style.stroke-dash: 3
+}
+
+manifest: "remap-manifest.scss\nlegacy hex/rgba -> profile token" {shape: page}
+
+build: build.sh {
+  gen_scss: "_profile.scss\n(generated, deleted)"
+  sass: "standalone Dart Sass CLI\n.tools/dart-sass"
+  remap: "scripts/apply-remap.py"
+
+  gen_scss -> sass: compiles
+  sass -> remap: "raw CSS"
+}
+
+profiles -> build.gen_scss: "make all"
+fork -> build.sass: "@use 'vars' as *"
+manifest -> build.remap: "resolved --m-* tokens"
+
+icons: build-icons.sh {
+  style.stroke-dash: 3
+  bases: "Mint-Y-Yaru · Yaru\n(system packages)" {shape: cloud}
+  bases -> icons: "recolours places/\n(duotone bg/fg)"
+}
+profiles -> icons: "make icons"
+
+dist: "dist/<Profile>/\ngtk-3.0 · gtk-4.0 · cinnamon\nlibadwaita · metacity-1 · static" {shape: page}
+build.remap -> dist: writes
+
+dist-icons: "dist-icons/<Profile>[-Yaru]\n+ Amber-Folder* palette" {shape: page}
+icons -> dist-icons: writes
+
+wallpapers: "wallpapers/*.svg + amber.xml" {shape: page}
+
+deb: "make deb" {shape: rectangle}
+dist -> deb
+dist-icons -> deb
+wallpapers -> deb
+"packaging/*" -> deb: "control.in · copyright · changelog" {style.stroke-dash: 3}
+
+pkg: "dist/amber-theme_<v>-1_all.deb" {shape: package}
+deb -> pkg
+
+live: "Installed theme\n/usr/share/themes · /usr/share/icons\ncinnamon-background-properties" {shape: cylinder}
+pkg -> live: "make deb-install\n(the only install path)"
